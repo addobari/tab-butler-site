@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab Butler privacy policy</title>
+<style>
+  :root { --ink: #17181b; --muted: #5d5f66; --edge: #e4e4e7; --bg: #fafafa; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #ededee; --muted: #a0a1a8; --edge: #2a2b30; --bg: #111214; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 56px 20px 80px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 18px; margin: 36px 0 8px; }
+  p, li { color: var(--ink); }
+  .muted { color: var(--muted); font-size: 14px; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--edge); }
+  th { font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tab Butler privacy policy</h1>
+  <p class="muted">Last updated 29 October 2026</p>
+
+  <p><strong>Short version:</strong> Tab Butler keeps everything in your browser. There is no account,
+  no analytics, no ads and no Tab Butler server. Nothing about your tabs or bookmarks leaves your
+  computer unless you switch on a feature that needs it, and each of those is listed below.</p>
+
+  <h2>What Tab Butler reads</h2>
+  <p>To group, sleep, archive and bookmark tabs, Tab Butler reads, on your computer:</p>
+  <ul>
+    <li>the address, title and group of your open tabs, and when each was last used;</li>
+    <li>your bookmark folders and bookmarks, to file tabs into them and suggest tidy-ups;</li>
+    <li>your recently closed tabs, when you open that list in the side panel;</li>
+    <li>your Chrome Reading List, only when you add tabs to it from Tab Butler.</li>
+  </ul>
+  <p>Only if you allow it, in a separate Chrome permission prompt:</p>
+  <ul>
+    <li><strong>Browsing history</strong>, to show when you last opened a bookmark in Bookmarks → Clean up;</li>
+    <li><strong>Page descriptions</strong> (the short summary a page gives about itself), to file a tab into a better folder.</li>
+  </ul>
+
+  <h2>Where it is kept</h2>
+  <p>Everything Tab Butler saves (your archive of closed tabs, notes, workspaces, snoozed tabs, the
+  activity list and what it has learned) is stored with Chrome's extension storage on this computer.
+  Your settings, such as grouping rules, are saved with Chrome's own sync so they follow your Chrome
+  profile, exactly like any other extension's settings. A Claude API key, if you add one, stays on
+  this computer and is never synced.</p>
+  <p>Tab Butler makes real Chrome bookmarks. They are yours: uninstalling Tab Butler removes its own
+  stored data but leaves your bookmarks where they are.</p>
+
+  <h2>What can leave your computer, and only when you switch it on</h2>
+  <table>
+    <tr><th>Feature (off until you turn it on)</th><th>What is sent, and where</th></tr>
+    <tr><td>Claude features: group by topic, pick folders, one-line summaries, Ask, suggested bookmark structure</td>
+        <td>Tab and page titles, site names, page descriptions and bookmark folder names are sent to
+        Anthropic's Claude API (<code>api.anthropic.com</code>) with <em>your own</em> API key. Full
+        addresses are not sent. Anthropic's own terms and privacy policy apply to that request. Tab
+        Butler prefers Chrome's built-in on-device model when your computer has it; that one sends nothing.</td></tr>
+    <tr><td>Check bookmark links</td>
+        <td>Tab Butler visits each bookmarked address, from your browser, to see whether the page still exists.</td></tr>
+    <tr><td>Read pages</td>
+        <td>Nothing is sent. Tab Butler reads the description of a page you already have open, on your computer.</td></tr>
+    <tr><td>Agent access (Settings → Agent access)</td>
+        <td>Lets an AI app installed on your own computer (such as Claude Code) list and organize tabs
+        through a local connection you install. Nothing goes over the network from Tab Butler.</td></tr>
+  </table>
+  <p>Site icons in Tab Butler's pages come from Chrome's built-in favicon cache.</p>
+
+  <h2>What Tab Butler never does</h2>
+  <ul>
+    <li>It has no server and collects no analytics, crash reports or usage data.</li>
+    <li>It does not sell, share or transfer your data to anyone.</li>
+    <li>It does not use your data for advertising, credit decisions or anything other than organizing your tabs and bookmarks.</li>
+    <li>It does not load or run code from the internet.</li>
+  </ul>
+
+  <h2>Removing your data</h2>
+  <p>Settings → Data exports everything Tab Butler keeps, and archived tabs can be removed from the Archive page. Uninstalling Tab Butler deletes
+  all of its stored data from this computer; settings saved with Chrome sync are removed by Chrome.</p>
+
+  <h2>Changes and contact</h2>
+  <p>If this policy changes, the date above changes with it, and a new version of Tab Butler will
+  say what changed. Questions: <a href="mailto:addobari31@gmail.com">addobari31@gmail.com</a>.</p>
+</main>
+</body>
+</html>
