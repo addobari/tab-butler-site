@@ -23,7 +23,7 @@
 <body>
 <main>
   <h1>Tab Butler privacy policy</h1>
-  <p class="muted">Last updated 29 October 2026</p>
+  <p class="muted">Last updated 1 November 2026</p>
 
   <p><strong>Short version:</strong> Tab Butler keeps everything in your browser. There is no account,
   no analytics, no ads and no Tab Butler server. Nothing about your tabs or bookmarks leaves your
@@ -42,6 +42,8 @@
     <li><strong>Browsing history</strong>, to show when you last opened a bookmark in Bookmarks → Clean up;</li>
     <li><strong>Page descriptions</strong> (the short summary a page gives about itself), to file a tab into a better folder.</li>
   </ul>
+  <p>If you choose <strong>Group by task</strong>, Tab Butler also notes which tab opened which, on your computer.
+  If you paste or drop an export from another tab manager, its links go into your archive and stay on this computer.</p>
 
   <h2>Where it is kept</h2>
   <p>Everything Tab Butler saves (your archive of closed tabs, notes, workspaces, snoozed tabs, the
@@ -49,6 +51,11 @@
   Your settings, such as grouping rules, are saved with Chrome's own sync so they follow your Chrome
   profile, exactly like any other extension's settings. A Claude API key, if you add one, stays on
   this computer and is never synced.</p>
+  <p>It also keeps snapshots of your open tabs (addresses, titles and groups) on this computer, so
+  Put things back can return to an earlier point. These never leave your computer.</p>
+  <p>If you turn on automatic backups, which ask Chrome's permission once, Tab Butler writes a copy of this
+  data to Downloads/Tab Butler on your computer. It doesn't include a Claude API key. Those files are
+  yours, and uninstalling Tab Butler leaves them in place.</p>
   <p>Tab Butler makes real Chrome bookmarks. They are yours: uninstalling Tab Butler removes its own
   stored data but leaves your bookmarks where they are.</p>
 
@@ -80,7 +87,8 @@
 
   <h2>Removing your data</h2>
   <p>Settings → Data exports everything Tab Butler keeps, and archived tabs can be removed from the Archive page. Uninstalling Tab Butler deletes
-  all of its stored data from this computer; settings saved with Chrome sync are removed by Chrome.</p>
+  all of its stored data from this computer, except backup files in your Downloads folder, which you can
+  delete yourself; settings saved with Chrome sync are removed by Chrome.</p>
 
   <h2>Changes and contact</h2>
   <p>If this policy changes, the date above changes with it, and a new version of Tab Butler will
