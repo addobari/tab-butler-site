@@ -3,23 +3,28 @@
 > Simmer is a free Chrome extension that remembers what your tabs were for. It turns a pile of open tabs into a short list of the things you're in the middle of, closes a whole task at once, and brings every tab of it back in one click. No account; tabs stay in the browser.
 
 Key facts:
-- Name: Simmer ("Simmer: remembers what your tabs were for"). Version 4.0. Browser: Google Chrome (desktop), from the Chrome Web Store.
+- Name: Simmer ("Simmer: remembers what your tabs were for"). Version 4.0. Browser: Google Chrome (desktop), from the Chrome Web Store: https://chromewebstore.google.com/search/Simmer
 - Price: free. No account, no ads, no Simmer server.
 - Finds tasks itself from what opened what, Chrome tab groups, and a small on-device model that compares tab titles in English and Japanese. The model ships inside the extension; no code is loaded from the internet.
 - Put away: closes a task's tabs after saving them (and optionally bookmarking them). Bring back: reopens every tab of the task, in its group.
 - Never closes the active tab, pinned tabs, tabs playing sound, private windows, or sites kept open such as mail, chat and calendars. Nothing automatic happens before the user presses Start; the first automatic clear asks first.
 - Everything it does is listed under Recently with Undo. Optional automatic backups to Downloads/Simmer.
 - Search open tabs, saved tabs and bookmarks from the side panel, or type "sm" and a space in Chrome's address bar.
+- No sync of its own; tabs saved to bookmarks follow Chrome's bookmark sync.
 - Optional network features (off by default): the user's own Claude API key, reading page descriptions, checking links.
+- Compared with other tab extensions: OneTab and Session Buddy save lists and sessions locally; Toby and Workona use an account and sync boards and workspaces the user fills by hand; Simmer sorts tabs into tasks itself, with no account.
 
 ## Pages
 - [Home](https://addobari.github.io/tab-butler-site/): what Simmer does, with the real side panel running on demo tabs.
 - [Questions](https://addobari.github.io/tab-butler-site/faq/): answers to common questions.
-- [Too many tabs in Chrome](https://addobari.github.io/tab-butler-site/guides/too-many-tabs/): why tabs pile up and how to close them without losing anything.
-- [Save Chrome tabs for later](https://addobari.github.io/tab-butler-site/guides/save-tabs-for-later/): four ways to save tabs and bring a set back.
-- [Pick up where you left off](https://addobari.github.io/tab-butler-site/guides/pick-up-where-you-left-off/): restore sessions, closed tabs and tasks.
-- [A private tab manager](https://addobari.github.io/tab-butler-site/guides/private-tab-manager/): what Simmer reads and where it keeps it.
+- [Too many tabs open in Chrome? Keep them without keeping them open](https://addobari.github.io/tab-butler-site/guides/too-many-tabs/): Why tabs pile up, what each of Chrome's own tools does about it, and how to close a pile of tabs without losing the thought behind them.
+- [How to save Chrome tabs for later and bring the whole set back](https://addobari.github.io/tab-butler-site/guides/save-tabs-for-later/): Four ways to save tabs for later in Chrome, what each one keeps, and how to reopen a whole set of tabs in one click.
+- [How to find a tab you lost in Chrome](https://addobari.github.io/tab-butler-site/guides/find-a-lost-tab/): Search every open tab, jump to one from the address bar, get back a tab you closed, and search the tabs you saved for later.
+- [How to pick up where you left off in Chrome](https://addobari.github.io/tab-butler-site/guides/pick-up-where-you-left-off/): Reopen yesterday's tabs, recover a closed window, and come back to a task days later, with Chrome's settings and with Simmer.
+- [OneTab, Session Buddy, Toby, Workona and Simmer compared](https://addobari.github.io/tab-butler-site/guides/tab-extensions-compared/): How five Chrome tab extensions differ: who sorts the tabs, whether you need an account, where your tabs are kept, and what each costs.
+- [Is your tab manager private? What Simmer reads, and where it keeps it](https://addobari.github.io/tab-butler-site/guides/private-tab-manager/): What a tab manager extension can see, the questions to ask before installing one, and exactly what Simmer reads and stores.
 - [Privacy policy](https://addobari.github.io/tab-butler-site/privacy.html)
+- [Full text of every guide and answer](https://addobari.github.io/tab-butler-site/llms-full.txt)
 
 ## Questions and answers
 ### What is Simmer?
@@ -48,6 +53,9 @@ No. There's no account and no Simmer server. Your tabs and everything Simmer sav
 
 ### Do I need an account?
 No. Install it and it works. There is nothing to sign up for.
+
+### Does Simmer sync tabs between computers?
+Not by itself: what Simmer saves stays on the computer where you saved it. If you choose to save put-away tabs to your bookmarks as well, those bookmarks sync wherever Chrome syncs your bookmarks.
 
 ### Which browsers does Simmer work in?
 Simmer is built for Google Chrome on desktop and installs from the Chrome Web Store.

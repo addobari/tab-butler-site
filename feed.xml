@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Simmer guides</title>
+  <subtitle>Plain answers about the tabs you keep open.</subtitle>
+  <link href="https://addobari.github.io/tab-butler-site/feed.xml" rel="self"/>
+  <link href="https://addobari.github.io/tab-butler-site/guides/"/>
+  <id>https://addobari.github.io/tab-butler-site/guides/</id>
+  <updated>2026-11-03T00:00:00Z</updated>
+  <author><name>Simmer</name></author>
+  <entry>
+    <title>Too many tabs open in Chrome? Keep them without keeping them open</title>
+    <link href="https://addobari.github.io/tab-butler-site/guides/too-many-tabs/"/>
+    <id>https://addobari.github.io/tab-butler-site/guides/too-many-tabs/</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Why tabs pile up, what each of Chrome&#x27;s own tools does about it, and how to close a pile of tabs without losing the thought behind them.</summary>
+  </entry>
+  <entry>
+    <title>How to save Chrome tabs for later and bring the whole set back</title>
+    <link href="https://addobari.github.io/tab-butler-site/guides/save-tabs-for-later/"/>
+    <id>https://addobari.github.io/tab-butler-site/guides/save-tabs-for-later/</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Four ways to save tabs for later in Chrome, what each one keeps, and how to reopen a whole set of tabs in one click.</summary>
+  </entry>
+  <entry>
+    <title>How to find a tab you lost in Chrome</title>
+    <link href="https://addobari.github.io/tab-butler-site/guides/find-a-lost-tab/"/>
+    <id>https://addobari.github.io/tab-butler-site/guides/find-a-lost-tab/</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Search every open tab, jump to one from the address bar, get back a tab you closed, and search the tabs you saved for later.</summary>
+  </entry>
+  <entry>
+    <title>How to pick up where you left off in Chrome</title>
+    <link href="https://addobari.github.io/tab-butler-site/guides/pick-up-where-you-left-off/"/>
+    <id>https://addobari.github.io/tab-butler-site/guides/pick-up-where-you-left-off/</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Reopen yesterday&#x27;s tabs, recover a closed window, and come back to a task days later, with Chrome&#x27;s settings and with Simmer.</summary>
+  </entry>
+  <entry>
+    <title>OneTab, Session Buddy, Toby, Workona and Simmer compared</title>
+    <link href="https://addobari.github.io/tab-butler-site/guides/tab-extensions-compared/"/>
+    <id>https://addobari.github.io/tab-butler-site/guides/tab-extensions-compared/</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>How five Chrome tab extensions differ: who sorts the tabs, whether you need an account, where your tabs are kept, and what each costs.</summary>
+  </entry>
+  <entry>
+    <title>Is your tab manager private? What Simmer reads, and where it keeps it</title>
+    <link href="https://addobari.github.io/tab-butler-site/guides/private-tab-manager/"/>
+    <id>https://addobari.github.io/tab-butler-site/guides/private-tab-manager/</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>What a tab manager extension can see, the questions to ask before installing one, and exactly what Simmer reads and stores.</summary>
+  </entry>
+</feed>
