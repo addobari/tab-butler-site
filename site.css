@@ -320,7 +320,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-
 .doc-head .lead { font-size: 20px; color: var(--muted); max-width: 36em; }
 .doc-meta { font-size: 14px; color: var(--muted); }
 /* the short answer comes first, for people and for assistants quoting it */
-.answer { border-left: 4px solid var(--butter); background: var(--surface); border-radius: 0 16px 16px 0; padding: 22px 26px; margin-bottom: 36px; }
+.answer { border: 1px solid var(--edge); background: var(--surface); border-radius: 16px; padding: 22px 26px; margin-bottom: 36px; }
 .answer-label { font-size: 14px; font-weight: 650; margin-bottom: 6px; }
 .answer p:not(.answer-label) { font-size: 19px; line-height: 1.6; }
 .doc-photo { aspect-ratio: 16 / 9; margin-bottom: 44px; }
