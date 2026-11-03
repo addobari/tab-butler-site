@@ -286,7 +286,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-
 
 /* ---------- footer: the stove ---------- */
 .stove { background: var(--stove); color: var(--stove-ink); overflow: hidden; border-top: 1px solid var(--edge); }
-.stove-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding-block: 64px 24px; font-size: 15px; }
+.stove-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; padding-block: 64px 24px; font-size: 15px; }
 .stove-links div { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .stove-links .col-head { font-weight: 650; color: var(--stove-ink); }
 .stove-links a, .stove-links span { color: var(--stove-muted); text-decoration: none; }
@@ -308,6 +308,76 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-
   padding-block: 18px calc(22px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid rgba(241, 236, 226, .14);
 }
 
+/* ---------- guides, questions and other reading pages ---------- */
+.text-link { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--butter-edge); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.text-link:hover { text-decoration-color: var(--ink); }
+.doc { padding-block: 24px var(--band); }
+.doc-wrap { max-width: 820px; }
+.doc-crumbs { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+.doc-crumbs a { color: inherit; }
+.doc-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+.doc-head h1 { font: 400 clamp(38px, 5.4vw, 68px)/1.02 var(--display); letter-spacing: -.015em; }
+.doc-head .lead { font-size: 20px; color: var(--muted); max-width: 36em; }
+.doc-meta { font-size: 14px; color: var(--muted); }
+/* the short answer comes first, for people and for assistants quoting it */
+.answer { border-left: 4px solid var(--butter); background: var(--surface); border-radius: 0 16px 16px 0; padding: 22px 26px; margin-bottom: 36px; }
+.answer-label { font-size: 14px; font-weight: 650; margin-bottom: 6px; }
+.answer p:not(.answer-label) { font-size: 19px; line-height: 1.6; }
+.doc-photo { aspect-ratio: 16 / 9; margin-bottom: 44px; }
+.doc-body { display: flex; flex-direction: column; gap: 18px; font-size: 18px; line-height: 1.7; }
+.doc-body h2 { font: 400 clamp(28px, 3.2vw, 38px)/1.1 var(--display); margin-top: 26px; }
+.doc-body h3 { font-size: 20px; font-weight: 650; margin-top: 6px; }
+.doc-body p, .doc-body li { max-width: 40em; }
+.doc-body ul, .doc-body ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; }
+.doc-body a { color: var(--ink); text-decoration-color: var(--butter-edge); text-underline-offset: 3px; }
+.doc-steps { counter-reset: step; list-style: none; padding-left: 0 !important; }
+.doc-steps li { counter-increment: step; position: relative; padding-left: 48px; }
+.doc-steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%;
+  display: grid; place-items: center; font: 400 16px/1 var(--display); background: var(--butter); color: var(--on-butter);
+}
+kbd { font: 600 .82em var(--text); background: var(--surface); border: 1px solid var(--edge-strong); border-bottom-width: 2px; border-radius: 6px; padding: 1px 6px; white-space: nowrap; }
+code { font: .9em ui-monospace, "SF Mono", Menlo, monospace; background: var(--surface); border: 1px solid var(--edge); border-radius: 5px; padding: 1px 5px; }
+.doc-table { overflow-x: auto; border: 1px solid var(--edge); border-radius: 16px; background: var(--surface); }
+.doc-table table { width: 100%; border-collapse: collapse; font-size: 16px; }
+.doc-table th, .doc-table td { text-align: left; vertical-align: top; padding: 12px 16px; }
+.doc-table tbody td { border-top: 1px solid var(--edge); }
+.doc-table td:first-child { font-weight: 600; white-space: nowrap; }
+.doc-faq { margin-top: 56px; display: flex; flex-direction: column; gap: 18px; }
+.doc-faq h2, .doc-related h2 { font: 400 clamp(28px, 3.2vw, 38px)/1.1 var(--display); }
+.doc-cta {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 56px; padding: 22px 24px;
+  background: var(--surface); border: 1px solid var(--edge); border-radius: 20px; box-shadow: var(--shot-shadow);
+}
+.doc-cta div { flex: 1 1 260px; }
+.doc-cta-title { font: 400 22px/1.2 var(--display); }
+.doc-cta p:not(.doc-cta-title) { color: var(--muted); font-size: 15px; }
+.doc-related { margin-top: 56px; display: flex; flex-direction: column; gap: 14px; }
+.doc-related ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 18px; }
+.doc-related a { text-decoration-color: var(--butter-edge); text-underline-offset: 3px; }
+.faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--edge); }
+.faq-list details { border-bottom: 1px solid var(--edge); padding: 18px 0; }
+.faq-list summary { cursor: pointer; font-size: 19px; font-weight: 650; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font: 400 26px/1 var(--display); color: var(--muted); transition: rotate .2s var(--ease); }
+.faq-list details[open] summary::after { rotate: 45deg; }
+.faq-list summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; border-radius: 6px; }
+.faq-list details p { padding-top: 10px; font-size: 18px; color: var(--muted); max-width: 40em; }
+.guides { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.guide a { display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: inherit; }
+.guide .photo { aspect-ratio: 16 / 10; transition: translate .3s var(--ease); }
+.guide a:hover .photo { translate: 0 -4px; }
+.guide h2, .guide h3 { font: 400 clamp(22px, 2.4vw, 30px)/1.15 var(--display); }
+.guide p { color: var(--muted); }
+.guide a:focus-visible { outline: 2px solid var(--ring); outline-offset: 6px; border-radius: 22px; }
+.home-guides { padding-block: var(--band); border-top: 1px solid var(--edge); display: flex; flex-direction: column; gap: 32px; }
+.home-guides-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.home-guides-head h2 { font: 400 clamp(36px, 4.6vw, 64px)/1 var(--display); }
+.home-guides .guides { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.lost { padding-block: 96px; display: flex; flex-direction: column; gap: 22px; }
+.lost h1 { font: 400 clamp(42px, 7vw, 96px)/1 var(--display); }
+.lost .lead { font-size: 20px; color: var(--muted); }
+
 /* ---------- sizes ---------- */
 @media (min-width: 1600px) {
   :root { --page: 1440px; --band: 112px; }
@@ -325,6 +395,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-
   .walk-body:has(.stage .scene) .step .scene { display: flex; }
   .step { min-height: 0; padding-block: 40px; }
   .facts { gap: 48px; }
+  .home-guides .guides { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
   :root { --gutter: 20px; --band: 56px; }
@@ -341,6 +412,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-
   .scene.panel .sticker { right: -40px; }
   .facts, .closing { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .stove-links { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-block: 48px 16px; }
+  .guides, .home-guides .guides { grid-template-columns: minmax(0, 1fr); }
+  .doc-body { font-size: 17px; }
+  .answer { padding: 18px 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .simmer i { animation: none; opacity: 0; }

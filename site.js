@@ -26,7 +26,7 @@ function splitHeadline() {
 const live = document.getElementById("live");
 const frame = document.querySelector(".live-frame");
 const hero = document.getElementById("hero");
-const morphs = moving && innerWidth >= 1100 && frame.getBoundingClientRect().top < innerHeight * .6;
+const morphs = moving && !!frame && innerWidth >= 1100 && frame.getBoundingClientRect().top < innerHeight * .6;
 if (morphs) hero.classList.add("morph");
 
 // Tumbled positions, as fractions of the panel: [x, y, tilt]. Some spill out to the left.
@@ -317,27 +317,31 @@ function stove() {
 }
 
 // ---------- always ----------
-// The live panel plays only while it's on screen, and not until the morph has landed.
+// The same script runs on every page; each part starts only where its part of the page exists.
+const has = id => !!document.getElementById(id);
 let held = morphs, inView = true;
-new IntersectionObserver(([entry]) => {
-  inView = entry.isIntersecting;
-  if (!held) live.contentWindow?.postMessage({ simmer: inView ? "play" : "pause" }, "*");
-}).observe(live);
-// Paused as soon as it can hear, whether or not it has finished loading.
-const hold = () => { if (held) live.contentWindow?.postMessage({ simmer: "pause" }, "*"); };
-if (morphs) { hold(); live.addEventListener("load", hold); setTimeout(hold, 300); }
+if (live) {
+  // The live panel plays only while it's on screen, and not until the morph has landed.
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    if (!held) live.contentWindow?.postMessage({ simmer: inView ? "play" : "pause" }, "*");
+  }).observe(live);
+  // Paused as soon as it can hear, whether or not it has finished loading.
+  const hold = () => { if (held) live.contentWindow?.postMessage({ simmer: "pause" }, "*"); };
+  if (morphs) { hold(); live.addEventListener("load", hold); setTimeout(hold, 300); }
+}
 
-walk();
+if (has("stage")) walk();
 // The opening waits until the page is actually on screen: a tab opened in the background would otherwise
 // run its timers while its animations stand still, and the two would come apart.
 function opening() {
   document.documentElement.classList.add("go");
   if (morphs) morph();
   // The simmer behind the headline settles after 8 seconds, as in the side panel.
-  setTimeout(() => document.getElementById("headline").classList.add("settled"), 8000 + BEAT_TWO);
+  if (has("headline")) setTimeout(() => document.getElementById("headline").classList.add("settled"), 8000 + BEAT_TWO);
 }
 if (moving) {
-  splitHeadline();
+  if (has("title")) splitHeadline();
   if (document.visibilityState === "visible") opening();
   else document.addEventListener("visibilitychange", function shown() {
     if (document.visibilityState !== "visible") return;
@@ -345,6 +349,6 @@ if (moving) {
     opening();
   });
   reveals();
-  pull();
-  stove();
+  if (has("pull")) pull();
+  if (has("pot-word")) stove();
 }

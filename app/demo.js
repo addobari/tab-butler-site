@@ -441,10 +441,10 @@
     const act = (id, label) => () => document.querySelector(`[data-task="${id}"] .tb-task-acts [aria-label="${label}"]`);
     addEventListener("load", async () => {
       pointer = document.createElement("div");
-      const dark = matchMedia("(prefers-color-scheme: dark)").matches;
       pointer.setAttribute("aria-hidden", "true");
-      pointer.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 3l14 8-6.2 1.6L9.5 19z" fill="${dark ? "#f1ece2" : "#24211c"}" stroke="${dark ? "#121110" : "#fbfaf7"}" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
-      Object.assign(pointer.style, { position: "fixed", left: "-4px", top: "-3px", zIndex: 99, pointerEvents: "none", transition: "transform .7s cubic-bezier(.2,.8,.2,1)", transform: "translate(70vw, 105vh)" });
+      // Ink with a butter outline, the same in light and dark.
+      pointer.innerHTML = `<svg viewBox="0 0 24 24" width="34" height="34" style="filter: drop-shadow(0 3px 5px rgba(36,33,28,.35))"><path d="M5 3l14 8-6.2 1.6L9.5 19z" fill="#24211c" stroke="#f5d97e" stroke-width="2.2" stroke-linejoin="round"/></svg>`;
+      Object.assign(pointer.style, { position: "fixed", left: "-7px", top: "-4px", zIndex: 99, pointerEvents: "none", transition: "transform .7s cubic-bezier(.2,.8,.2,1)", transform: "translate(70vw, 105vh)" });
       document.head.append(Object.assign(document.createElement("style"), { textContent: ".is-down svg { transform: scale(.82); transition: transform .12s }" }));
       document.body.append(pointer);
       await wait(2200);

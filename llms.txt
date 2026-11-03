@@ -1,0 +1,65 @@
+# Simmer
+
+> Simmer is a free Chrome extension that remembers what your tabs were for. It turns a pile of open tabs into a short list of the things you're in the middle of, closes a whole task at once, and brings every tab of it back in one click. No account; tabs stay in the browser.
+
+Key facts:
+- Name: Simmer ("Simmer: remembers what your tabs were for"). Version 4.0. Browser: Google Chrome (desktop), from the Chrome Web Store.
+- Price: free. No account, no ads, no Simmer server.
+- Finds tasks itself from what opened what, Chrome tab groups, and a small on-device model that compares tab titles in English and Japanese. The model ships inside the extension; no code is loaded from the internet.
+- Put away: closes a task's tabs after saving them (and optionally bookmarking them). Bring back: reopens every tab of the task, in its group.
+- Never closes the active tab, pinned tabs, tabs playing sound, private windows, or sites kept open such as mail, chat and calendars. Nothing automatic happens before the user presses Start; the first automatic clear asks first.
+- Everything it does is listed under Recently with Undo. Optional automatic backups to Downloads/Simmer.
+- Search open tabs, saved tabs and bookmarks from the side panel, or type "sm" and a space in Chrome's address bar.
+- Optional network features (off by default): the user's own Claude API key, reading page descriptions, checking links.
+
+## Pages
+- [Home](https://addobari.github.io/tab-butler-site/): what Simmer does, with the real side panel running on demo tabs.
+- [Questions](https://addobari.github.io/tab-butler-site/faq/): answers to common questions.
+- [Too many tabs in Chrome](https://addobari.github.io/tab-butler-site/guides/too-many-tabs/): why tabs pile up and how to close them without losing anything.
+- [Save Chrome tabs for later](https://addobari.github.io/tab-butler-site/guides/save-tabs-for-later/): four ways to save tabs and bring a set back.
+- [Pick up where you left off](https://addobari.github.io/tab-butler-site/guides/pick-up-where-you-left-off/): restore sessions, closed tabs and tasks.
+- [A private tab manager](https://addobari.github.io/tab-butler-site/guides/private-tab-manager/): what Simmer reads and where it keeps it.
+- [Privacy policy](https://addobari.github.io/tab-butler-site/privacy.html)
+
+## Questions and answers
+### What is Simmer?
+Simmer is a free Chrome extension that remembers what your tabs were for. It turns a pile of open tabs into a short list of the things you're in the middle of, such as choosing a camera or planning a trip, lets you close a whole task at once, and brings every tab of it back in one click.
+
+### How is Simmer different from a tab manager?
+Most tab managers ask you to sort tabs into groups, folders or workspaces. Simmer does the sorting itself: it works out which tabs belong together from what opened what, from your Chrome tab groups, and by comparing tab titles on your computer. You don't make groups, write rules or file anything.
+
+### Does Simmer close my tabs on its own?
+Not until you say so. The first run reads your tabs and changes nothing until you press the button. After that, tabs left unused for a day or more can go to the back burner, a whole task at a time, and the first automatic clear always asks first. The active tab, pinned tabs, tabs playing sound, private windows and sites you keep open are never touched.
+
+### What happens to a tab when it's put away?
+It is saved before it closes, in Simmer's list on your computer and, if you choose, in your Chrome bookmarks. Nothing is dropped to make room. Every action is listed under Recently with Undo.
+
+### How do I get my tabs back?
+Open Simmer's side panel from the toolbar and press Bring back on a task: every tab reopens together, in its group. You can also search all your tabs, saved tabs and bookmarks from the side panel, or type sm and a space in Chrome's address bar.
+
+### Will Simmer close my email or chat?
+No. Mail, chat and calendars stay open by themselves, and you can keep any site open. Pinned tabs always stay.
+
+### Can I undo what Simmer does?
+Yes. Everything Simmer does is written down under Recently, in plain words, with Undo next to it.
+
+### Does Simmer send my tabs anywhere?
+No. There's no account and no Simmer server. Your tabs and everything Simmer saves stay in Chrome on your computer. The model that compares tab titles is part of the extension and runs there. Network features, such as using your own Claude API key, are off until you turn them on.
+
+### Do I need an account?
+No. Install it and it works. There is nothing to sign up for.
+
+### Which browsers does Simmer work in?
+Simmer is built for Google Chrome on desktop and installs from the Chrome Web Store.
+
+### Does Simmer understand Japanese tab titles?
+Yes. The model that compares tab titles works in English and Japanese, and can join an English and a Japanese tab about the same thing.
+
+### Is Simmer free?
+Yes. Simmer is free, with no account and no ads.
+
+### Can I back up what Simmer saves?
+Yes. You can turn on automatic backups, which write a file to Downloads/Simmer on your computer. Chrome asks for permission when you turn it on.
+
+### Does Simmer slow Chrome down?
+Simmer can put tabs you haven't used for a while to sleep, which lets Chrome free their memory while they stay in your tab strip. Putting a task on the back burner closes its tabs altogether.

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Is your tab manager private? What Simmer reads, and where it keeps it | Simmer</title>
+<meta name="description" content="What a tab manager extension can see, the questions to ask before installing one, and exactly what Simmer reads and stores.">
+<link rel="canonical" href="https://addobari.github.io/tab-butler-site/guides/private-tab-manager/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ece8df" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Simmer">
+<meta property="og:title" content="Is your tab manager private? What Simmer reads, and where it keeps it | Simmer">
+<meta property="og:description" content="What a tab manager extension can see, the questions to ask before installing one, and exactly what Simmer reads and stores.">
+<meta property="og:url" content="https://addobari.github.io/tab-butler-site/guides/private-tab-manager/">
+<meta property="og:image" content="https://addobari.github.io/tab-butler-site/share.png">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icon-128.png">
+<link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+<link rel="alternate" type="text/plain" title="Simmer for AI assistants" href="../../llms.txt">
+<link rel="preload" href="../../fonts/Caprasimo-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../../site.css">
+<script>
+  document.documentElement.classList.add("js");
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("arrive");
+</script>
+<script src="../../site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Is your tab manager private? What Simmer reads, and where it keeps it", "description": "What a tab manager extension can see, the questions to ask before installing one, and exactly what Simmer reads and stores.", "image": "https://addobari.github.io/tab-butler-site/photos/jars.jpg", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "Simmer", "url": "https://addobari.github.io/tab-butler-site/", "logo": "https://addobari.github.io/tab-butler-site/icon-128.png"}, "publisher": {"@type": "Organization", "name": "Simmer", "url": "https://addobari.github.io/tab-butler-site/", "logo": "https://addobari.github.io/tab-butler-site/icon-128.png"}, "mainEntityOfPage": "https://addobari.github.io/tab-butler-site/guides/private-tab-manager/", "inLanguage": "en"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simmer", "item": "https://addobari.github.io/tab-butler-site/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://addobari.github.io/tab-butler-site/guides/"}, {"@type": "ListItem", "position": 3, "name": "Is your tab manager private? What Simmer reads, and where it keeps it", "item": "https://addobari.github.io/tab-butler-site/guides/private-tab-manager/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can a Chrome extension see my browsing?", "acceptedAnswer": {"@type": "Answer", "text": "An extension with the tabs permission can read the address and title of every open tab. Check where it keeps them, and whether it needs an account."}}, {"@type": "Question", "name": "Does Simmer have a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no account and no Simmer server. Everything it saves stays in Chrome on your computer."}}, {"@type": "Question", "name": "Does Simmer use AI in the cloud?", "acceptedAnswer": {"@type": "Answer", "text": "Not by default. Tab titles are compared by a small model that runs on your computer. Cloud features need your own Claude API key and are off until you turn them on."}}]}</script>
+</head>
+<body>
+<header class="masthead">
+  <a class="name" href="../../"><img src="../../logo.svg" alt="" width="30" height="30">Simmer</a>
+  <nav aria-label="Sections">
+    <a href="../../#how">How it works</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../faq/">FAQ</a>
+  </nav>
+  <a class="btn small" href="https://chromewebstore.google.com/search/Simmer">Add to Chrome</a>
+</header>
+
+<main class="doc">
+  <article class="wrap doc-wrap">
+    <nav class="doc-crumbs" aria-label="Breadcrumb"><a href="../../">Simmer</a> / <a href="../../guides/">Guides</a></nav>
+    <header class="doc-head reveal">
+      <h1>Is your tab manager private? What Simmer reads, and where it keeps it</h1>
+      <p class="doc-meta">Updated <time datetime="2026-11-03">3 November 2026</time></p>
+    </header>
+    <section class="answer reveal" aria-label="Short answer">
+      <p class="answer-label">Short answer</p>
+      <p>A tab manager can read the address and title of every tab you open, so where it keeps them matters. Simmer reads them on your computer and stores what it saves in Chrome's own storage there. There's no account and no Simmer server, and the only network features, such as your own Claude API key, are off until you turn them on.</p>
+    </section>
+    <figure class="photo doc-photo reveal"><img src="../../photos/jars.jpg" alt="Labelled glass jars on a pantry shelf" width="1000" height="667"></figure>
+    <div class="doc-body">
+
+      <h2>What any tab manager can see</h2>
+      <p>To list and close your tabs, an extension needs Chrome's <code>tabs</code> permission, which lets it read the address and title of every open tab. That's your browsing, one page at a time. It's worth knowing where that goes before you install anything.</p>
+
+      <h2>Five questions to ask before installing one</h2>
+      <ol class="doc-steps">
+        <li><strong>Does it need an account?</strong> An account usually means your tabs are copied to a server.</li>
+        <li><strong>Where are saved tabs kept?</strong> In the browser on your computer, or in someone's cloud.</li>
+        <li><strong>Which permissions are optional?</strong> Good extensions ask for extra access only when you turn on the feature that needs it.</li>
+        <li><strong>Does it load code from the internet?</strong> Code fetched at run time can change after review.</li>
+        <li><strong>Is there a privacy policy that names every permission?</strong></li>
+      </ol>
+
+      <h2>What Simmer reads, and why</h2>
+      <div class="doc-table">
+        <table>
+          <thead><tr><th>Permission</th><th>What Simmer does with it</th></tr></thead>
+          <tbody>
+            <tr><td>Tabs</td><td>Reads tab addresses and titles to work out tasks, find idle tabs, put tabs away and bring them back.</td></tr>
+            <tr><td>Tab groups</td><td>Treats a Chrome tab group as a task, and restores groups when tabs come back.</td></tr>
+            <tr><td>Storage</td><td>Saves settings, tabs put away and the activity list with Undo, on your computer.</td></tr>
+            <tr><td>Bookmarks</td><td>Files saved tabs into your bookmark folders when you choose. Undo removes only bookmarks Simmer made.</td></tr>
+            <tr><td>Downloads (optional)</td><td>Asked for only when you turn on automatic backups, to write the file to Downloads/Simmer.</td></tr>
+            <tr><td>Site access (optional)</td><td>Asked for only when you turn on reading pages or checking links. Both are off until you turn them on.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>A model that stays on your computer</h2>
+      <p>Simmer compares tab titles to find tabs about the same thing, in English and Japanese. The model that does it is packed inside the extension and runs on your computer. Simmer loads no code from the internet: all its JavaScript and WebAssembly ship in the package.</p>
+      <p>If you add your own Claude API key and turn on Claude features, tab titles and site names go from your browser straight to Anthropic with your key. That's off unless you choose it.</p>
+      <p>The full list is in the <a href="../../privacy.html">privacy policy</a>.</p>
+    </div>
+    <section class="doc-faq">
+      <h2>Questions</h2>
+      <dl class="qa">
+<dt>Can a Chrome extension see my browsing?</dt>
+<dd>An extension with the tabs permission can read the address and title of every open tab. Check where it keeps them, and whether it needs an account.</dd>
+<dt>Does Simmer have a server?</dt>
+<dd>No. There is no account and no Simmer server. Everything it saves stays in Chrome on your computer.</dd>
+<dt>Does Simmer use AI in the cloud?</dt>
+<dd>Not by default. Tab titles are compared by a small model that runs on your computer. Cloud features need your own Claude API key and are off until you turn them on.</dd>
+      </dl>
+    </section>
+    <aside class="doc-cta">
+      <img src="../../logo.svg" alt="" width="40" height="40">
+      <div>
+        <p class="doc-cta-title">Simmer remembers what your tabs were for.</p>
+        <p>A free Chrome extension. No account, and your tabs stay in your browser.</p>
+      </div>
+      <a class="btn" href="https://chromewebstore.google.com/search/Simmer">Add to Chrome</a>
+    </aside>
+    <section class="doc-related">
+      <h2>More guides</h2>
+      <ul>
+<li><a href="../../guides/too-many-tabs/">Too many tabs open in Chrome? Keep them without keeping them open</a></li>
+<li><a href="../../guides/save-tabs-for-later/">How to save Chrome tabs for later and bring the whole set back</a></li>
+<li><a href="../../guides/pick-up-where-you-left-off/">How to pick up where you left off in Chrome</a></li>
+      </ul>
+    </section>
+  </article>
+</main>
+<footer class="stove" id="stove">
+  <nav class="wrap stove-links" aria-label="Site map">
+    <div>
+      <p class="col-head">Simmer</p>
+      <a href="https://chromewebstore.google.com/search/Simmer">Add to Chrome</a>
+      <a href="../../">Home</a>
+      <a href="../../#how">How it works</a>
+      <a href="../../faq/">Questions</a>
+    </div>
+    <div>
+      <p class="col-head">Guides</p>
+      <a href="../../guides/too-many-tabs/">Too many tabs</a>
+      <a href="../../guides/save-tabs-for-later/">Save tabs for later</a>
+      <a href="../../guides/pick-up-where-you-left-off/">Pick up where you left off</a>
+      <a href="../../guides/private-tab-manager/">A private tab manager</a>
+    </div>
+    <div>
+      <p class="col-head">Trust</p>
+      <a href="../../privacy.html">Privacy policy</a>
+      <span>No account, no server</span>
+    </div>
+    <div>
+      <p class="col-head">Contact</p>
+      <a href="mailto:addobari31@gmail.com">addobari31@gmail.com</a>
+    </div>
+  </nav>
+  <div class="pot-word" id="pot-word">
+    <canvas id="bubbles" aria-hidden="true"></canvas>
+    <button type="button" class="word" id="stir" aria-label="Stir the pot">Simmer</button>
+  </div>
+  <p class="wrap stove-foot"><span>© 2026 Simmer · Photos from <a href="https://unsplash.com">Unsplash</a></span><span class="hint">Give it a stir.</span></p>
+</footer>
+</body>
+</html>
