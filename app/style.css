@@ -1,0 +1,934 @@
+/* Simmer's design system: warm solid surfaces, warm ink, and butter yellow as the one accent: the main
+   button, and the simmer in the header.
+   Colour otherwise comes only from favicons and group dots. Reduce transparency, increase contrast
+   and reduce motion are honored. Catalogue: docs/DESIGN-SYSTEM.md. Every state: docs/design-system/simmer.html. */
+
+@font-face {
+  font-family: Caprasimo;
+  src: url(fonts/Caprasimo-Regular.ttf) format("truetype");
+  font-display: swap;
+}
+
+:root, [data-theme] {
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Helvetica Neue", system-ui, sans-serif;
+  /* Latin only, so never for Japanese, tab titles or task names. */
+  --font-display: Caprasimo, Georgia, serif;
+  --fs-display-s: 24px;
+  --fs-display-l: 40px;
+  --butter: #f5d97e;
+  /* The main button is butter with ink on it, in light and dark alike. */
+  --cta: var(--butter);
+  --cta-text: #24211c;
+  --cta-hover: color-mix(in srgb, var(--butter) 84%, #c99a1a);
+  --cta-down: color-mix(in srgb, var(--butter) 72%, #b4860f);
+  --lift: none;
+  --rim: transparent;
+  --rim-low: transparent;
+  --control-glass: var(--raised);
+  --content-glass: var(--surface);
+  --field-glass: var(--raised);
+  --bg: transparent;
+  --panel: var(--surface);
+  --line: var(--edge);
+  --hover: var(--fill);
+  --accent: var(--tint);
+  --accent-text: var(--on-tint);
+  --dur: .14s;
+  --dur-slow: .22s;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --r-panel: 12px;
+  --r-row: 8px;
+  --r-ctl: 999px;
+}
+
+:root, [data-theme="light"] {
+  color-scheme: light;
+  --wall: #ece8df;
+  --surface: #fbfaf7;
+  --raised: #ffffff;
+  --text: #24211c;
+  --muted: #625c52;
+  --edge: rgba(36, 33, 28, .12);
+  --edge-strong: rgba(36, 33, 28, .34);
+  --fill: rgba(36, 33, 28, .055);
+  --row-hover: color-mix(in srgb, #24211c 5.5%, #fbfaf7);   /* --fill over --surface, as a solid */
+  --fill-2: rgba(36, 33, 28, .1);
+  --fill-3: rgba(36, 33, 28, .15);
+  --ring: rgba(36, 33, 28, .7);
+  --tint: #24211c;
+  --tint-fill: #24211c;
+  --on-tint: #fbfaf7;
+  --danger: #a82a1f;
+  --brand-bg: var(--surface);
+  --brand-text: var(--text);
+  --cta-edge: color-mix(in srgb, var(--butter) 62%, #8a6a10);
+  --heat: 70%;
+  --chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2324211c' stroke-opacity='.6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+  color-scheme: dark;
+  --wall: #121110;
+  --surface: #1c1a17;
+  --raised: #282521;
+  --text: #f1ece2;
+  --muted: #aaa295;
+  --edge: rgba(241, 236, 226, .12);
+  --edge-strong: rgba(241, 236, 226, .34);
+  --fill: rgba(241, 236, 226, .07);
+  --row-hover: color-mix(in srgb, #f1ece2 7%, #1c1a17);   /* --fill over --surface, as a solid */
+  --fill-2: rgba(241, 236, 226, .12);
+  --fill-3: rgba(241, 236, 226, .18);
+  --ring: #f5d97e;
+  --tint: #f1ece2;
+  --tint-fill: #f1ece2;
+  --on-tint: #1c1a17;
+  --danger: #ff9a8b;
+  --brand-bg: var(--surface);
+  --brand-text: var(--text);
+  --cta-edge: transparent;
+  --heat: 34%;
+  --chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f1ece2' stroke-opacity='.6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+  }
+}
+[data-theme="light"] { color: var(--text); font-family: var(--font); }
+[data-theme="dark"] {
+  color-scheme: dark;
+  --wall: #121110;
+  --surface: #1c1a17;
+  --raised: #282521;
+  --text: #f1ece2;
+  --muted: #aaa295;
+  --edge: rgba(241, 236, 226, .12);
+  --edge-strong: rgba(241, 236, 226, .34);
+  --fill: rgba(241, 236, 226, .07);
+  --row-hover: color-mix(in srgb, #f1ece2 7%, #1c1a17);   /* --fill over --surface, as a solid */
+  --fill-2: rgba(241, 236, 226, .12);
+  --fill-3: rgba(241, 236, 226, .18);
+  --ring: #f5d97e;
+  --tint: #f1ece2;
+  --tint-fill: #f1ece2;
+  --on-tint: #1c1a17;
+  --danger: #ff9a8b;
+  --brand-bg: var(--surface);
+  --brand-text: var(--text);
+  --cta-edge: transparent;
+  --heat: 34%;
+  --chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f1ece2' stroke-opacity='.6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+  color: var(--text); font-family: var(--font);
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--wall); }
+body {
+  margin: 0;
+  color: var(--text);
+  background: transparent;
+  font: 14px/1.45 var(--font);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1 { font-size: 20px; margin: 0; font-weight: 650; letter-spacing: -.02em; }
+h2 { font-size: 14px; margin: 0 0 8px; color: var(--text); font-weight: 600; letter-spacing: -.005em; }
+a { color: var(--text); text-decoration-color: var(--muted); text-underline-offset: 2px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--field-glass); padding: 1px 5px; border-radius: 6px; }
+kbd { font: 11px var(--font); color: var(--muted); border: 1px solid var(--edge); border-radius: 6px; padding: 0 5px; background: var(--field-glass); }
+
+/* ---------- materials ---------- */
+
+/* Content sits on one solid surface. */
+ul, fieldset, .tile, .card, .bulk, .save, .notice, .ws-card {
+  background: var(--content-glass);
+  border: 1px solid var(--edge);
+  box-shadow: inset 0 1px 0 var(--rim-low);   /* sits on the ground: no lift */
+}
+
+/* What floats gets an edge. */
+.glass, header.glass, .seg, .bar {
+  background: var(--control-glass);
+  box-shadow:
+    inset 0 1px 0 var(--rim),          /* specular highlight */
+    inset 0 -1px 0 var(--rim-low),
+    inset 0 0 0 1px var(--edge),
+    var(--lift);
+}
+
+/* ---------- controls ----------
+   Every control has the same five states: default, hover, pressed (:active),
+   selected or checked, and disabled, plus a keyboard focus ring. Changes ease
+   over --dur with no overshoot; disabled controls do not react to hover. */
+
+:root { interpolate-size: allow-keywords; }
+
+button {
+  font: inherit;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--edge);
+  border-radius: var(--r-row);
+  padding: 7px 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease), opacity var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+button:not(:disabled):hover { background-color: color-mix(in srgb, var(--text) 5%, var(--surface)); border-color: color-mix(in srgb, var(--text) 16%, transparent); }
+button:not(:disabled):active { background-color: color-mix(in srgb, var(--text) 10%, var(--surface)); transform: scale(.98); }
+button:disabled { opacity: .4; cursor: not-allowed; }
+button.primary { background-color: var(--cta); border-color: var(--cta-edge); color: var(--cta-text); font-weight: 600; }
+button.primary:not(:disabled):hover { background-color: var(--cta-hover); border-color: var(--cta-edge); }
+button.primary:not(:disabled):active { background-color: var(--cta-down); }
+button.link { background: none; border: 0; padding: 2px 0; color: var(--text); font-weight: 500; border-radius: 6px; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; }
+button.link:not(:disabled):hover { background: none; text-decoration-color: currentColor; }
+button.link:not(:disabled):active { background: none; opacity: .6; transform: none; }
+button.danger, .danger { color: var(--danger); }
+button.danger:not(:disabled):hover { background-color: color-mix(in srgb, var(--danger) 9%, var(--surface)); border-color: color-mix(in srgb, var(--danger) 35%, transparent); }
+button.danger:not(:disabled):active { background-color: color-mix(in srgb, var(--danger) 16%, var(--surface)); }
+
+/* Fields: a flat fill; a little darker on hover; the surface plus a ring while focused. */
+input[type=text], input[type=number], input[type=password], input[type=search], input[type=datetime-local], input[type=time], textarea, select {
+  font: inherit;
+  color: var(--text);
+  background-color: var(--fill);
+  border: 0;
+  box-shadow: inset 0 0 0 1px transparent;
+  border-radius: 10px;
+  padding: 8px 11px;
+  width: 100%;
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+:is(input:not([type=checkbox], [type=radio]), textarea, select):not(:disabled):hover { background-color: var(--fill-2); }
+:is(input:not([type=checkbox], [type=radio]), textarea, select):focus { background-color: var(--surface); box-shadow: inset 0 0 0 1.5px var(--edge-strong); }
+:is(input:not([type=checkbox], [type=radio]), textarea, select):focus-visible { outline: none; }
+:is(input:not([type=checkbox], [type=radio]), textarea, select):user-invalid, [aria-invalid=true] { box-shadow: inset 0 0 0 1.5px var(--danger); }
+:is(input:not([type=checkbox], [type=radio]), textarea, select):disabled { opacity: .5; cursor: not-allowed; }
+select { appearance: none; padding-right: 30px; cursor: pointer; background-image: var(--chev); background-repeat: no-repeat; background-position: right 9px center; background-size: 14px; }
+textarea { font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; resize: vertical; }  /* taste-skill-ignore: rules are a small rule language */
+
+/* Checkboxes and radios: drawn, so they match in light and dark. The mark scales in. */
+input[type=checkbox]:not(.switch), input[type=radio] {
+  appearance: none; flex: none; width: 16px; height: 16px; margin: 0; display: inline-grid; place-content: center; vertical-align: -3px; cursor: pointer;
+  background-color: var(--surface); border: 1.5px solid var(--edge-strong); border-radius: 4px;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+input[type=radio] { border-radius: 50%; }
+input[type=checkbox]:not(.switch)::before, input[type=radio]::before {
+  content: ""; width: 10px; height: 10px; background: var(--on-tint); transform: scale(0); transition: transform var(--dur) var(--ease);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+input[type=radio]::before { width: 6px; height: 6px; border-radius: 50%; -webkit-mask: none; mask: none; }
+input[type=checkbox]:not(.switch):indeterminate::before { height: 2px; border-radius: 1px; -webkit-mask: none; mask: none; transform: scale(1); }
+:is(input[type=checkbox]:not(.switch), input[type=radio]):not(:disabled):hover { border-color: color-mix(in srgb, var(--text) 55%, transparent); }
+:is(input[type=checkbox]:not(.switch), input[type=radio]):checked, input[type=checkbox]:not(.switch):indeterminate { background-color: var(--tint-fill); border-color: var(--tint-fill); }
+:is(input[type=checkbox]:not(.switch), input[type=radio]):checked::before { transform: scale(1); }
+:is(input[type=checkbox], input[type=radio]):disabled { opacity: .4; cursor: not-allowed; }
+
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--text) 18%, transparent); color: var(--text); }
+input, textarea { caret-color: var(--text); }
+::placeholder { color: var(--muted); opacity: 1; }
+a { transition: text-decoration-color var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+a:active { opacity: .6; }
+
+/* Segmented control with a sliding pill. Set --n (segments) and --i (active index) on .seg. */
+.seg {
+  --n: 2; --i: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--n), 1fr);
+  padding: 3px;
+  border-radius: 10px;
+}
+.seg::before {
+  content: "";
+  position: absolute;
+  top: 3px; bottom: 3px; left: 3px;
+  width: calc((100% - 6px) / var(--n));
+  transform: translateX(calc(var(--i) * 100%));
+  border-radius: 7px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--edge), 0 1px 2px rgba(0, 0, 0, .08);
+  transition: transform var(--dur-slow) var(--ease);
+}
+.seg button { position: relative; z-index: 1; background: none; border: 0; text-align: center; border-radius: 7px; padding: 6px 4px; font-weight: 550; color: var(--muted); }
+.seg button[aria-selected=true] { color: var(--text); }
+.seg button:not(:disabled):hover { background: none; color: var(--text); }
+.seg button:not(:disabled):active { background: none; transform: none; opacity: .7; }
+
+.chip {
+  font-size: 11.5px;
+  border-radius: 6px;
+  padding: 2px 8px;
+  background: var(--fill);
+  box-shadow: inset 0 0 0 1px var(--edge);
+}
+.chip.new { box-shadow: inset 0 0 0 1px var(--edge-strong); color: var(--text); }
+
+/* Tabs (side panel views, the Manage page): grey text; the current one sits on a filled
+   rounded rectangle (.sel) that slides between tabs. Add .ready after first placement. */
+.tabbar { position: relative; display: flex; gap: 2px; }
+.tabbar button { position: relative; z-index: 1; display: inline-flex; align-items: baseline; gap: 6px; height: 28px; line-height: 28px; padding: 0 10px; border: 0; border-radius: 7px; background: none; color: var(--muted); font-size: 13px; font-weight: 500; white-space: nowrap; }
+/* label and count share a baseline; icons stay centred */
+.tabbar button > svg { align-self: center; }
+.tabbar button[aria-selected=true] { color: var(--text); }
+.tabbar button:not(:disabled):hover { background-color: transparent; border-color: transparent; color: var(--text); }
+.tabbar button:not([aria-selected=true]):not(:disabled):hover { background-color: var(--fill); }
+.tabbar button:not(:disabled):active { background-color: var(--fill-2); transform: none; }
+.tabbar button:focus-visible { outline-offset: -2px; }
+.tabbar .sel { position: absolute; z-index: 0; left: 0; top: 0; height: 28px; width: var(--w, 0); transform: translateX(var(--x, 0)); border-radius: 7px; background: var(--fill-2); pointer-events: none; }
+.tabbar.ready .sel { transition: transform var(--dur-slow) var(--ease), width var(--dur-slow) var(--ease); }
+.tabbar .n { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tabbar .n:empty { display: none; }
+
+/* A page shown as a section of manage.html: the shell draws the wallpaper and the title. */
+html.embed { background: transparent; }
+html.embed body::before, html.embed #tb-grain { display: none; }
+html.embed main > h1, html.embed main > header > h1, html.embed main > .head > h1 { display: none; }
+html.embed main { padding-top: 24px !important; }
+
+/* Switch: a real checkbox (on/off settings). */
+.switch { appearance: none; width: 36px; height: 22px; border-radius: 999px; margin: 0; position: relative; cursor: pointer; flex: none;
+  background-color: var(--fill-2); border: 1px solid var(--edge); transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+.switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 999px; background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform var(--dur-slow) var(--ease), width var(--dur) var(--ease), background-color var(--dur) var(--ease); }
+.switch:not(:disabled):hover { background-color: var(--fill-3); }
+.switch:checked { background-color: var(--tint-fill); border-color: transparent; }
+.switch:checked:not(:disabled):hover { background-color: color-mix(in srgb, var(--tint-fill) 86%, var(--wall)); }
+.switch:checked::after { transform: translateX(14px); background: var(--on-tint); }
+/* pressing stretches the knob toward where it will go */
+.switch:not(:disabled):active::after { width: 19px; }
+.switch:checked:not(:disabled):active::after { transform: translateX(11px); }
+.switch:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Settings-style sections: a title, then one bordered group of rows. Each row has its
+   label and description on the left and its control on the right; .stack rows put a wide
+   control (a text box) under the label. Rows stack on narrow screens. */
+.sect { margin: 0 0 28px; }
+.sect > h2 { font-size: 14px; font-weight: 600; margin: 0 0 8px; padding: 0 2px; }
+.rows { border: 1px solid var(--edge); border-radius: 12px; background: var(--surface); }
+.rows > .item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding: 12px 16px; }
+/* a hairline above every row after the first one shown (Settings search hides rows) */
+.rows > .item:not([hidden]) ~ .item { border-top: 1px solid var(--edge); }
+.rows > .item.stack { grid-template-columns: minmax(0, 1fr); align-items: stretch; }
+.item .lbl { display: block; font-size: 14px; font-weight: 500; line-height: 1.35; cursor: default; }
+.item label.lbl { cursor: pointer; }
+.item .desc { margin: 3px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted); max-width: 62ch; }
+.item .ctl { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.item.stack .ctl { justify-content: stretch; }
+.item.stack .ctl > input { flex: 1; }
+.item .ctl .num { width: 84px; }
+.item .ctl select { width: auto; min-width: 180px; }
+.item .ctl .wide-field { width: 220px; }
+.item .ctl button { white-space: nowrap; }
+.item .tb-progress { margin-top: 10px; max-width: 62ch; }
+.rows textarea[rows="7"] { min-height: 150px; }
+/* the closing row of a page: secondary actions, right-aligned */
+.tb-foot { display: flex; justify-content: flex-end; gap: var(--sp-2); margin-top: var(--sp-5); }
+.sect > .note { margin: 8px 2px 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+@media (max-width: 560px) {
+  /* a lone switch or small number stays beside its label; anything wider goes underneath */
+  .rows > .item:not(:has(> .ctl > :is(.switch, .num):only-child)) { grid-template-columns: minmax(0, 1fr); }
+  .item .ctl { justify-content: flex-start; flex-wrap: wrap; }
+}
+
+/* ---------- Manage pages (Archive, Health, Organize) ----------
+   The same system as Settings: a titled section, then one bordered group of hairline rows. */
+.list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--edge); border-radius: 12px; background: var(--surface); box-shadow: none; overflow: hidden; }
+.list > li { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 12px; align-items: center; min-height: 48px; padding: 8px 12px 8px 14px; border-radius: 0; }
+.list.plain > li { grid-template-columns: minmax(0, 1fr) auto; }
+.list > li + li { border-top: 1px solid var(--edge); }
+.list > li:hover { background-color: color-mix(in srgb, var(--text) 3%, var(--surface)); }
+.list .info { min-width: 0; }
+.list .t { display: block; color: var(--text); font-weight: 500; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list .t:hover { text-decoration-color: currentColor; }
+.list .meta { display: flex; align-items: center; gap: 6px; margin-top: 2px; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list .acts { display: flex; gap: 4px; }
+.list .acts button { padding: 4px 10px; font-size: 12.5px; border-radius: 7px; white-space: nowrap; }
+/* row buttons fade in on hover or keyboard focus, as in the side panel; always shown on touch */
+@media (hover: hover) {
+  .list.hover-acts .acts { opacity: 0; transition: opacity var(--dur) var(--ease); }
+  .list.hover-acts li:hover .acts, .list.hover-acts li:focus-within .acts { opacity: 1; }
+}
+.tag { display: inline-flex; align-items: center; gap: 4px; flex: none; font-size: 11.5px; line-height: 18px; padding: 0 6px; border-radius: 5px; background: var(--fill); color: var(--muted); }
+.tag svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.fav { width: 16px; height: 16px; border-radius: 4px; }
+.fav.letter { display: grid; place-items: center; font-size: 10px; font-weight: 650; color: #fff; }
+.empty-box { display: grid; gap: 6px; justify-items: start; margin: 0; padding: 16px; border: 1px solid var(--edge); border-radius: 12px; background: var(--surface); color: var(--muted); font-size: 13px; line-height: 1.45; }
+.empty-box strong { color: var(--text); font-size: 14px; font-weight: 600; }
+.empty-box p { margin: 0; max-width: 62ch; }
+.page-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 8px; padding: 0 2px; }
+.page-head h2 { margin: 0; font-size: 14px; font-weight: 600; }
+.toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.toolbar select { width: auto; }
+.callout { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 8px; padding: 10px 14px; border: 1px solid var(--edge); border-radius: 10px; background: var(--surface); font-size: 13px; }
+.callout[hidden] { display: none; }
+@media (max-width: 560px) {
+  /* row buttons move under the title instead of squeezing it */
+  .list > li { grid-template-columns: 16px minmax(0, 1fr); }
+  .list > li > .acts { grid-column: 2; }
+  .list.plain > li { grid-template-columns: minmax(0, 1fr); }
+  .list.plain > li > .acts { grid-column: 1; }
+}
+.callout button { flex: none; white-space: nowrap; }
+
+/* =====================================================================
+   Components (ui.js). Every class below starts with tb-. Build pages from
+   these; don't restyle them per page. Catalogue: docs/DESIGN-SYSTEM.md,
+   live states: docs/design-system/gallery.html.
+   ===================================================================== */
+
+:root {
+  /* the side panel's tighter radii, now shared */
+  --r-sheet: 16px;
+  --r-item: 8px;
+  --r-xs: 6px;
+  --dur-fast: .08s;
+  --shadow-float: 0 1px 2px rgba(0, 0, 0, .06), 0 10px 28px rgba(0, 0, 0, .14);
+  /* row heights: s = trees and menus, m = side panel, l = Manage page lists */
+  --row-s: 30px;
+  --row: 36px;
+  --row-l: 40px;
+  /* spacing: 4-point steps */
+  /* one width for the Manage nav and every section in it, so their edges line up */
+  --page-w: 960px;
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
+  /* type */
+  --fs-xs: 12px; --fs-s: 13px; --fs-m: 14px; --fs-l: 16px; --fs-xl: 20px;
+  /* layers */
+  --z-float: 20; --z-pop: 30; --z-toast: 40;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- icon ---------- */
+.tb-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.tb-i.sm { width: 12px; height: 12px; stroke-width: 2; }
+.tb-i.lg { width: 20px; height: 20px; }
+
+/* ---------- buttons ----------
+   .tb-btn takes its five states from the global button rules; variants only change the fill. */
+.tb-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: var(--r-item); font-size: var(--fs-s); font-weight: 500; white-space: nowrap; }
+.tb-btn.sm { height: 28px; padding: 0 10px; }
+.tb-btn > .tb-i { color: var(--muted); transition: color var(--dur) var(--ease); }
+.tb-btn:not(:disabled):hover > .tb-i, .tb-btn.primary > .tb-i { color: currentColor; }
+.tb-btn kbd { margin-left: 2px; }
+.tb-btn.primary kbd { color: inherit; border-color: color-mix(in srgb, var(--cta-text) 35%, transparent); background: none; }
+.tb-btn.quiet { background-color: var(--fill); border-color: transparent; }
+.tb-btn.quiet:not(:disabled):hover { background-color: var(--fill-2); border-color: transparent; }
+.tb-btn.quiet:not(:disabled):active { background-color: var(--fill-3); }
+.tb-btn.link { height: auto; padding: 2px 0; font-size: inherit; }
+
+.tb-ib { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 7px; background: none; color: var(--muted); }
+.tb-ib.sm { width: 24px; height: 24px; border-radius: var(--r-xs); }
+.tb-ib:not(:disabled):hover { background-color: var(--fill-2); color: var(--text); border: 0; }
+.tb-ib:not(:disabled):active { background-color: var(--fill-3); transform: scale(.94); }
+.tb-ib[aria-pressed=true] { background-color: var(--fill-2); color: var(--text); }
+.tb-ib.warn:not(:disabled):hover { color: var(--danger); background-color: color-mix(in srgb, var(--danger) 10%, transparent); }
+.tb-ib:focus-visible { outline-offset: 0; }
+
+/* ---------- fields ---------- */
+.tb-search { position: relative; display: flex; align-items: center; min-width: 0; }
+.tb-search > .tb-i { position: absolute; left: 10px; color: var(--muted); pointer-events: none; transition: color var(--dur) var(--ease); }
+.tb-search:focus-within > .tb-i { color: var(--text); }
+.tb-search input { height: 32px; padding: 0 40px 0 32px; border-radius: var(--r-item); }
+.tb-search input::-webkit-search-cancel-button { display: none; }
+.tb-search kbd { position: absolute; right: 8px; background: none; }
+.tb-search-clear { position: absolute; right: 4px; display: none; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: var(--r-xs); background: none; color: var(--muted); }
+.tb-search-clear .tb-i { width: 14px; height: 14px; }
+.tb-search-clear:not(:disabled):hover { background-color: var(--fill-2); border: 0; color: var(--text); }
+.tb-search.has-text .tb-search-clear { display: grid; }
+.tb-search.has-text kbd { display: none; }
+.seg .n { margin-left: 4px; color: var(--muted); font-weight: 450; font-variant-numeric: tabular-nums; }
+.seg .n:empty { display: none; }
+
+/* ---------- small pieces ---------- */
+.tag.tag-strong, .tag.tag-new { color: var(--text); }
+.tag.tag-new { box-shadow: inset 0 0 0 1px var(--edge-strong); background: none; }
+mark { background: none; color: inherit; font-weight: 650; text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 2px; }
+.tb-chip { display: inline-flex; align-items: center; gap: 4px; max-width: 140px; height: 22px; padding: 0 7px; border: 0; border-radius: 6px; background: var(--fill); color: var(--muted); font-size: var(--fs-xs); }
+.tb-chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tb-chip:not(:disabled):hover { background: var(--fill-2); color: var(--text); border: 0; }
+.tb-progress { height: 3px; border-radius: 2px; background: var(--fill-2); overflow: hidden; }
+.tb-progress i { display: block; height: 100%; border-radius: 2px; background: var(--text); transition: width var(--dur-slow) var(--ease); }
+.tb-flag { width: 5px; height: 5px; border-radius: 99px; background: var(--text); flex: none; }
+
+/* ---------- row: the one list row ----------
+   16px lead | title + meta | side value or hover actions. Densities: .s 30px, .m 36px, .l 40px. */
+.tb-row { position: relative; display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; align-items: center; column-gap: 10px; min-height: var(--row); padding: 0 6px 0 8px; border-radius: var(--r-item); font-size: var(--fs-m); color: var(--text); transition: background-color var(--dur) var(--ease); }
+.tb-row.s { min-height: var(--row-s); font-size: var(--fs-s); column-gap: 6px; }
+.tb-row.l, .tb-row:has(.tb-meta) { min-height: var(--row-l); padding-top: 4px; padding-bottom: 4px; }
+.tb-row:hover { background-color: var(--fill); }
+.tb-row.is-checked { background-color: var(--fill); }
+.tb-row.is-current { background-color: var(--fill-2); }
+.tb-row:focus-visible { outline-offset: -2px; }
+.tb-row.is-muted .tb-title { color: var(--muted); }
+.tb-row.is-muted .fav { opacity: .5; }
+.tb-lead { position: relative; display: grid; place-items: center; width: 16px; height: 16px; color: var(--muted); }
+.tb-lead > input { position: absolute; inset: 0; opacity: 0; transition: opacity var(--dur) var(--ease); }
+.tb-lead > :not(input) { transition: opacity var(--dur) var(--ease); }
+.tb-row:hover .tb-lead.can-check > input, .tb-lead > input:checked, .tb-lead > input:focus-visible, .is-selecting .tb-lead.can-check > input { opacity: 1; }
+.tb-row:hover .tb-lead.can-check > :not(input), .tb-lead:has(> input:checked) > :not(input), .tb-lead:has(> input:focus-visible) > :not(input), .is-selecting .tb-lead.can-check > :not(input) { opacity: 0; }
+.tb-main { display: grid; min-width: 0; }
+.tb-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); font: inherit; text-align: left; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; }
+button.tb-title { padding: 0; border: 0; border-radius: 0; background: none; cursor: pointer; }
+button.tb-title:not(:disabled):hover { background: none; border: 0; }
+:is(a, button).tb-title:hover { text-decoration-color: currentColor; }
+.tb-row.l .tb-title { font-weight: 500; }
+.tb-meta { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12.5px; color: var(--muted); }
+.tb-note { margin-top: 2px; font-size: var(--fs-s); line-height: 1.4; color: var(--muted); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.tb-row:has(.tb-note) { padding-top: 8px; padding-bottom: 8px; }
+.tb-row.wrap { align-items: start; padding-top: 10px; padding-bottom: 10px; }
+.tb-row.wrap .tb-lead { margin-top: 2px; }
+.tb-row.wrap :is(.tb-title, .tb-meta) { white-space: normal; }
+.tb-row.wrap .tb-side { align-self: center; }
+.tb-side { display: grid; justify-items: end; align-items: center; }
+.tb-side > * { grid-area: 1 / 1; }
+.tb-count { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; transition: opacity var(--dur) var(--ease); }
+.tb-acts { display: flex; align-items: center; gap: 2px; opacity: 0; pointer-events: none; transition: opacity var(--dur) var(--ease); }
+.tb-row:is(:hover, :focus-within) .tb-acts { opacity: 1; pointer-events: auto; }
+.tb-row:is(:hover, :focus-within) .tb-count:has(+ .tb-acts) { opacity: 0; }
+@media (hover: none) {
+  .tb-acts { opacity: 1; pointer-events: auto; }
+  .tb-count:has(+ .tb-acts) { display: none; }
+}
+
+/* ---------- list ---------- */
+.tb-list { display: grid; margin: 0; padding: 0; }
+.tb-list.boxed { border: 1px solid var(--edge); border-radius: 12px; background: var(--surface); overflow: hidden; }
+.tb-list.boxed > .tb-row { border-radius: 0; padding-left: 12px; padding-right: 10px; }
+.tb-list.boxed > .tb-row + .tb-row, .tb-list.boxed > .tb-row + .tb-detail, .tb-list.boxed > .tb-detail + .tb-row { border-top: 1px solid var(--edge); }
+.tb-list.boxed > .tb-row:hover { background-color: color-mix(in srgb, var(--text) 3%, var(--surface)); }
+.tb-list.boxed > .tb-row.is-checked { background-color: color-mix(in srgb, var(--text) 5%, var(--surface)); }
+.tb-list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: var(--sp-5) 2px 6px; font-size: var(--fs-s); font-weight: 600; }
+.tb-list-head:first-child { margin-top: 0; }
+.tb-list-head .n { color: var(--muted); font-size: var(--fs-xs); font-weight: 400; font-variant-numeric: tabular-nums; }
+/* an expanded row's extra content (a preview), inside a boxed list */
+.tb-detail { padding: 2px 12px 12px 38px; background: var(--surface); }
+
+/* ---------- tree ---------- */
+.tb-tree { display: grid; gap: 1px; }
+.tb-tree .tb-row { grid-template-columns: 18px minmax(0, 1fr) auto; padding-left: calc(4px + var(--lvl, 0) * 16px); cursor: default; }
+.tb-tree .tb-row[aria-selected=true] { font-weight: 600; }
+.tb-tree .tb-side { display: flex; gap: 6px; }
+.tb-twist { display: grid; place-items: center; width: 18px; height: 18px; padding: 0; border: 0; border-radius: 4px; background: none; color: var(--muted); }
+.tb-twist:not(:disabled):hover { background: var(--fill-2); color: var(--text); border: 0; }
+.tb-twist .tb-i { transition: transform var(--dur) var(--ease); }
+[aria-expanded=true] > .tb-twist .tb-i { transform: rotate(90deg); }
+.tb-twist.leaf { visibility: hidden; }
+
+/* ---------- breadcrumb title ---------- */
+.tb-crumbs { display: flex; align-items: center; gap: var(--sp-3); min-height: 32px; margin: 0 0 var(--sp-3); }
+.tb-crumbs ol { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; flex: 1; min-width: 0; margin: 0; padding: 0; list-style: none; background: none; border: 0; box-shadow: none; }
+.tb-crumbs li { display: flex; align-items: center; min-width: 0; }
+.tb-crumbs li + li::before { content: "›"; margin: 0 4px; color: var(--muted); }
+.tb-crumb { padding: 2px 4px; border: 0; border-radius: 6px; background: none; color: var(--muted); font-size: var(--fs-s); }
+.tb-crumb:not(:disabled):hover { background: var(--fill); color: var(--text); border: 0; }
+.tb-here { padding: 1px 4px; border: 0; border-radius: 6px; background: none; font-size: var(--fs-l); font-weight: 600; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: text; }
+.tb-here:not(:disabled):hover { background: var(--fill); border: 0; }
+.tb-here:disabled { opacity: 1; cursor: default; }
+.tb-here-edit { width: auto; min-width: 12ch; height: 30px; padding: 0 6px; font-size: var(--fs-l); font-weight: 600; }
+.tb-crumbs-acts { display: flex; align-items: center; gap: 4px; flex: none; }
+
+/* ---------- notices ---------- */
+.tb-notices { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+.tb-notice { display: flex; align-items: center; gap: 10px; min-height: var(--row); padding: 0 4px 0 8px; border-radius: var(--r-item); font-size: var(--fs-s); }
+.tb-notice > .tb-i:first-child { color: var(--muted); }
+.tb-notice-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tb-notice.is-toggle { cursor: pointer; transition: background-color var(--dur) var(--ease); }
+.tb-notice.is-toggle:hover { background: var(--fill); }
+.tb-notice.is-toggle:focus-visible { outline-offset: -2px; }
+.tb-notice > .tb-i.sm { color: var(--muted); transition: transform var(--dur) var(--ease); }
+.tb-notice[aria-expanded=true] > .tb-i.sm { transform: rotate(90deg); }
+.tb-notice.is-muted { color: var(--muted); }
+.tb-notice-body { padding: 0 0 4px 26px; }
+
+/* ---------- code block: a snippet to paste elsewhere, with Copy ---------- */
+.tb-code { display: flex; align-items: flex-start; gap: var(--sp-2); min-width: 0; padding: 7px 4px 7px 12px; border-radius: var(--r-item); background: var(--fill); }
+.tb-code pre { flex: 1; min-width: 0; margin: 3px 0 0; font: 12.5px/1.5 ui-monospace, "SF Mono", Menlo, monospace; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--text); }
+.tb-code code { padding: 0; border: 0; background: none; font: inherit; color: inherit; }
+.tb-code .tb-ib { flex: none; }
+
+/* ---------- confirm box: the question before a change, items, a named primary ---------- */
+/* One of a few, inside a row: Keep, Tomorrow, Done. */
+.tb-choice { display: inline-flex; gap: 2px; }
+.tb-choice button { height: 24px; padding: 0 6px; border: 1px solid transparent; border-radius: 6px; background: none; box-shadow: none; color: var(--muted); font-size: var(--fs-xs); font-weight: 500; white-space: nowrap; transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+.tb-choice button:not(:disabled):hover { background-color: var(--fill); color: var(--text); }
+.tb-choice button:not(:disabled):active { background-color: var(--fill-3); }
+.tb-choice button[aria-checked=true] { background-color: var(--fill-2); border-color: var(--edge-strong); color: var(--text); }
+.item .ctl input[type=time] { width: 120px; }
+
+.tb-confirm { display: grid; gap: var(--sp-2); padding: var(--sp-2) 0 var(--sp-3); }
+.tb-confirm-title { margin: 0; padding: 0 8px; font-size: var(--fs-m); font-weight: 600; }
+.tb-confirm > .tb-code { margin: 0 8px; }
+.tb-confirm .tb-list { max-height: 260px; overflow: auto; }
+/* every item starts ticked, so ticked is the resting state here, not a highlight */
+.tb-confirm .tb-row.is-checked { background-color: transparent; }
+.tb-confirm .tb-row.is-checked:hover { background-color: var(--fill); }
+.tb-confirm .tb-row:has(input:not(:checked)) .tb-title { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--muted); }
+.tb-confirm .tb-close-picks .tb-row:has(input:not(:checked)) .tb-title { color: inherit; text-decoration: none; }
+.tb-confirm .tb-close-picks .tb-row:has(input:checked) .tb-title { color: var(--muted); text-decoration: line-through; }
+.tb-confirm-note { margin: 0; padding: 0 8px; font-size: var(--fs-xs); color: var(--muted); }
+.tb-confirm-foot { display: flex; align-items: center; gap: var(--sp-2); padding: 2px 8px 0; }
+
+/* ---------- importer: paste or drop an export, then a preview ---------- */
+.tb-import { display: grid; gap: var(--sp-2); min-width: 0; }
+.tb-import-text { width: 100%; box-sizing: border-box; }
+.tb-import.is-over .tb-import-text { box-shadow: inset 0 0 0 1.5px var(--edge-strong); background-color: var(--fill-2); }
+.tb-import-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+.tb-import-status { margin: 0; font-size: var(--fs-s); color: var(--muted); }
+.tb-import-status:empty { display: none; }
+.tb-import-status.err { color: var(--danger); }
+.tb-import-preview { display: grid; gap: var(--sp-2); min-width: 0; }
+.tb-import-preview:empty { display: none; }
+.tb-import-head { margin: 0; font-size: var(--fs-m); font-weight: 600; }
+.tb-import-opt { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-m); cursor: pointer; }
+
+/* ---------- motion: things that open ---------- */
+.tb-reveal:not([hidden]) { animation: tb-reveal var(--dur-slow) var(--ease); }
+@keyframes tb-reveal { from { opacity: 0; translate: 0 -4px; } }
+
+/* ---------- popover and menu (floats; denser glass so text under it never shows through) ---------- */
+.tb-pop { position: fixed; z-index: var(--z-pop); min-width: 200px; max-width: calc(100vw - 16px); max-height: min(420px, calc(100vh - 16px)); overflow: auto; padding: 6px; border-radius: 12px; color: var(--text); animation: tb-pop var(--dur) var(--ease);
+  /* denser than control glass: a menu sits over text and must stay readable (same as the panel's More menu) */
+  border: 1px solid var(--edge); background: color-mix(in srgb, var(--wall) 96%, transparent); box-shadow: 0 12px 32px rgba(0, 0, 0, .18); }
+@keyframes tb-pop { from { opacity: 0; scale: .97; } }
+.tb-pop.is-closing { opacity: 0; scale: .98; pointer-events: none; transition: opacity var(--dur) var(--ease), scale var(--dur) var(--ease); }
+.tb-menu { display: grid; }
+.tb-menu-item { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 32px; padding: 0 8px; border: 0; border-radius: var(--r-xs); background: none; font-size: var(--fs-s); text-align: left; }
+.tb-menu-item > .tb-i { color: var(--muted); }
+.tb-menu-item:not(:disabled):hover, .tb-menu-item:focus-visible, .tb-menu-item.is-active { background: var(--fill-2); border: 0; outline: none; }
+.tb-menu-item:not(:disabled):hover > .tb-i, .tb-menu-item.is-active > .tb-i { color: var(--text); }
+.tb-menu-item kbd { margin-left: auto; padding: 0; border: 0; background: none; font-size: var(--fs-xs); color: var(--muted); }
+.tb-menu-item:has(kbd) > span { padding-right: 16px; }
+.tb-menu-item.danger { color: var(--danger); }
+.tb-menu-sep { height: 1px; margin: 6px 4px; border: 0; background: var(--edge); }
+.tb-menu-label { margin: 6px 8px 4px; font-size: var(--fs-xs); font-weight: 600; color: var(--muted); }
+.tb-pop input[type=search] { height: 30px; margin: 0 0 6px; padding: 0 10px; font-size: var(--fs-s); border-radius: 7px; }
+.tb-menu-item .two { display: grid; min-width: 0; }
+.tb-menu-item .two small { font-size: var(--fs-xs); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tb-menu-item.tall { min-height: 40px; padding-top: 3px; padding-bottom: 3px; }
+
+/* ---------- selection bar (control glass, floats) ---------- */
+.tb-selbar { position: fixed; left: 50%; bottom: var(--sp-4); z-index: var(--z-float); display: flex; align-items: center; gap: 2px; max-width: calc(100vw - 16px); padding: 6px; border-radius: 14px; translate: -50% 0;
+  transition: opacity var(--dur-slow) var(--ease), translate var(--dur-slow) var(--ease), display var(--dur-slow) allow-discrete; }
+.tb-selbar[hidden] { display: none !important; opacity: 0; translate: -50% 10px; }
+@starting-style { .tb-selbar:not([hidden]) { opacity: 0; translate: -50% 10px; } }
+.tb-selbar-count { display: inline-flex; align-items: center; gap: 6px; padding: 0 6px 0 4px; font-size: var(--fs-s); font-weight: 600; white-space: nowrap; }
+.tb-selbar-count b { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 6px; display: grid; place-items: center; background: var(--fill-2); font-variant-numeric: tabular-nums; }
+.tb-selbar-div { width: 1px; height: 20px; margin: 0 4px; background: var(--edge); }
+.tb-selbar-act { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px; border: 0; border-radius: var(--r-item); background: none; font-size: var(--fs-s); white-space: nowrap; }
+.tb-selbar-act:not(:disabled):hover { background: var(--fill-2); border: 0; }
+.tb-selbar-act:not(:disabled):active { background: var(--fill-3); }
+.tb-selbar-act > .tb-i { color: var(--muted); }
+
+/* ---------- toast: one per page, ink on the page's opposite ---------- */
+.tb-toast { position: fixed; left: 50%; bottom: 16px; z-index: var(--z-toast); display: flex; align-items: center; gap: 10px; width: max-content; max-width: calc(100% - 24px); min-height: 36px; padding: 6px 6px 6px 12px; border-radius: var(--r-panel); font-size: var(--fs-s);
+  opacity: 0; transform: translate(-50%, 6px); pointer-events: none; transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
+.tb-toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.tb-toast.err { background: var(--danger); color: var(--on-danger, #fff); }
+.tb-toast span { min-width: 0; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-height: 1.35; overflow-wrap: anywhere; }
+.tb-toast button { flex: none; height: 24px; padding: 0 8px; border: 0; border-radius: var(--r-xs); font-size: var(--fs-xs); font-weight: 600; color: inherit; background-color: color-mix(in srgb, var(--wall) 18%, transparent); }
+.tb-toast button:not(:disabled):hover { background-color: color-mix(in srgb, var(--wall) 30%, transparent); border: 0; }
+.tb-toast button:not(:disabled):active { background-color: color-mix(in srgb, var(--wall) 40%, transparent); }
+.has-selbar .tb-toast { bottom: 76px; }
+/* The list's footer holds the one primary; a toast never covers it. */
+body.has-foot .tb-toast { bottom: 76px; }
+
+/* ---------- page layouts ---------- */
+/* A Manage section: centred column, a head row (search + view switch), then the view. */
+.tb-page { max-width: var(--page-w); margin: 0 auto; padding: var(--sp-5) var(--sp-4) 96px; }
+.tb-head { display: flex; align-items: center; gap: var(--sp-3); margin: 0 0 var(--sp-2); }
+.tb-head > .tb-search { flex: 1; }
+.tb-head > .seg { flex: none; width: 300px; }
+.tb-lede { margin: 0 2px var(--sp-4); font-size: var(--fs-s); color: var(--muted); }
+/* Tree on the left, on the wall, sticky; a hairline; the content on the right. No outer box. */
+.tb-split { display: grid; grid-template-columns: 248px minmax(0, 1fr); align-items: start; }
+.tb-split > .tb-aside { position: sticky; top: var(--sp-4); max-height: calc(100vh - 32px); overflow: auto; padding-right: var(--sp-3); border-right: 1px solid var(--edge); }
+.tb-split > .tb-content { min-width: 0; padding-left: var(--sp-5); }
+.tb-back { display: none; }
+@media (max-width: 760px) {
+  .tb-head { flex-wrap: wrap; }
+  .tb-head > .seg { width: 100%; }
+  .tb-split { grid-template-columns: minmax(0, 1fr); }
+  .tb-split > .tb-aside { position: static; max-height: none; padding: 0; border: 0; }
+  .tb-split.is-open > .tb-aside, .tb-split:not(.is-open) > .tb-content { display: none; }
+  .tb-split > .tb-content { padding-left: 0; }
+  .tb-back { display: inline-flex; }
+}
+
+/* List rows on every page: quiet hover, a deeper fill while pressed. */
+li { transition: background-color var(--dur) var(--ease); }
+
+/* ---------- accessibility ---------- */
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --control-glass: #f4f4f5;
+    --content-glass: #ffffff;
+    --field-glass: #f1f1f2;
+  }
+  body::before, #tb-grain { display: none; }
+  ul, fieldset, .tile, .card, .bulk, .save, .notice, .ws-card, .glass, header.glass, .seg, .bar {
+  }
+}
+@media (prefers-reduced-transparency: reduce) and (prefers-color-scheme: dark) {
+  :root { --control-glass: #17181b; --content-glass: #0f1012; --field-glass: #1c1d20; }
+}
+@media (prefers-contrast: more) {
+  :root { --edge: rgba(16, 22, 31, .45); --muted: rgba(16, 22, 31, .82); --content-glass: rgba(255, 255, 255, .9); }
+}
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root { --edge: rgba(255, 255, 255, .5); --muted: rgba(238, 242, 247, .86); --content-glass: rgba(16, 20, 28, .92); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after, ::details-content { transition: none !important; animation: none !important; }
+}
+
+
+/* Solid surfaces; what floats gets one edge and a soft shadow. A menu inside a popover is part of it,
+   not a second box. */
+.tb-toast, .tb-pop, .tb-menu { background: var(--raised); border: 1px solid var(--edge-strong); box-shadow: var(--shadow-float); }
+.tb-pop .tb-menu { background: none; border: 0; box-shadow: none; }
+.tb-pop:has(> .tb-menu) { width: max-content; min-width: 168px; padding: 4px; border-color: var(--edge); border-radius: var(--r-panel); }
+.tb-toast { color: var(--text); }
+.tb-toast button { background-color: var(--fill); }
+.tb-toast button:not(:disabled):hover { background-color: var(--fill-2); }
+.tb-toast button:not(:disabled):active { background-color: var(--fill-3); }
+.tb-toast.err { background: var(--danger); color: var(--on-tint); border-color: transparent; }
+.fav { border-radius: 4px; }
+/* A dark favicon needs light behind it on a dark surface. */
+@media (prefers-color-scheme: dark) { img.fav { background: none; filter: drop-shadow(0 0 1px rgb(255 255 255 / .55)); } }
+[data-theme="dark"] img.fav { background: none; filter: drop-shadow(0 0 1px rgb(255 255 255 / .55)); }
+.fav.letter { color: #fff; }
+mark { background: var(--butter); color: #24211c; border-radius: 2px; }
+
+/* A page that is only the Simmer app: first run, morning page, the list. */
+.tb-screen { min-height: 100vh; background: var(--surface); }
+.tb-screen.panel { height: 100vh; display: flex; flex-direction: column; }
+.tb-screen.panel .tb-app { flex: 1; border: 0; border-radius: 0; }
+.tb-screen.page { display: grid; justify-items: center; align-content: start; padding: 48px 16px; background: var(--wall); }
+.tb-screen.page .tb-app { width: 100%; max-width: 680px; }
+.tb-brand .tools { float: right; margin: -4px -6px 0 0; color: inherit; }
+.tb-actions-col { display: grid; gap: 6px; }
+.tb-rest-link { background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; font: inherit; cursor: pointer; }
+.tb-advanced-head { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--edge-strong); font-size: 20px; font-weight: 600; }
+.tb-advanced-head + p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+/* ---------- Simmer: the list, first run, morning page ---------- */
+
+/* The surface everything sits on */
+.tb-app { display: flex; flex-direction: column; min-height: 0; background: var(--surface); color: var(--text); border: 1px solid var(--edge); border-radius: var(--r-panel); overflow: hidden; position: relative; }
+.tb-app-scroll { flex: 1; min-height: 0; overflow-y: auto; }
+
+/* Brand moment: wordmark and one headline. The only place the display font and butter appear. */
+.tb-brand { position: relative; isolation: isolate; overflow: hidden; background: var(--brand-bg); color: var(--brand-text); padding: 12px 16px 16px; transition: padding var(--dur-slow) var(--ease); }
+.tb-brand .tools { position: relative; z-index: 1; }
+.tb-brand .mark { font: 400 15px/1 var(--font-display); }
+.tb-brand h1 { margin: 10px 0 0; font: 400 var(--fs-display-s)/1.12 var(--font-display); transition: font-size var(--dur-slow) var(--ease), margin var(--dur-slow) var(--ease); }
+.tb-brand .sub { display: grid; grid-template-rows: 1fr; transition: grid-template-rows var(--dur-slow) var(--ease), opacity var(--dur) var(--ease); }
+.tb-brand .sub > p { min-height: 0; overflow: hidden; }
+.tb-brand p { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+/* The simmer: a butter glow low on the right with bubbles rising through it (simmer() in ui.js moves
+   them, then lets them settle). At rest only the glow shows. */
+.tb-simmer { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.tb-simmer .heat { position: absolute; right: -60px; bottom: -70px; width: 240px; height: 140px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--butter) var(--heat), transparent), transparent); }
+.tb-simmer .bub { position: absolute; bottom: -18px; border-radius: 50%; background: var(--butter); opacity: 0; }
+.tb-brand.is-large .tb-simmer .heat { width: 420px; height: 220px; right: -90px; bottom: -110px; }
+/* The headline changed (a count went down): it rolls up into place instead of swapping. */
+.tb-brand h1.is-changed { animation: tb-roll var(--dur-slow) var(--ease); }
+.tb-brand .sub.is-changed { animation: tb-rise var(--dur-slow) var(--ease) 40ms backwards; }
+@keyframes tb-roll { from { opacity: 0; translate: 0 .4em; } }
+@keyframes tb-rise { from { opacity: 0; translate: 0 6px; } }
+/* Scrolled: the headline folds to one small line and the search box takes an edge. */
+.tb-app.is-scrolled .tb-brand { padding-bottom: 12px; }
+.tb-app.is-scrolled .tb-brand h1 { margin-top: 6px; font-size: var(--fs-l); }
+.tb-app.is-scrolled .tb-brand .sub { grid-template-rows: 0fr; opacity: 0; }
+.tb-app-search { transition: box-shadow var(--dur) var(--ease); }
+.tb-app.is-scrolled .tb-app-search { box-shadow: 0 1px 0 var(--edge); position: relative; z-index: 1; }
+/* Opening the panel, once: the headline rolls in, then the rows rise in turn. --since carries it on
+   through a repaint that lands part way. */
+.tb-app.is-arriving .tb-brand h1 { animation: tb-roll var(--dur-slow) var(--ease) calc(0ms - var(--since, 0ms)) backwards; }
+.tb-app.is-arriving .tb-brand .sub { animation: tb-rise var(--dur-slow) var(--ease) calc(40ms - var(--since, 0ms)) backwards; }
+.tb-app.is-arriving .tb-app-scroll > * { animation: tb-rise var(--dur-slow) var(--ease) calc(80ms + var(--i, 0) * 28ms - var(--since, 0ms)) backwards; }
+@media (prefers-reduced-motion: reduce) {
+  .tb-brand, .tb-brand h1, .tb-brand .sub { transition: none; }
+  .tb-brand h1.is-changed, .tb-brand .sub.is-changed, .tb-app.is-arriving * { animation: none !important; }
+}
+.tb-brand.is-large { padding: 28px 32px 32px; }
+.tb-brand.is-large .mark { font-size: 20px; }
+.tb-brand.is-large h1 { margin-top: 28px; font-size: var(--fs-display-l); }
+.tb-brand.is-large p { font-size: 15px; margin-top: 10px; }
+/* A headline in Japanese has no display face, so it's the system font at weight. */
+.tb-brand h1:lang(ja) { font-family: var(--font); font-weight: 700; }
+
+.tb-app-search { padding: 8px 16px; }
+.tb-app-search-wait { padding-top: 4px; }
+.tb-app-foot { padding: 12px 16px; border-top: 1px solid var(--edge); background: var(--surface); }
+.tb-app-foot .tb-btn { width: 100%; justify-content: center; height: 40px; }
+
+/* Favicons, each with its own space */
+.tb-faces { display: flex; align-items: center; gap: 6px; min-width: 0; color: var(--muted); font-size: 12px; }
+.tb-faces .only { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tb-faces .fav { flex: none; width: 16px; height: 16px; }
+
+/* Spacing in the list: one 16px margin. Names, tab icons, labels and Recently all start on it. */
+
+/* Opening things in the list: no chevron. The row, or a "3 more" line, opens it, and the fold beneath
+   eases its height open and shut over --dur-slow; reduced motion skips it. */
+.tb-fold { display: grid; grid-template-rows: 1fr; }
+.tb-fold-inner { min-height: 0; overflow: hidden; }
+.tb-disc.is-opening > .tb-fold { animation: tb-fold var(--dur-slow) var(--ease); }
+.tb-disc.is-closing > .tb-fold { animation: tb-fold-shut var(--dur) var(--ease) forwards; }
+@keyframes tb-fold { from { grid-template-rows: 0fr; opacity: 0; } }
+@keyframes tb-fold-shut { to { grid-template-rows: 0fr; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .tb-disc > .tb-fold { animation: none !important; } }
+
+/* Rows inside the list: the whole row is the target, it fills on hover, and the ring goes round
+   the row, not the words. Titles here are buttons, so they don't underline like links. */
+.tb-app .tb-row:has(> .tb-main > button.tb-title) { cursor: pointer; }
+.tb-app .tb-row > .tb-main > button.tb-title::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.tb-app .tb-row > .tb-side { position: relative; z-index: 1; }
+.tb-app .tb-row > .tb-main > button.tb-title:hover { text-decoration-color: transparent; }
+.tb-app .tb-row > .tb-main > .tb-title:focus-visible { outline: none; }
+.tb-app .tb-row:has(> .tb-main > .tb-title:focus-visible) { outline: 2px solid var(--ring); outline-offset: -2px; }
+.tb-app .tb-row:has(> .tb-main > .tb-title:focus-visible) .tb-acts { opacity: 1; pointer-events: auto; }
+
+/* A task: name and count, then its first tabs. A tab row's icon sits on the 16px margin, under the
+   name's first letter, inset 8px from the panel so its hover fill has room to round. */
+.tb-task { padding: 12px 0 8px; border-top: 1px solid var(--edge); }
+/* Leaving (put away, brought back): the row closes to nothing, then the list redraws without it. */
+.tb-task.is-leaving { overflow: hidden; height: 0 !important; padding-top: 0; padding-bottom: 0; border-top-color: transparent; opacity: 0; transition: height var(--dur-slow) var(--ease), padding var(--dur-slow) var(--ease), opacity var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+.tb-task:first-child { border-top: 0; }
+.tb-task-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px; min-height: 32px; padding: 0 16px; }
+.tb-task-head > .tb-task-name { padding: 6px 0; }
+.tb-task-end { min-height: 32px; }
+.tb-task-name { justify-self: start; min-width: 0; padding: 0; border: 0; border-radius: var(--r-xs); background: none; color: var(--text); font-size: var(--fs-m); font-weight: 600; line-height: 20px; text-align: left; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; overflow-wrap: anywhere; white-space: normal; }
+button.tb-task-name { cursor: pointer; }
+/* Busy disables the name, but it stays readable: the slot beside it says what's happening. */
+button.tb-task-name:disabled { opacity: 1; cursor: default; }
+.tb-task-name.tb-title, .tb-task-name.tb-title:hover { text-decoration: none; }
+button.tb-task-name:not(:disabled):hover { background: none; border: 0; }
+button.tb-task-name:not(:disabled):active { transform: none; opacity: .7; }
+.tb-task-name:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: var(--r-xs); }
+/* The end of the name line is a fixed slot: the count at rest, two icon buttons on hover or focus.
+   Names wrap before it, so nothing ever lies over a name. */
+.tb-task-end { display: grid; justify-items: end; align-items: center; width: 52px; }
+.tb-task-end > * { grid-area: 1 / 1; }
+/* The count fades out under the buttons; once faded it's still painted above them, so it never takes the click. */
+.tb-task-count { pointer-events: none; font-size: var(--fs-xs); color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; transition: opacity var(--dur) var(--ease); }
+.tb-task-acts { position: relative; z-index: 1; display: flex; gap: 4px; opacity: 0; pointer-events: none; transition: opacity var(--dur) var(--ease); }
+.tb-task:is(:hover, .is-hover) .tb-task-acts, .tb-task-head:has(:focus-visible) .tb-task-acts, .tb-task.is-focus .tb-task-acts { opacity: 1; pointer-events: auto; }
+.tb-task:is(:hover, .is-hover) .tb-task-count, .tb-task-head:has(:focus-visible) .tb-task-count, .tb-task.is-focus .tb-task-count { opacity: 0; }
+.tb-task.is-focus .tb-task-name { outline: 2px solid var(--ring); outline-offset: 2px; }
+@media (hover: none) {
+  .tb-task-acts { opacity: 1; pointer-events: auto; }
+  .tb-task-count { display: none; }
+}
+.tb-task-lines, .tb-task .tb-fold-inner { padding: 0 8px; }
+.tb-task-lines { margin-top: 0; }
+/* Busy: the slot says what's happening, at full contrast, instead of dimming the task. */
+.tb-task-end:has(.tb-task-doing) { width: auto; }
+.tb-task-doing { font-size: var(--fs-xs); color: var(--muted); white-space: nowrap; }
+:is(.tb-task-lines, .tb-task .tb-fold-inner) > .tb-row, .tb-stay .tb-fold-inner > .tb-row { grid-template-columns: 16px minmax(0, 1fr) 0; min-height: 32px; padding: 0 8px; border-radius: var(--r-item); font-size: var(--fs-s); }
+/* A tab row's action lies over the end of its title on hover, so titles use the full width at rest. */
+:is(.tb-task-lines, .tb-task .tb-fold-inner, .tb-stay .tb-fold-inner) > .tb-row > .tb-side { position: absolute; right: 4px; top: 50%; translate: 0 -50%; }
+:is(.tb-task-lines, .tb-task .tb-fold-inner, .tb-stay .tb-fold-inner) > .tb-row .tb-acts { padding-left: 24px; background: linear-gradient(to right, transparent, var(--row-hover) 20px); }
+:is(.tb-task-lines, .tb-task .tb-fold-inner) > .tb-row:hover, .tb-stay .tb-fold-inner > .tb-row:hover { background-color: var(--fill); }
+.tb-task.is-away .tb-row:hover { background-color: transparent; }
+/* "3 more", with those tabs' sites: the only sign that a task opens. */
+.tb-task-more { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 0 8px; min-height: 32px; padding: 0 8px; border: 0; border-radius: var(--r-item); background: none; color: var(--muted); font-size: var(--fs-xs); }
+.tb-task-more:not(:disabled):hover { background: var(--fill); border: 0; color: var(--text); }
+.tb-task-more:not(:disabled):active { background: var(--fill-2); transform: none; }
+.tb-task-more:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+.tb-task-more .tb-faces { gap: 4px; }
+.tb-task-more .tb-faces .fav { width: 14px; height: 14px; }
+.tb-task.is-busy .tb-task-more, .tb-task.is-busy .tb-row { pointer-events: none; }
+.tb-task .tb-name-edit { width: 100%; height: 32px; margin-left: -8px; padding-left: 8px; font-weight: 600; font-size: var(--fs-m); }
+
+/* Section labels inside the list */
+.tb-app-label { display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 0 16px; border: 0; background: none; color: var(--text); font: 600 13px/1.4 var(--font); text-align: left; }
+button.tb-app-label { cursor: pointer; transition: background var(--dur) var(--ease); }
+button.tb-app-label:not(:disabled):hover { background: var(--fill); }
+button.tb-app-label:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+.tb-stay-head { justify-content: flex-start; gap: 12px; min-height: 40px; padding: 0 16px; }
+.tb-stay .tb-fold-inner { padding: 0 8px; }
+.tb-stay .tb-fold-inner > :last-child { margin-bottom: 8px; }
+.tb-stay-head .grow { flex: 1; }
+.tb-stay { border-top: 1px solid var(--edge); }
+
+/* Recently: the last thing Simmer did, with its Undo in view. The clock opens everything else. */
+.tb-recent { display: flex; align-items: center; gap: 10px; padding: 8px 12px 8px 16px; }
+.tb-recent > .tb-log { flex: 1; min-width: 0; }
+.tb-recent .tb-log .text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tb-recent > .tb-ib { flex: none; }
+.tb-recent.is-fresh .tb-log { animation: tb-rise var(--dur-slow) var(--ease); }
+.tb-when { flex: none; color: var(--muted); font-size: 12px; }
+/* An action: its words, the time beneath, Undo at the end. */
+.tb-log { display: flex; align-items: center; gap: 10px; }
+.tb-log .what { flex: 1; min-width: 0; display: grid; gap: 1px; font-size: var(--fs-s); line-height: 18px; }
+.tb-log .text { overflow-wrap: anywhere; }
+.tb-log.is-undone .text { color: var(--muted); text-decoration: line-through; }
+.tb-log .tb-btn { flex: none; }
+
+/* Everything Simmer did: a view that slides over the list from the right, with Back at its top. */
+.tb-sheet { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; background: var(--surface); }
+.tb-sheet.is-opening { animation: tb-slide-in var(--dur-slow) var(--ease); }
+.tb-sheet.is-closing { animation: tb-slide-out var(--dur) var(--ease) forwards; pointer-events: none; }
+@keyframes tb-slide-in { from { opacity: 0; translate: 32px 0; } }
+@keyframes tb-slide-out { to { opacity: 0; translate: 32px 0; } }
+.tb-sheet-head { display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 16px 0 10px; border-bottom: 1px solid var(--edge); }
+.tb-sheet-head h2 { flex: 1; margin: 0; font-size: var(--fs-l); font-weight: 600; }
+.tb-sheet-scroll { flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 12px; }
+.tb-sheet-list > .tb-log { padding: 8px 12px 8px 16px; }
+.tb-sheet-list > .tb-log + .tb-log { border-top: 1px solid var(--edge); }
+.tb-sheet-end { margin: 0; padding: 12px 16px 0; font-size: 12px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .tb-sheet, .tb-recent.is-fresh .tb-log { animation: none !important; } }
+
+/* One question at most */
+.tb-ask { display: grid; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--edge); font-size: var(--fs-s); }
+.tb-ask .text { min-width: 0; overflow-wrap: anywhere; line-height: 1.45; }
+.tb-ask .acts { display: flex; align-items: center; gap: 8px; }
+.tb-ask .acts .grow { flex: 1; }
+.tb-ask .acts .link { color: var(--muted); font-size: var(--fs-xs); }
+
+/* Loading: quiet shapes, never a spinner over content */
+.tb-skel { display: block; height: 10px; border-radius: var(--r-xs); background: var(--fill-2); }
+.tb-skel.w1 { width: 62%; }
+.tb-skel.w2 { width: 38%; margin-top: 8px; height: 8px; }
+.tb-skel-task { padding: 12px 16px 8px; border-top: 1px solid var(--edge); }
+.tb-skel-task:first-child { border-top: 0; }
+.tb-skel.name { height: 12px; margin: 10px 0 10px; }
+.tb-skel-line { display: flex; align-items: center; gap: 10px; height: 32px; }
+.tb-skel-line > .tb-skel { height: 10px; }
+.tb-skel.dot { flex: none; width: 16px; height: 16px; border-radius: 50%; }
+
+/* A plain message in place of the list */
+.tb-app-empty { padding: 24px 16px; }
+.tb-app-empty strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.tb-app-empty p { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+
+/* Reading a typed time before it's used */
+.tb-when-input { padding: 10px 12px 12px; display: grid; gap: 8px; border-top: 1px solid var(--edge); }
+.tb-when-input .res { font-size: 13px; }
+.tb-when-input .res.no { color: var(--danger); }
+.tb-when-input .res.ok { color: var(--muted); }
+.tb-when-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+
+/* Morning page */
+.tb-morning { max-width: 680px; }
+.tb-morning .tb-task > .tb-row { min-height: 64px; padding-left: 32px; padding-right: 24px; }
+.tb-morning .tb-task > .tb-row .tb-title { font-size: 16px; }
+.tb-morning .rest { padding: 14px 32px 24px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--edge); }
+
+/* Shortcut reference */
+.tb-keys { display: grid; grid-template-columns: minmax(0, 1fr) 110px 170px; gap: 0 16px; align-items: stretch; font-size: 13px; }
+.tb-keys > * { display: flex; align-items: center; }
+.tb-keys > * { padding: 7px 0; border-top: 1px solid var(--edge); }
+.tb-keys .head { font-weight: 600; font-size: 12px; color: var(--muted); border-top: 0; }
+.tb-keys .keys { display: flex; gap: 4px; justify-content: flex-end; }
+

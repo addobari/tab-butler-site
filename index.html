@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simmer: remembers what your tabs were for</title>
+<meta name="description" content="Simmer turns your pile of tabs into a short list of what you're in the middle of. Clear your window, then bring a whole task back in one click. Free for Chrome, no account.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ece8df" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Simmer: remembers what your tabs were for">
+<meta property="og:description" content="A short list of what you're in the middle of. Clear your window, and bring a whole task back in one click.">
+<meta property="og:image" content="https://addobari.github.io/tab-butler-site/share.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-128.png">
+<link rel="preload" href="fonts/Caprasimo-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="site.css">
+<script>
+  // Motion runs only when it's allowed and scripts run; otherwise every part of the page is simply there.
+  document.documentElement.classList.add("js");
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("arrive");
+</script>
+<script src="site.js" defer></script>
+</head>
+<body>
+<!-- The Chrome Web Store link appears five times below (search for chromewebstore). The screens in shots/
+     and the live panel in app/ come from `npm run site-art` in the extension repo. -->
+
+<header class="masthead">
+  <a class="name" href="./"><img src="logo.svg" alt="" width="30" height="30">Simmer</a>
+  <nav aria-label="Sections">
+    <a href="#how">How it works</a>
+    <a href="#questions">Questions</a>
+  </nav>
+  <a class="btn small" href="https://chromewebstore.google.com/search/Simmer">Add to Chrome</a>
+</header>
+
+<main>
+  <section class="wrap hero" id="hero">
+    <div class="hero-copy">
+      <div class="headline" id="headline">
+        <div class="simmer" aria-hidden="true">
+          <i style="left:22%;width:12px;height:12px;animation-delay:2.2s"></i>
+          <i style="left:40%;width:7px;height:7px;animation-delay:3.3s"></i>
+          <i style="left:54%;width:16px;height:16px;animation-delay:2.7s"></i>
+          <i style="left:68%;width:9px;height:9px;animation-delay:4.1s"></i>
+          <i style="left:34%;width:10px;height:10px;animation-delay:4.8s"></i>
+        </div>
+        <h1 id="title"><span class="beat">Every open tab</span> <span class="beat">is a thought you haven't finished.</span></h1>
+      </div>
+      <p class="lead">Simmer remembers what your tabs were for. It turns the pile into a short list of what you're in the middle of, clears your window, and brings a whole task back in one click.</p>
+      <div class="cta">
+        <a class="btn" href="https://chromewebstore.google.com/search/Simmer">Add to Chrome, it's free</a>
+        <p class="small-print">No account. Your tabs stay in your browser.</p>
+      </div>
+    </div>
+    <figure class="live" id="live-figure">
+      <div class="live-frame">
+        <iframe id="live" src="app/list.html?shot=play" title="Simmer's side panel, playing on demo tabs" loading="eager"></iframe>
+      </div>
+      <figcaption>The real side panel, running on demo tabs. Click anything to try it.</figcaption>
+    </figure>
+  </section>
+
+  <!-- How it works: one step at a time, each a short video of the real extension on demo tabs (videos/, from
+       `npm run site-video`). On wide screens the video beside the steps stays put and changes as each step
+       comes up; on narrow ones each step plays its own. -->
+  <section class="wrap walk" id="how">
+    <div class="walk-head reveal">
+      <h2>A day with Simmer</h2>
+      <p>From the pile to a clear window and back, in four moments.</p>
+    </div>
+    <div class="walk-body">
+      <ol class="steps">
+        <li class="step" data-scene="0">
+          <div class="step-text">
+            <figure class="photo step-photo"><img src="photos/hands-pot.jpg" alt="Hands adding ingredients to a pot on the stove" loading="lazy" width="1000" height="667"></figure>
+            <p class="when">The first minute</p>
+            <h3>Fifteen tabs become five things</h3>
+            <p>Simmer reads the tabs you already have and sorts them by what they're for. You don't make groups, write rules or file anything. Nothing changes until you press Start.</p>
+          </div>
+          <figure class="scene">
+            <div class="shot"><video class="clip" muted loop playsinline preload="none" width="560" height="700" poster="videos/first-light.jpg" data-dark-poster="videos/first-dark.jpg" aria-label="Simmer's first run: the open tabs become 4 things, then Put 14 tabs away clears the window"><source src="videos/first-dark.mp4" type="video/mp4" media="(prefers-color-scheme: dark)"><source src="videos/first-light.mp4" type="video/mp4"></video>
+            <svg class="sticker s-sort" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="58" class="badge"/>
+              <g class="strip">
+                <rect x="14" y="44" width="8" height="12" rx="2" style="--c:#d98a55;--d:0"/><rect x="24" y="44" width="8" height="12" rx="2" style="--c:#5b78b5;--d:1"/>
+                <rect x="34" y="44" width="8" height="12" rx="2" style="--c:#d98a55;--d:2"/><rect x="44" y="44" width="8" height="12" rx="2" style="--c:#5a8f6a;--d:3"/>
+                <rect x="54" y="44" width="8" height="12" rx="2" style="--c:#5b78b5;--d:4"/><rect x="64" y="44" width="8" height="12" rx="2" style="--c:#5a8f6a;--d:5"/>
+                <rect x="74" y="44" width="8" height="12" rx="2" style="--c:#d98a55;--d:6"/><rect x="84" y="44" width="8" height="12" rx="2" style="--c:#5b78b5;--d:7"/>
+                <rect x="94" y="44" width="8" height="12" rx="2" style="--c:#5a8f6a;--d:8"/>
+              </g>
+              <g class="rows">
+                <rect x="30" y="66" width="60" height="7" rx="3.5" style="--c:#d98a55;--d:0"/>
+                <rect x="30" y="77" width="44" height="7" rx="3.5" style="--c:#5b78b5;--d:1"/>
+                <rect x="30" y="88" width="52" height="7" rx="3.5" style="--c:#5a8f6a;--d:2"/>
+              </g>
+            </svg></div>
+            <figcaption>Fifteen tabs, five things.</figcaption>
+          </figure>
+        </li>
+        <li class="step" data-scene="1">
+          <div class="step-text">
+            <figure class="photo step-photo"><img src="photos/low-flame.jpg" alt="A pot on a low blue flame in a dark kitchen" loading="lazy" width="1000" height="667"></figure>
+            <p class="when">Done for now</p>
+            <h3>Put it on the back burner</h3>
+            <p>Its tabs close and your window clears. Every tab is saved before it closes, and one click brings the whole task back together, in its group, where you left it.</p>
+          </div>
+          <figure class="scene panel">
+            <div class="shot"><video class="clip" muted loop playsinline preload="none" width="420" height="720" poster="videos/away-light.jpg" data-dark-poster="videos/away-dark.jpg" aria-label="The side panel: Kyoto trip goes on the back burner, then comes back with one click"><source src="videos/away-dark.mp4" type="video/mp4" media="(prefers-color-scheme: dark)"><source src="videos/away-light.mp4" type="video/mp4"></video>
+            <svg class="sticker s-pot" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="58" class="badge"/>
+              <rect class="drop" x="48" y="20" width="24" height="14" rx="3"/>
+              <path class="steam" style="--d:0" d="M48 52c-4-5 4-8 0-14"/>
+              <path class="steam" style="--d:1" d="M60 50c-4-5 4-8 0-14"/>
+              <path class="steam" style="--d:2" d="M72 52c-4-5 4-8 0-14"/>
+              <path class="pot" d="M30 60h60v14a18 18 0 0 1-18 18H48a18 18 0 0 1-18-18z"/>
+              <path class="pot-rim" d="M26 60h68"/>
+            </svg></div>
+            <figcaption>Kyoto trip, on the back burner.</figcaption>
+          </figure>
+        </li>
+        <li class="step" data-scene="2">
+          <div class="step-text">
+            <figure class="photo step-photo"><img src="photos/morning-coffee.jpg" alt="A steaming cup of coffee in the winter sun" loading="lazy" width="1000" height="667"></figure>
+            <p class="when">Next morning</p>
+            <h3>Start where you left off</h3>
+            <p>Once a day, Simmer can open a short list of what you were on yesterday. Pick one thing up, or leave them all where they are. Mail, chat and calendars stay open by themselves.</p>
+          </div>
+          <figure class="scene">
+            <div class="shot"><video class="clip" muted loop playsinline preload="none" width="560" height="700" poster="videos/morning-light.jpg" data-dark-poster="videos/morning-dark.jpg" aria-label="The morning page: yesterday's 3 things; Kyoto trip and Choosing a camera are opened again"><source src="videos/morning-dark.mp4" type="video/mp4" media="(prefers-color-scheme: dark)"><source src="videos/morning-light.mp4" type="video/mp4"></video>
+            <svg class="sticker s-sun" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="58" class="badge"/>
+              <circle class="sun" cx="60" cy="78" r="16"/>
+              <path class="ground" d="M2 78a58 58 0 0 0 116 0z"/>
+              <path class="horizon" d="M24 78h72"/>
+              <circle class="dot" style="--d:0" cx="46" cy="92" r="3.5"/><circle class="dot" style="--d:1" cx="60" cy="92" r="3.5"/><circle class="dot" style="--d:2" cx="74" cy="92" r="3.5"/>
+            </svg></div>
+            <figcaption>Yesterday's three things, waiting.</figcaption>
+          </figure>
+        </li>
+        <li class="step" data-scene="3">
+          <div class="step-text">
+            <figure class="photo step-photo"><img src="photos/jars.jpg" alt="Labelled glass jars on a pantry shelf" loading="lazy" width="1000" height="667"></figure>
+            <p class="when">Any time</p>
+            <h3>Nothing lost, ever</h3>
+            <p>There are no silent limits, and nothing is dropped to make room. Everything Simmer does is written down under Recently, in plain words, with Undo next to it.</p>
+          </div>
+          <figure class="scene panel">
+            <div class="shot"><video class="clip" muted loop playsinline preload="none" width="420" height="720" poster="videos/undo-light.jpg" data-dark-poster="videos/undo-dark.jpg" aria-label="The side panel: Choosing a camera is put away, undone from the toast, and shown in Recently"><source src="videos/undo-dark.mp4" type="video/mp4" media="(prefers-color-scheme: dark)"><source src="videos/undo-light.mp4" type="video/mp4"></video>
+            <svg class="sticker s-undo" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="58" class="badge"/>
+              <g class="turn"><path class="arc" d="M40 66a22 22 0 1 0 6-18"/><path class="head" d="M36 40l10 8-12 4"/></g>
+            </svg></div>
+            <figcaption>Every action, with Undo.</figcaption>
+          </figure>
+        </li>
+      </ol>
+      <div class="stage" id="stage" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="pull">
+    <img class="pull-photo" src="photos/pot-steam.jpg" alt="" loading="lazy" width="2000" height="1333">
+    <div class="wrap pull-text">
+      <p id="pull">A pot on low heat doesn't need watching.</p>
+    </div>
+  </section>
+
+  <section class="wrap facts">
+    <div class="text reveal">
+      <h2>Kept in your browser</h2>
+      <p>No account and no server. Your tabs are stored in Chrome on your computer. The model that compares tab titles is part of the extension and runs there too.</p>
+      <p>The <a href="privacy.html">privacy policy</a> lists everything Simmer reads.</p>
+      <figure class="photo"><img src="photos/moka-window.jpg" alt="A moka pot and two cups on a table by a window" loading="lazy" width="1000" height="667"></figure>
+    </div>
+    <div class="text reveal" id="questions">
+      <h2>Questions</h2>
+      <dl class="qa">
+        <dt>What happens when a task is put away?</dt>
+        <dd>Its tabs close and are saved in Simmer, and in your bookmarks if you want. Bring it back and every tab reopens together.</dd>
+        <dt>Will it close my mail?</dt>
+        <dd>No. Mail, chat and calendars stay open, and you can keep any site open.</dd>
+        <dt>Does it do anything before I say so?</dt>
+        <dd>No. The first run reads your tabs and changes nothing until you press Start.</dd>
+        <dt>What does it cost?</dt>
+        <dd>Nothing.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="wrap closing reveal">
+    <div class="closing-copy">
+      <h2>Stove's clear.</h2>
+      <div class="cta">
+        <a class="btn" href="https://chromewebstore.google.com/search/Simmer">Add to Chrome, it's free</a>
+        <p class="small-print">Takes a minute. Nothing changes until you press Start.</p>
+      </div>
+    </div>
+    <figure class="photo"><img src="photos/clean-stove.jpg" alt="A clean stove with one pot of water on to boil" loading="lazy" width="1400" height="933"></figure>
+  </section>
+</main>
+
+<footer class="stove" id="stove">
+  <div class="wrap stove-links">
+    <div>
+      <p class="col-head">Simmer</p>
+      <a href="https://chromewebstore.google.com/search/Simmer">Add to Chrome</a>
+      <a href="#how">How it works</a>
+      <a href="#questions">Questions</a>
+    </div>
+    <div>
+      <p class="col-head">Trust</p>
+      <a href="privacy.html">Privacy policy</a>
+      <span>No account, no server</span>
+    </div>
+    <div>
+      <p class="col-head">Contact</p>
+      <a href="mailto:addobari31@gmail.com">addobari31@gmail.com</a>
+    </div>
+  </div>
+  <div class="pot-word" id="pot-word">
+    <canvas id="bubbles" aria-hidden="true"></canvas>
+    <button type="button" class="word" id="stir" aria-label="Stir the pot">Simmer</button>
+  </div>
+  <p class="wrap stove-foot"><span>© 2026 Simmer · Photos from <a href="https://unsplash.com">Unsplash</a></span><span class="hint">Give it a stir.</span></p>
+</footer>
+</body>
+</html>

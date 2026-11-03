@@ -1,0 +1,349 @@
+/* The Simmer website. Editorial on the warm wall: the headline beside the real side panel, playing; a
+   walk through one day, one step at a time, beside a screen that changes as you scroll; and a footer
+   that is a pot on the stove. Colours and type come from the extension's style.css. Motion is
+   extra: under html.arrive only (site.js, motion allowed). */
+
+@font-face {
+  font-family: Caprasimo;
+  src: url(fonts/Caprasimo-Regular.ttf) format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --wall: #ece8df;
+  --surface: #fbfaf7;
+  --ink: #24211c;
+  --muted: #625c52;
+  --butter: #f5d97e;
+  --on-butter: #24211c;
+  --butter-edge: color-mix(in srgb, #f5d97e 62%, #8a6a10);
+  --butter-hover: color-mix(in srgb, #f5d97e 84%, #c99a1a);
+  --edge: rgba(36, 33, 28, .12);
+  --edge-strong: rgba(36, 33, 28, .3);
+  --glow: rgba(245, 217, 126, .7);
+  --ring: rgba(36, 33, 28, .7);
+  --shot-shadow: 0 30px 70px -30px rgba(36, 33, 28, .35);
+  --float-shadow: 0 10px 24px -10px rgba(36, 33, 28, .3);
+  --wall-dim: #dcd5c8;   /* the wall while the walk holds the window */
+  --stove: #24211c;
+  --stove-ink: #f1ece2;
+  --stove-muted: #b8b0a3;
+  --display: Caprasimo, Georgia, serif;
+  --text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --page: 1280px;
+  --gutter: 56px;
+  --band: 88px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wall: #121110;
+    --surface: #1c1a17;
+    --ink: #f1ece2;
+    --muted: #aaa295;
+    --edge: rgba(241, 236, 226, .12);
+    --edge-strong: rgba(241, 236, 226, .3);
+    --glow: rgba(245, 217, 126, .28);
+    --ring: #f5d97e;
+    --shot-shadow: 0 30px 70px -30px rgba(0, 0, 0, .7);
+    --float-shadow: 0 10px 24px -10px rgba(0, 0, 0, .6);
+    --stove: #1c1a17;
+    --wall-dim: #0a0908;
+  }
+}
+@media (prefers-contrast: more) {
+  :root { --muted: var(--ink); --edge: rgba(127, 120, 110, .6); --stove-muted: var(--stove-ink); }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--wall); color: var(--ink);
+  font: 17px/1.6 var(--text); -webkit-font-smoothing: antialiased;
+  transition: background-color .8s var(--ease);
+}
+body.dim { background-color: var(--wall-dim); }
+
+/* photos: real ones, in the same rounded frame as the videos */
+.photo { margin: 0; border-radius: 20px; overflow: hidden; background: var(--surface); box-shadow: var(--shot-shadow); }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+main { overflow-x: clip; }   /* the simmer's glow reaches past the edge */
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
+p, dl, dd, ol { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 6px; }
+
+.wrap {
+  max-width: var(--page); margin: 0 auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* masthead */
+.masthead {
+  display: flex; align-items: center; gap: 28px; max-width: var(--page); margin: 0 auto; font-size: 15px; position: relative; z-index: 2;
+  padding: 20px max(var(--gutter), env(safe-area-inset-right, 0px)) 20px max(var(--gutter), env(safe-area-inset-left, 0px));
+}
+.masthead .name { display: flex; align-items: center; gap: 10px; font: 400 22px var(--display); text-decoration: none; margin-right: auto; }
+.masthead .name img { width: 30px; height: 30px; }
+.masthead nav { display: flex; gap: 28px; }
+.masthead nav a { text-decoration: none; color: var(--muted); transition: color .14s var(--ease); }
+.masthead nav a:hover { color: var(--ink); }
+
+.btn {
+  display: inline-flex; align-items: center; font: 600 15px var(--text); text-decoration: none; white-space: nowrap;
+  border-radius: 999px; padding: 13px 22px; background: var(--butter); color: var(--on-butter);
+  border: 1px solid var(--butter-edge); transition: background .14s var(--ease), transform .14s var(--ease);
+}
+.btn:hover { background: var(--butter-hover); transform: translateY(-1px); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { border-radius: 999px; }
+.btn.small { padding: 8px 15px; font-size: 14px; }
+.cta { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; }
+.small-print { font-size: 14px; color: var(--muted); }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, 420px); gap: 64px;
+  align-items: center; padding-block: 40px var(--band);
+}
+.hero-copy { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 32px; }
+.headline { position: relative; isolation: isolate; }
+.headline h1 { font: 400 clamp(48px, 6.6vw, 104px)/.94 var(--display); letter-spacing: -.02em; }
+.headline .beat { display: block; }
+.lead { font-size: 21px; line-height: 1.5; max-width: 34em; }
+.simmer {
+  position: absolute; z-index: -1; left: 30%; right: -10%; top: 30%; bottom: -24%; pointer-events: none;
+  background: radial-gradient(55% 60% at 50% 70%, var(--glow), transparent 72%);
+}
+/* lit like the footer's bubbles: a highlight at the top left, deeper butter at the rim */
+.simmer i {
+  position: absolute; bottom: 22%; border-radius: 50%; opacity: 0; animation: bubble 3.6s var(--ease) infinite;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .95) 0 12%, rgba(255, 255, 255, 0) 22%),
+    radial-gradient(circle at 70% 75%, rgba(255, 246, 210, .5), rgba(255, 246, 210, 0) 40%),
+    radial-gradient(circle at 38% 35%, #fff8d9 0%, #f8e29a 30%, #f0cd62 70%, #c99a1a 100%);
+  box-shadow: inset 0 0 0 1px rgba(138, 106, 16, .35);
+}
+@keyframes bubble {
+  0% { transform: translateY(0) scale(.5); opacity: 0; }
+  25% { opacity: .85; }
+  100% { transform: translateY(-140px) scale(1); opacity: 0; }
+}
+.headline.settled .simmer i { animation-iteration-count: 1; }
+
+.live { position: relative; z-index: 1; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.live-frame {
+  height: min(700px, calc(100vh - 140px)); min-height: 560px; border-radius: 18px; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--edge); box-shadow: var(--shot-shadow);
+}
+.live iframe { display: block; width: 100%; height: 100%; border: 0; }
+.live figcaption { font-size: 13px; color: var(--muted); text-align: center; }
+
+/* the morph: the panel's own tabs, tumbled, sort themselves into its rows (site.js) */
+.arrive .hero.morph .live { animation: none; }   /* the tabs live in this figure, so it can't fade in late */
+.morph .live-frame, .morph .live figcaption { opacity: 0; transition: opacity .7s var(--ease); }
+.morph.landed .live-frame, .morph.landed .live figcaption { opacity: 1; }
+.mess { position: absolute; width: 0; height: 0; z-index: 5; pointer-events: none; transition: opacity .5s var(--ease); }
+.mess.gone { opacity: 0; }
+.chip {
+  position: absolute; display: flex; align-items: center; gap: var(--gap, 8px); height: 34px; box-sizing: border-box;
+  padding: 0 12px 0 10px; border-radius: 9px; font-size: var(--fs, 13px); color: var(--ink); white-space: nowrap;
+  background: var(--surface); border: 1px solid var(--edge); box-shadow: var(--float-shadow); opacity: 0;
+  transition: background .7s var(--ease) .35s, border-color .7s var(--ease) .35s, box-shadow .7s var(--ease) .35s, color .7s var(--ease) .35s;
+}
+.chip img { width: 16px; height: 16px; flex: none; border-radius: 3px; }
+.chip span { overflow: hidden; text-overflow: ellipsis; }
+.sorting .chip { background: transparent; border-color: transparent; box-shadow: none; color: var(--ink); }
+.ghost-head { position: absolute; display: flex; align-items: center; white-space: nowrap; opacity: 0; translate: 0 6px; transition: opacity .5s var(--ease), translate .5s var(--ease); }
+.named .ghost-head { opacity: 1; translate: 0 0; }
+
+/* the opening: two beats, then the copy and the panel */
+@keyframes up { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes show { to { visibility: visible; } }
+.arrive .headline h1:not(.split) { visibility: hidden; animation: show 0s 2s forwards; }  /* until site.js splits it */
+/* nothing in the opening starts until the page is on screen (html.go, site.js) */
+.arrive:not(.go) :is(.masthead, .hero, .hero *) { animation-play-state: paused !important; }
+/* two beats: each rises whole from behind its own edge, with a hold between */
+.arrive .headline h1 .beat { overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.arrive .headline h1 .beat > span { display: block; animation: up 1s cubic-bezier(.16, 1, .3, 1) both; animation-delay: var(--at); }
+.arrive .masthead { animation: in .6s var(--ease) both; }
+.arrive .live { animation: in .9s var(--ease) 2.2s both; }
+.arrive .lead { animation: in .7s var(--ease) 2.7s both; }
+.arrive .hero .cta { animation: in .7s var(--ease) 2.85s both; }
+
+/* ---------- how it works: one day, step by step ---------- */
+.walk { padding-block: var(--band); border-top: 1px solid var(--edge); }
+.walk-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+.walk-head h2 { font: 400 clamp(36px, 4.6vw, 64px)/1 var(--display); letter-spacing: -.015em; }
+.walk-head p { font-size: 19px; color: var(--muted); }
+.walk-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 72px; position: relative; }
+.steps { list-style: none; padding: 0 0 0 28px; position: relative; }
+/* a line that fills as the steps go by */
+.steps::before, .steps::after { content: ""; position: absolute; left: 0; top: 0; width: 2px; border-radius: 2px; }
+.steps::before { bottom: 0; background: var(--edge); }
+.steps::after { height: calc(var(--progress, .25) * 100%); background: var(--butter-edge); transition: height .5s var(--ease); }
+.step { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+.step-text { display: flex; flex-direction: column; gap: 12px; transition: opacity .4s var(--ease), color .4s var(--ease); }
+.step .when { font-size: 14px; font-weight: 600; color: var(--muted); }
+.step-photo { aspect-ratio: 16 / 9; max-width: 30em; margin-bottom: 10px; }
+.step h3 { font: 400 clamp(30px, 3.4vw, 46px)/1.04 var(--display); letter-spacing: -.01em; }
+.step-text > p:last-child { font-size: 19px; line-height: 1.6; max-width: 30em; }
+/* the step in view is bright; the others step well back */
+.walk-body:has(.stage .on) .step:not(.on) .step-text { opacity: .26; }
+
+.scene { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.scene figcaption { font-size: 13px; color: var(--muted); }
+.shot { position: relative; width: 100%; max-width: 520px; }
+.scene.panel .shot { max-width: 360px; }
+/* every feature video plays in the same rounded frame */
+.clip {
+  display: block; width: 100%; height: auto; border-radius: 20px; border: 1px solid var(--edge);
+  background: var(--surface); box-shadow: var(--shot-shadow); object-fit: cover;
+}
+
+/* the stage, on wide screens: the step nearest the middle of the window */
+.stage { position: sticky; top: 10vh; height: 80vh; }
+.stage .scene {
+  position: absolute; inset: 0; justify-content: center; opacity: 0; visibility: hidden;
+  translate: 0 24px; scale: .97; transition: opacity .45s var(--ease), translate .6s var(--ease), scale .6s var(--ease), visibility 0s .6s;
+}
+.stage .scene.on { opacity: 1; visibility: visible; translate: 0 0; scale: 1; transition-delay: 0s; }
+.stage .shot { width: auto; max-width: 100%; }
+.stage .clip { max-height: calc(80vh - 60px); width: auto; max-width: 100%; }
+.walk-body:has(.stage .scene) .step .scene { display: none; }
+
+/* stickers: small drawings on butter, on a corner of each screen */
+.sticker { position: absolute; width: 150px; height: 150px; top: -48px; right: -54px; rotate: 8deg; filter: drop-shadow(0 10px 18px rgba(36, 33, 28, .26)); overflow: visible; z-index: 1; }
+.scene.panel .sticker { right: -74px; }
+.sticker .badge { fill: var(--butter); stroke: var(--butter-edge); stroke-width: 2; }
+.sticker * { transform-box: fill-box; transform-origin: center; }
+.s-sort .strip rect { fill: #24211c; opacity: .28; }
+.s-sort .rows rect { fill: var(--c); transform-origin: left center; scale: 1 1; }
+.s-pot .pot { fill: #24211c; }
+.s-pot .pot-rim, .s-pot .steam, .s-undo path, .s-sun .horizon { fill: none; stroke: #24211c; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.s-pot .steam { stroke-width: 3.2; opacity: .8; }
+.s-pot .drop { fill: #fbfaf7; stroke: #24211c; stroke-width: 2.5; opacity: 0; }
+.s-sun .sun { fill: #fbfaf7; stroke: #24211c; stroke-width: 3; }
+.s-sun .ground { fill: var(--butter); }
+.s-sun .dot { fill: #24211c; }
+.s-undo .turn { transform-box: view-box; transform-origin: 60px 60px; }
+
+.arrive .s-sort .strip rect { animation: sort-strip 4.8s var(--ease) infinite; animation-delay: calc(var(--d) * 40ms); }
+.arrive .s-sort .rows rect { animation: sort-rows 4.8s var(--ease) infinite; animation-delay: calc(var(--d) * 120ms); }
+@keyframes sort-strip { 0%, 30% { fill: #24211c; opacity: .28; } 45%, 85% { fill: var(--c); opacity: 1; } 100% { fill: #24211c; opacity: .28; } }
+@keyframes sort-rows { 0%, 40% { scale: 0 1; } 55%, 88% { scale: 1 1; } 100% { scale: 0 1; } }
+.arrive .s-pot .drop { animation: drop 3.2s var(--ease) infinite; }
+@keyframes drop { 0% { opacity: 0; translate: 0 -6px; } 15% { opacity: 1; } 55% { opacity: 1; translate: 0 34px; } 65%, 100% { opacity: 0; translate: 0 40px; } }
+.arrive .s-pot .steam { animation: steam 2.4s ease-in-out infinite; animation-delay: calc(var(--d) * 400ms); }
+@keyframes steam { 0% { opacity: 0; translate: 0 6px; } 40% { opacity: .85; } 100% { opacity: 0; translate: 0 -10px; } }
+.arrive .s-sun .sun { animation: sunrise 4.2s var(--ease) infinite; }
+@keyframes sunrise { 0% { translate: 0 30px; } 45%, 85% { translate: 0 0; } 100% { translate: 0 30px; } }
+.arrive .s-sun .dot { animation: pop 4.2s var(--ease) infinite; animation-delay: calc(var(--d) * 150ms); }
+@keyframes pop { 0%, 40% { scale: 0; } 55%, 85% { scale: 1; } 100% { scale: 0; } }
+.arrive .s-undo .turn { animation: undo 3s cubic-bezier(.65, 0, .35, 1) infinite; }
+@keyframes undo { 0%, 20% { rotate: 0deg; } 70%, 100% { rotate: -360deg; } }
+
+/* ---------- pull quote ---------- */
+/* the pull quote sits on a real photo of a pot on the stove, full width */
+.pull { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; min-height: min(86vh, 820px); }
+.pull-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; scale: var(--zoom, 1.06); }
+.pull::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(20, 17, 13, .85) 0%, rgba(20, 17, 13, .35) 45%, rgba(20, 17, 13, 0) 75%); }
+.pull-text { width: 100%; padding-block: var(--band); }
+.pull p { font: 400 clamp(40px, 6.4vw, 96px)/1 var(--display); letter-spacing: -.015em; max-width: 14ch; color: #fbfaf7; }
+.arrive .pull p span { color: rgba(251, 250, 247, .55); transition: color .5s var(--ease); }
+.arrive .pull p span.warm { color: #fbfaf7; }
+
+/* ---------- facts and questions ---------- */
+.facts {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start;
+  padding-block: var(--band); border-top: 1px solid var(--edge);
+}
+.text { display: flex; flex-direction: column; gap: 18px; }
+.text h2 { font: 400 clamp(34px, 3.8vw, 52px)/1.04 var(--display); letter-spacing: -.01em; margin-bottom: 4px; }
+.text p { font-size: 19px; line-height: 1.6; max-width: 32em; }
+.facts .photo { aspect-ratio: 3 / 2; margin-top: 14px; }
+.qa { display: flex; flex-direction: column; }
+.qa dt { font-weight: 650; padding-top: 16px; border-top: 1px solid var(--edge); }
+.qa dt:first-child { border-top: 0; padding-top: 0; }
+.qa dd { color: var(--muted); padding: 2px 0 16px; }
+
+.closing {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center;
+  padding-block: var(--band) calc(var(--band) + 16px); border-top: 1px solid var(--edge);
+}
+.closing-copy { display: flex; flex-direction: column; gap: 28px; }
+.closing .photo { aspect-ratio: 4 / 3; }
+.closing h2 { font: 400 clamp(52px, 9vw, 132px)/.92 var(--display); letter-spacing: -.02em; }
+
+/* sections come up as they scroll in */
+.arrive .reveal, .arrive .step-text { opacity: 0; translate: 0 28px; transition: opacity .7s var(--ease), translate .8s var(--ease); }
+.arrive .reveal.in, .arrive .step.in .step-text { opacity: 1; translate: 0 0; }
+.arrive .walk-body:has(.stage .on) .step.in:not(.on) .step-text { opacity: .26; }
+
+/* ---------- footer: the stove ---------- */
+.stove { background: var(--stove); color: var(--stove-ink); overflow: hidden; border-top: 1px solid var(--edge); }
+.stove-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding-block: 64px 24px; font-size: 15px; }
+.stove-links div { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.stove-links .col-head { font-weight: 650; color: var(--stove-ink); }
+.stove-links a, .stove-links span { color: var(--stove-muted); text-decoration: none; }
+.stove-links a:hover { color: var(--stove-ink); text-decoration: underline; }
+.stove a:focus-visible, .stove button:focus-visible { outline-color: var(--butter); }
+.pot-word { position: relative; display: flex; justify-content: center; padding-top: 24px; }
+.pot-word canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.word {
+  font: 400 min(25vw, 360px)/.78 var(--display); letter-spacing: -.03em; color: var(--stove-ink);
+  background: none; border: 0; padding: 0 0 .12em; margin: 0; cursor: pointer; user-select: none;
+  transition: color .3s var(--ease);
+}
+.word:hover { color: var(--butter); }
+.stirred .word { animation: stir .9s var(--ease); }
+@keyframes stir { 20% { rotate: -2deg; scale: 1.02; } 45% { rotate: 1.6deg; } 70% { rotate: -.6deg; } }
+.stove-foot a { color: inherit; }
+.stove-foot {
+  display: flex; justify-content: space-between; gap: 16px; font-size: 13px; color: var(--stove-muted);
+  padding-block: 18px calc(22px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid rgba(241, 236, 226, .14);
+}
+
+/* ---------- sizes ---------- */
+@media (min-width: 1600px) {
+  :root { --page: 1440px; --band: 112px; }
+  body { font-size: 18px; }
+  .hero { grid-template-columns: minmax(0, 1fr) 440px; gap: 96px; }
+  .text p, .step-text > p:last-child { font-size: 20px; }
+}
+/* tablet and below: steps run one after another, each with its own screen */
+@media (max-width: 1024px) {
+  :root { --gutter: 40px; --band: 72px; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 48px; padding-top: 32px; }
+  .live { width: 100%; max-width: 440px; justify-self: center; }
+  .walk-body { grid-template-columns: minmax(0, 1fr); }
+  .stage { display: none; }
+  .walk-body:has(.stage .scene) .step .scene { display: flex; }
+  .step { min-height: 0; padding-block: 40px; }
+  .facts { gap: 48px; }
+}
+@media (max-width: 720px) {
+  :root { --gutter: 20px; --band: 56px; }
+  body { font-size: 16px; }
+  .masthead { gap: 16px; }
+  .masthead nav { display: none; }
+  .hero-copy { gap: 26px; }
+  .lead { font-size: 19px; }
+  .live-frame { height: 600px; min-height: 0; }
+  .steps { padding-left: 20px; }
+  .step-text > p:last-child, .text p { font-size: 18px; }
+  .scene.panel .shot { max-width: 280px; }
+  .sticker { width: 104px; height: 104px; top: -34px; right: -14px; }
+  .scene.panel .sticker { right: -40px; }
+  .facts, .closing { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .stove-links { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-block: 48px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .simmer i { animation: none; opacity: 0; }
+  .btn, .masthead nav a, .step-text, .steps::after, .word { transition: none; }
+  .stage .scene { transition: none; translate: none; scale: none; }
+}
