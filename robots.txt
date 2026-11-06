@@ -32,4 +32,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://addobari.github.io/tab-butler-site/sitemap.xml
+Sitemap: https://simmer.addobari.com/sitemap.xml

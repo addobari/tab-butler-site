@@ -3,7 +3,8 @@
 > Simmer is a free Chrome extension that remembers what your tabs were for. It turns a pile of open tabs into a short list of the things you're in the middle of, closes a whole task at once, and brings every tab of it back in one click. No account; tabs stay in the browser.
 
 Key facts:
-- Name: Simmer ("Simmer: remembers what your tabs were for"). Version 4.0. Browser: Google Chrome (desktop), from the Chrome Web Store: https://chromewebstore.google.com/search/Simmer
+- Name: Simmer ("Simmer: remembers what your tabs were for"), formerly Tab Butler. Version 4.0, on the Chrome Web Store since 2026-11-04. Browser: Google Chrome (desktop). Install: https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej
+- Made by Addo Bari, Tokyo. Website: https://simmer.addobari.com/. Contact: addobari31@gmail.com.
 - Price: free. No account, no ads, no Simmer server.
 - Finds tasks itself from what opened what, Chrome tab groups, and a small on-device model that compares tab titles in English and Japanese. The model ships inside the extension; no code is loaded from the internet.
 - Put away: closes a task's tabs after saving them (and optionally bookmarking them). Bring back: reopens every tab of the task, in its group.
@@ -17,9 +18,9 @@ Key facts:
 ---
 
 # Too many tabs open in Chrome? Keep them without keeping them open
-Source: https://addobari.github.io/tab-butler-site/guides/too-many-tabs/
+Source: https://simmer.addobari.com/guides/too-many-tabs/
 
-Updated 3 November 2026
+Updated 6 November 2026
 
 **Short answer.** Sort your tabs by what they're for, close the tasks you aren't working on, and keep a way to bring each one back whole. Tabs pile up because closing one feels like losing the thought behind it. Save the thought with the tabs, and closing them stops being a risk.
 
@@ -37,7 +38,7 @@ Chrome has four built-in tools that help, each with a limit worth knowing.
 - **Reading list.** Right-click a tab and choose *Add tab to reading list*. It suits one article at a time, not a set of tabs.
 - **Memory Saver.** In Settings → Performance, Chrome frees memory from tabs you aren't using. It helps the computer; the tab strip stays just as long.
 
-To find one tab in a long strip without closing anything, see [how to find a tab you lost](https://addobari.github.io/tab-butler-site/guides/find-a-lost-tab/).
+To find one tab in a long strip without closing anything, see [how to find a tab you lost](https://simmer.addobari.com/guides/find-a-lost-tab/).
 
 ## Keep the reason, close the tabs
 
@@ -65,9 +66,9 @@ Yes. It groups tabs by what opened what, by your Chrome tab groups, and by compa
 ---
 
 # How to save Chrome tabs for later and bring the whole set back
-Source: https://addobari.github.io/tab-butler-site/guides/save-tabs-for-later/
+Source: https://simmer.addobari.com/guides/save-tabs-for-later/
 
-Updated 3 November 2026
+Updated 6 November 2026
 
 **Short answer.** In Chrome alone, press Ctrl+Shift+D (⌘+Shift+D on a Mac) to bookmark every tab in the window into a folder, then right-click the folder and choose to open them all when you need them. With Simmer, put a task on the back burner: its tabs are saved and close, and one click brings the whole set back, in its group.
 
@@ -99,7 +100,7 @@ To bring it back, open the side panel and press Bring back: every tab reopens to
 
 Sometimes a tab only matters later: a sale that starts on Friday, a form you'll fill in on Monday. Simmer can snooze a tab so it closes now and comes back at the time you pick, in its group.
 
-Weighing up other extensions that save tabs? [OneTab, Session Buddy, Toby, Workona and Simmer compared](https://addobari.github.io/tab-butler-site/guides/tab-extensions-compared/) sets out how each one works.
+Weighing up other extensions that save tabs? [OneTab, Session Buddy, Toby, Workona and Simmer compared](https://simmer.addobari.com/guides/tab-extensions-compared/) sets out how each one works.
 
 ## Questions
 ### What is the shortcut to bookmark all tabs in Chrome?
@@ -115,9 +116,9 @@ In Chrome's own storage on your computer, and in your bookmarks if you turn that
 ---
 
 # How to find a tab you lost in Chrome
-Source: https://addobari.github.io/tab-butler-site/guides/find-a-lost-tab/
+Source: https://simmer.addobari.com/guides/find-a-lost-tab/
 
-Updated 3 November 2026
+Updated 6 November 2026
 
 **Short answer.** Press Ctrl+Shift+A (⌘+Shift+A on a Mac) to search every open tab by its title or address. If you closed it, press Ctrl+Shift+T (⌘+Shift+T) to reopen it, or search your history with Ctrl+H (⌘+Y on a Mac). With Simmer, type sm and a space in the address bar to search open tabs, saved tabs and bookmarks at once.
 
@@ -140,7 +141,7 @@ History finds single pages, but not the other tabs that went with them. If you p
 
 ## Lose fewer tabs
 
-Tabs get lost because the strip is long. Simmer keeps it short: it sorts your tabs into the things you're in the middle of, and puts the ones you aren't working on away until you need them. For the reasons tabs pile up, see [too many tabs open in Chrome](https://addobari.github.io/tab-butler-site/guides/too-many-tabs/).
+Tabs get lost because the strip is long. Simmer keeps it short: it sorts your tabs into the things you're in the middle of, and puts the ones you aren't working on away until you need them. For the reasons tabs pile up, see [too many tabs open in Chrome](https://simmer.addobari.com/guides/too-many-tabs/).
 
 ## Questions
 ### What is the shortcut to search tabs in Chrome?
@@ -156,9 +157,9 @@ Yes. Type sm and a space in Chrome's address bar, or use the search in Simmer's 
 ---
 
 # How to pick up where you left off in Chrome
-Source: https://addobari.github.io/tab-butler-site/guides/pick-up-where-you-left-off/
+Source: https://simmer.addobari.com/guides/pick-up-where-you-left-off/
 
-Updated 3 November 2026
+Updated 6 November 2026
 
 **Short answer.** To reopen everything from last time when Chrome starts, go to Settings → On startup and choose *Continue where you left off*. To bring back a tab or window you just closed, press Ctrl+Shift+T (⌘+Shift+T on a Mac). To come back to a task days later, keep it on Simmer's back burner and bring the whole task back in one click.
 
@@ -168,7 +169,7 @@ Open Chrome's Settings, choose *On startup*, and pick *Continue where you left o
 
 ## Undo a tab you just closed
 
-Press Ctrl+Shift+T (⌘+Shift+T on a Mac). Press it again to keep going back. If you closed a whole window, the same shortcut reopens the window with its tabs. For anything older, the History menu lists recently closed tabs, and [finding a lost tab](https://addobari.github.io/tab-butler-site/guides/find-a-lost-tab/) covers the rest.
+Press Ctrl+Shift+T (⌘+Shift+T on a Mac). Press it again to keep going back. If you closed a whole window, the same shortcut reopens the window with its tabs. For anything older, the History menu lists recently closed tabs, and [finding a lost tab](https://simmer.addobari.com/guides/find-a-lost-tab/) covers the rest.
 
 ## Come back to a task days later
 
@@ -194,9 +195,9 @@ Yes. The page has a link to stop it opening each morning, and it can be turned b
 ---
 
 # OneTab, Session Buddy, Toby, Workona and Simmer compared
-Source: https://addobari.github.io/tab-butler-site/guides/tab-extensions-compared/
+Source: https://simmer.addobari.com/guides/tab-extensions-compared/
 
-Updated 3 November 2026
+Updated 6 November 2026
 
 **Short answer.** They differ in who does the sorting and where your tabs are kept. OneTab and Session Buddy save tabs as lists and sessions, free and on your computer. Toby and Workona give you boards and workspaces that you fill yourself, kept in an account that syncs between computers. Simmer works out the tasks behind your open tabs for you and brings a whole task back in one click, free and with no account. If you need your tabs on several computers, pick Toby or Workona; if you want them sorted for you without an account, pick Simmer.
 
@@ -262,9 +263,9 @@ Not by itself. What Simmer saves stays on the computer where you saved it. If yo
 ---
 
 # Is your tab manager private? What Simmer reads, and where it keeps it
-Source: https://addobari.github.io/tab-butler-site/guides/private-tab-manager/
+Source: https://simmer.addobari.com/guides/private-tab-manager/
 
-Updated 3 November 2026
+Updated 6 November 2026
 
 **Short answer.** A tab manager can read the address and title of every tab you open, so where it keeps them matters. Simmer reads them on your computer and stores what it saves in Chrome's own storage there. There's no account and no Simmer server, and the only network features, such as your own Claude API key, are off until you turn them on.
 
@@ -279,7 +280,7 @@ To list and close your tabs, an extension needs Chrome's tabs permission, which 
 - **Does it load code from the internet?** Code fetched at run time can change after review.
 - **Is there a privacy policy that names every permission?**
 
-How the best-known extensions answer the first two is set out in [OneTab, Session Buddy, Toby, Workona and Simmer compared](https://addobari.github.io/tab-butler-site/guides/tab-extensions-compared/).
+How the best-known extensions answer the first two is set out in [OneTab, Session Buddy, Toby, Workona and Simmer compared](https://simmer.addobari.com/guides/tab-extensions-compared/).
 
 ## What Simmer reads, and why
 | Permission | What Simmer does with it |
@@ -297,7 +298,7 @@ Simmer compares tab titles to find tabs about the same thing, in English and Jap
 
 If you add your own Claude API key and turn on Claude features, tab titles and site names go from your browser straight to Anthropic with your key. That's off unless you choose it.
 
-The full list is in the [privacy policy](https://addobari.github.io/tab-butler-site/privacy.html).
+The full list is in the [privacy policy](https://simmer.addobari.com/privacy.html).
 
 ## Questions
 ### Can a Chrome extension see my browsing?
@@ -312,8 +313,111 @@ Not by default. Tab titles are compared by a small model that runs on your compu
 
 ---
 
+# How to group tabs automatically in Chrome
+Source: https://simmer.addobari.com/guides/group-tabs-automatically/
+
+Updated 6 November 2026
+
+**Short answer.** Chrome groups tabs only when you ask: right-click a tab and choose *Add tab to new group*, or, where Chrome offers it, use *Organize tabs* in the tab search menu to get suggested groups you then accept. To have tabs sorted for you as you browse, add a tab extension that does the grouping itself. Simmer works out which tabs belong together from what opened what, your existing groups and the tab titles, all on your computer.
+
+## Group tabs by hand in Chrome
+
+Right-click a tab and choose *Add tab to new group*. Give the group a name and a colour, then drag more tabs into it, or select several tabs with Ctrl (⌘ on a Mac) held down and add them all at once. Click the group's name to collapse it. A group can be saved, so it can be closed and reopened later from the bookmarks bar.
+
+It works, and it stays manual: every new tab lands outside the groups until you move it.
+
+## Chrome's own suggestions
+
+Some versions of Chrome, signed in and in some countries, add *Organize tabs* to the tab search menu at the end of the tab strip. It reads your open tabs and suggests groups, which you accept or edit. It runs when you ask for it, and the tabs it sorts stay open.
+
+## Sorted as you go, with Simmer
+
+Simmer groups tabs by what they're for, without being asked each time. It looks at three things:
+- **What opened what.** A search and the pages you opened from it are usually one errand.
+- **Your tab groups.** If you already made a group, Simmer treats it as a task and keeps it.
+- **The tab titles.** A small model inside the extension compares titles on your computer, in English and Japanese, so a hotel page and a train timetable for the same trip end up together.
+
+The result is a short list of the things you're in the middle of, each with a name. A task you aren't working on can go on the back burner: its tabs are saved and close, and one click brings them all back, in their group. Move a tab to another task and Simmer remembers.
+
+Nothing is moved or closed before you press Start, and everything Simmer does is listed under Recently with Undo.
+
+## Which to use
+- **A few long-running groups you look after yourself:** Chrome's tab groups.
+- **A one-off tidy of a crowded window:** Chrome's Organize tabs, where it's offered.
+- **Tabs sorted all the time, and tasks you can close and bring back whole:** Simmer.
+
+For how other tab extensions handle sorting, see [OneTab, Session Buddy, Toby, Workona and Simmer compared](https://simmer.addobari.com/guides/tab-extensions-compared/).
+
+## Questions
+### Can Chrome group tabs automatically?
+Not on its own as you browse. You group tabs by hand, and in some versions Chrome's Organize tabs suggests groups when you ask. An extension such as Simmer sorts tabs into tasks for you as you go.
+
+### How do I group tabs by website in Chrome?
+Select the tabs from one site with Ctrl (⌘ on a Mac) held down, right-click one and choose Add tabs to new group. Simmer groups by what the tabs are for rather than by site, so a hotel and a train timetable for one trip end up together.
+
+### Does Simmer send my tabs to an AI service to group them?
+No. The model that compares tab titles is inside the extension and runs on your computer. Claude features use your own API key and are off until you turn them on.
+
+
+---
+
+# A OneTab alternative that sorts your tabs for you
+Source: https://simmer.addobari.com/guides/onetab-alternative/
+
+Updated 6 November 2026
+
+**Short answer.** If you like OneTab's clean window but end up with one long list you never sort, try Simmer. Like OneTab it is free and keeps your tabs on your computer. Unlike OneTab it works out which tabs belong together for you, so you put away one task at a time and bring every tab of it back in one click, in its group. Session Buddy is the other free choice, if what you want back is a whole session after a crash.
+
+We make Simmer, so read this with that in mind. What we say about OneTab comes from its own site, checked in November 2026.
+
+## What OneTab does well
+
+One click and every tab in the window closes into a single list, newest first. It is fast, free and needs no account, and it frees memory straight away. You can name groups, lock them, restore one tab or a whole group, and share a list as a web page. Optional sync between devices is end-to-end encrypted.
+
+## Where one list runs out
+- **The sorting is yours.** A window's tabs arrive as one block, whatever they were for. Splitting it into trips, purchases and bugs is up to you.
+- **All or nothing.** The button sends the whole window. Keeping the three tabs you're using means picking them out first.
+- **The list grows.** Months of blocks become a page you scroll rather than read.
+
+## How Simmer works instead
+|  | OneTab | Simmer |
+| --- | --- | --- |
+| Who sorts the tabs | You, after they're saved | Simmer, from what opened what, tab groups and tab titles |
+| What a click closes | The whole window | One task, or every task you aren't using |
+| Bringing tabs back | One tab or a saved block | A whole task, in its tab group |
+| Mail, chat, calendars | Closed with the rest unless excluded | Kept open by themselves |
+| Undo | Restore from the list | Everything listed under Recently with Undo |
+| Account | Only for sync | None |
+| Sync | Optional, encrypted | None of its own; saved tabs can go to bookmarks, which Chrome syncs |
+| Price | Free | Free |
+
+## Moving from OneTab to Simmer
+- **Keep OneTab's list safe.** In OneTab, choose *Export URLs* and keep the text somewhere, or leave OneTab installed until you're sure.
+- **Add Simmer and open your tabs.** Restore the OneTab groups you still need. Simmer reads the open tabs and changes nothing yet.
+- **Press Start.** Your tabs appear as a short list of tasks. Put away the ones you aren't working on.
+
+## When to stay with OneTab
+
+If you need the same saved tabs on several computers, OneTab's sync does that and Simmer doesn't. If you want every window back after a crash, Session Buddy is built for it. The [full comparison](https://simmer.addobari.com/guides/tab-extensions-compared/) covers Toby and Workona too.
+
+## Questions
+### What is the best free alternative to OneTab?
+Simmer and Session Buddy are both free and need no account. Simmer sorts your open tabs into tasks and brings a whole task back in one click; Session Buddy saves and restores whole sessions.
+
+### Is there a OneTab alternative that groups tabs automatically?
+Yes. Simmer works out which tabs belong together on its own, from what opened what, your Chrome tab groups and a model that compares tab titles on your computer.
+
+### Can I use OneTab and Simmer together?
+Yes. They don't conflict. Many people keep OneTab's old list while Simmer handles the tabs they open from now on.
+
+### Does Simmer have OneTab's sync?
+No. What Simmer saves stays on your computer. If you save put-away tabs to bookmarks too, those sync wherever Chrome syncs bookmarks.
+
+
+---
+
 # Simmer questions and answers
-Source: https://addobari.github.io/tab-butler-site/faq/
+Source: https://simmer.addobari.com/faq/
 
 ### What is Simmer?
 Simmer is a free Chrome extension that remembers what your tabs were for. It turns a pile of open tabs into a short list of the things you're in the middle of, such as choosing a camera or planning a trip, lets you close a whole task at once, and brings every tab of it back in one click.
@@ -359,4 +463,32 @@ Yes. You can turn on automatic backups, which write a file to Downloads/Simmer o
 
 ### Does Simmer slow Chrome down?
 Simmer can put tabs you haven't used for a while to sleep, which lets Chrome free their memory while they stay in your tab strip. Putting a task on the back burner closes its tabs altogether.
+
+
+---
+
+# Who makes Simmer
+Source: https://simmer.addobari.com/about/
+
+Simmer is made by Addo Bari in Tokyo. It started as Tab Butler and was renamed Simmer for version 4.0, published on the Chrome Web Store on 4 November 2026. No account, no server, no ads; the tab-title model runs on the user's computer. Contact: addobari31@gmail.com.
+
+---
+
+# Simmer（日本語）
+Source: https://simmer.addobari.com/ja/
+
+### Simmerとは何ですか？
+開いているタブを「いまやりかけのこと」の短いリストにまとめる、無料のChrome拡張機能です。使っていない作業はタブごとまとめて閉じ、あとからワンクリックで全部のタブを元のグループのまま開き直せます。
+
+### 日本語のタブを理解しますか？
+はい。タブのタイトルを比べるモデルは英語と日本語に対応していて、同じ話題の英語のページと日本語のページを同じ作業にまとめられます。拡張機能の画面は英語です。
+
+### タブが勝手に閉じられませんか？
+最初に「Start」を押すまで何も変更しません。アクティブなタブ、固定したタブ、音が鳴っているタブ、シークレットウィンドウ、メール・チャット・カレンダーは閉じません。行ったことはすべて「Recently」に残り、元に戻せます。
+
+### タブのデータはどこに保存されますか？
+お使いのパソコンのChromeの中です。アカウントもSimmerのサーバーもありません。希望すれば、閉じたタブをChromeのブックマークにも保存できます。
+
+### 料金はかかりますか？
+無料です。アカウント登録も広告もありません。
 

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simmer：タブを「やりかけのこと」に自動で整理するChrome拡張機能（無料）</title>
+<meta name="description" content="タブが多すぎるときに。Simmerは開いたタブを作業ごとに自動でまとめ、使っていない作業をタブごと片付け、ワンクリックで元に戻します。無料・アカウント不要・データはブラウザの中だけ。">
+<link rel="canonical" href="https://simmer.addobari.com/ja/">
+<link rel="alternate" hreflang="en" href="https://simmer.addobari.com/">
+<link rel="alternate" hreflang="ja" href="https://simmer.addobari.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://simmer.addobari.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ece8df" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Simmer">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Simmer：タブを「やりかけのこと」に自動で整理するChrome拡張機能（無料）">
+<meta property="og:description" content="タブが多すぎるときに。Simmerは開いたタブを作業ごとに自動でまとめ、使っていない作業をタブごと片付け、ワンクリックで元に戻します。無料・アカウント不要・データはブラウザの中だけ。">
+<meta property="og:url" content="https://simmer.addobari.com/ja/">
+<meta property="og:image" content="https://simmer.addobari.com/share.png">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="560">
+<meta property="og:image:alt" content="Simmer: remembers what your tabs were for">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simmer：タブを「やりかけのこと」に自動で整理するChrome拡張機能（無料）">
+<meta name="twitter:description" content="タブが多すぎるときに。Simmerは開いたタブを作業ごとに自動でまとめ、使っていない作業をタブごと片付け、ワンクリックで元に戻します。無料・アカウント不要・データはブラウザの中だけ。">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icon-128.png">
+<link rel="sitemap" type="application/xml" href="../sitemap.xml">
+<link rel="alternate" type="application/atom+xml" title="Simmer guides" href="../feed.xml">
+<link rel="alternate" type="text/plain" title="Simmer for AI assistants" href="../llms.txt">
+<link rel="preload" href="../fonts/Caprasimo-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../site.css">
+<script>
+  document.documentElement.classList.add("js");
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("arrive");
+</script>
+<script src="../site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://simmer.addobari.com/#org", "name": "Simmer", "url": "https://simmer.addobari.com/", "logo": {"@type": "ImageObject", "url": "https://simmer.addobari.com/icon-128.png", "width": 128, "height": 128}, "email": "addobari31@gmail.com", "founder": {"@id": "https://simmer.addobari.com/#addo"}, "foundingDate": "2026", "sameAs": ["https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej"]}, {"@type": "Person", "@id": "https://simmer.addobari.com/#addo", "name": "Addo Bari", "jobTitle": "Maker of Simmer", "homeLocation": {"@type": "Place", "name": "Tokyo, Japan"}, "knowsLanguage": ["en", "ja"], "url": "https://simmer.addobari.com/about/", "email": "addobari31@gmail.com"}, {"@type": "WebSite", "@id": "https://simmer.addobari.com/#website", "name": "Simmer", "url": "https://simmer.addobari.com/", "inLanguage": ["en", "ja"], "publisher": {"@id": "https://simmer.addobari.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simmer", "item": "https://simmer.addobari.com/"}, {"@type": "ListItem", "position": 2, "name": "日本語", "item": "https://simmer.addobari.com/ja/"}]}, {"@type": "FAQPage", "@id": "https://simmer.addobari.com/ja/#questions", "url": "https://simmer.addobari.com/ja/", "mainEntity": [{"@type": "Question", "name": "Simmerとは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "開いているタブを「いまやりかけのこと」の短いリストにまとめる、無料のChrome拡張機能です。使っていない作業はタブごとまとめて閉じ、あとからワンクリックで全部のタブを元のグループのまま開き直せます。"}}, {"@type": "Question", "name": "日本語のタブを理解しますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。タブのタイトルを比べるモデルは英語と日本語に対応していて、同じ話題の英語のページと日本語のページを同じ作業にまとめられます。拡張機能の画面は英語です。"}}, {"@type": "Question", "name": "タブが勝手に閉じられませんか？", "acceptedAnswer": {"@type": "Answer", "text": "最初に「Start」を押すまで何も変更しません。アクティブなタブ、固定したタブ、音が鳴っているタブ、シークレットウィンドウ、メール・チャット・カレンダーは閉じません。行ったことはすべて「Recently」に残り、元に戻せます。"}}, {"@type": "Question", "name": "タブのデータはどこに保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "お使いのパソコンのChromeの中です。アカウントもSimmerのサーバーもありません。希望すれば、閉じたタブをChromeのブックマークにも保存できます。"}}, {"@type": "Question", "name": "料金はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "無料です。アカウント登録も広告もありません。"}}]}]}</script>
+</head>
+<body>
+<header class="masthead">
+  <a class="name" href="../"><img src="../logo.svg" alt="" width="30" height="30">Simmer</a>
+  <nav aria-label="Sections">
+    <a href="../#how">How it works</a>
+    <a href="../guides/">Guides</a>
+    <a href="../faq/">FAQ</a>
+  </nav>
+  <a class="btn small" href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej?utm_source=simmer.addobari.com">Chromeに追加</a>
+</header>
+
+<main class="doc" lang="ja">
+  <article class="wrap doc-wrap">
+    <header class="doc-head reveal">
+      <h1>タブが多すぎるなら、Simmerに任せる。</h1>
+      <p class="lead">Simmer（シマー）は、開いているタブが「何のためだったか」を覚えておく無料のChrome拡張機能です。</p>
+    </header>
+    <section class="answer reveal" aria-label="概要">
+      <p class="answer-label">ひとことで</p>
+      <p>タブの山を「いまやりかけのこと」の短いリストに変えます。使っていない作業はタブごと片付けてウィンドウをすっきりさせ、必要になったらワンクリックで全部のタブを元どおりに開き直せます。アカウント不要、データはブラウザの中だけです。</p>
+    </section>
+    <div class="cta"><a class="btn" href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej?utm_source=simmer.addobari.com">Chromeに追加（無料）</a><p class="small-print">Startを押すまで何も変わりません。</p></div>
+    <div class="doc-body">
+      <h2>できること</h2>
+      <ul>
+        <li><strong>作業ごとに自動でまとめる。</strong>どのタブからどのタブを開いたか、Chromeのタブグループ、タブのタイトルから、同じ作業のタブを自動で見つけます。自分で分類する必要はありません。</li>
+        <li><strong>作業をまるごと片付ける。</strong>「Put away」で作業のタブを保存してから閉じます。必要ならブックマークにも保存できます。</li>
+        <li><strong>ワンクリックで元どおり。</strong>「Bring back」で作業のタブがすべて、元のタブグループのまま戻ります。</li>
+        <li><strong>すぐに探せる。</strong>アドレスバーに「sm」とスペースを入力すると、開いているタブ・片付けたタブ・ブックマークをまとめて検索できます。</li>
+        <li><strong>日本語に対応。</strong>タイトルを比べるモデルは英語と日本語を理解します。画面の表示は英語です。</li>
+      </ul>
+      <h2>使い方</h2>
+      <ol class="doc-steps">
+        <li><strong>Chromeに追加する。</strong>開いているタブを読み込みますが、まだ何も変更しません。</li>
+        <li><strong>リストを確認する。</strong>タブが、いまやりかけのことの短いリストになって表示されます。</li>
+        <li><strong>Startを押す。</strong>使っていない作業が片付き、ウィンドウがすっきりします。すぐに元に戻すこともできます。</li>
+        <li><strong>必要なときに戻す。</strong>ツールバーからサイドパネルを開き、作業の「Bring back」を押します。</li>
+      </ol>
+      <h2>プライバシー</h2>
+      <p>アカウントもSimmerのサーバーもありません。タブの情報も保存したデータも、お使いのパソコンのChromeの中に残ります。タイトルを比べるモデルは拡張機能に入っていて、パソコン上で動きます。詳しくは<a href="../privacy.html" lang="en">Privacy policy</a>（英語）をご覧ください。</p>
+    </div>
+    <section class="doc-faq">
+      <h2>よくある質問</h2>
+      <dl class="qa">
+<dt>Simmerとは何ですか？</dt>
+<dd>開いているタブを「いまやりかけのこと」の短いリストにまとめる、無料のChrome拡張機能です。使っていない作業はタブごとまとめて閉じ、あとからワンクリックで全部のタブを元のグループのまま開き直せます。</dd>
+<dt>日本語のタブを理解しますか？</dt>
+<dd>はい。タブのタイトルを比べるモデルは英語と日本語に対応していて、同じ話題の英語のページと日本語のページを同じ作業にまとめられます。拡張機能の画面は英語です。</dd>
+<dt>タブが勝手に閉じられませんか？</dt>
+<dd>最初に「Start」を押すまで何も変更しません。アクティブなタブ、固定したタブ、音が鳴っているタブ、シークレットウィンドウ、メール・チャット・カレンダーは閉じません。行ったことはすべて「Recently」に残り、元に戻せます。</dd>
+<dt>タブのデータはどこに保存されますか？</dt>
+<dd>お使いのパソコンのChromeの中です。アカウントもSimmerのサーバーもありません。希望すれば、閉じたタブをChromeのブックマークにも保存できます。</dd>
+<dt>料金はかかりますか？</dt>
+<dd>無料です。アカウント登録も広告もありません。</dd>
+      </dl>
+    </section>
+    <aside class="doc-cta">
+      <img src="../logo.svg" alt="" width="40" height="40">
+      <div>
+        <p class="doc-cta-title">Simmerは、タブが何のためだったかを覚えています。</p>
+        <p>無料のChrome拡張機能。アカウント不要、タブはブラウザの中だけに。</p>
+      </div>
+      <a class="btn" href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej?utm_source=simmer.addobari.com">Chromeに追加</a>
+    </aside>
+  </article>
+</main>
+<footer class="stove" id="stove">
+  <nav class="wrap stove-links" aria-label="Site map">
+    <div>
+      <p class="col-head">Simmer</p>
+      <a href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej?utm_source=simmer.addobari.com">Add to Chrome</a>
+      <a href="../">Home</a>
+      <a href="../#how">How it works</a>
+      <a href="../faq/">Questions</a>
+    </div>
+    <div>
+      <p class="col-head">Guides</p>
+      <a href="../guides/too-many-tabs/">Too many tabs</a>
+      <a href="../guides/save-tabs-for-later/">Save tabs for later</a>
+      <a href="../guides/find-a-lost-tab/">Find a lost tab</a>
+      <a href="../guides/pick-up-where-you-left-off/">Pick up where you left off</a>
+      <a href="../guides/tab-extensions-compared/">Tab extensions compared</a>
+      <a href="../guides/private-tab-manager/">A private tab manager</a>
+      <a href="../guides/group-tabs-automatically/">Group tabs automatically</a>
+      <a href="../guides/onetab-alternative/">OneTab alternative</a>
+    </div>
+    <div>
+      <p class="col-head">Trust</p>
+      <a href="../privacy.html">Privacy policy</a>
+      <a href="../about/">Who makes Simmer</a>
+      <a href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej/reviews">Reviews</a>
+      <a href="../ja/" lang="ja" hreflang="ja">日本語</a>
+    </div>
+    <div>
+      <p class="col-head">Contact</p>
+      <a href="mailto:addobari31@gmail.com">addobari31@gmail.com</a>
+    </div>
+  </nav>
+  <div class="pot-word" id="pot-word">
+    <canvas id="bubbles" aria-hidden="true"></canvas>
+    <button type="button" class="word" id="stir" aria-label="Stir the pot">Simmer</button>
+  </div>
+  <p class="wrap stove-foot"><span>© 2026 Simmer · Photos from <a href="https://unsplash.com">Unsplash</a></span><span class="hint">Give it a stir.</span></p>
+</footer>
+</body>
+</html>

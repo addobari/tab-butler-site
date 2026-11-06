@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://addobari.github.io/tab-butler-site/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/guides/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/guides/too-many-tabs/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/guides/save-tabs-for-later/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/guides/find-a-lost-tab/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/guides/pick-up-where-you-left-off/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/guides/tab-extensions-compared/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/guides/private-tab-manager/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/faq/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://addobari.github.io/tab-butler-site/privacy.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://simmer.addobari.com/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/ja/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/too-many-tabs/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/save-tabs-for-later/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/find-a-lost-tab/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/pick-up-where-you-left-off/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/tab-extensions-compared/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/private-tab-manager/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/group-tabs-automatically/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/guides/onetab-alternative/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/faq/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/about/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://simmer.addobari.com/privacy.html</loc><lastmod>2026-11-06</lastmod></url>
 </urlset>

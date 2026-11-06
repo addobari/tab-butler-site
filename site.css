@@ -428,3 +428,7 @@ code { font: .9em ui-monospace, "SF Mono", Menlo, monospace; background: var(--s
   .btn, .masthead nav a, .step-text, .steps::after, .word { transition: none; }
   .stage .scene { transition: none; translate: none; scale: none; }
 }
+
+/* Japanese: the display font is Latin only, so Japanese headings use the system font at bold. */
+main:lang(ja) :is(h1, h2, h3, .doc-cta-title) { font-family: var(--text); font-weight: 700; letter-spacing: 0; line-height: 1.3; }
+.doc-wrap > .cta { margin: -12px 0 40px; }
