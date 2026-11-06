@@ -260,8 +260,6 @@ function moreMenu(event) {
     { icon: "bookmark", label: "Bookmarks", onClick: () => openManage("bookmarks") },
     { icon: "sliders", label: "Settings", onClick: () => openManage("settings") },
     { icon: "history", label: "Recently", onClick: showHistory },
-    "-",
-    { icon: "dots", label: "All tools", onClick: () => { location.href = "sidepanel.html"; } },
   ]);
 }
 const openManage = section => chrome.tabs.create({ url: `manage.html#${section}` });
