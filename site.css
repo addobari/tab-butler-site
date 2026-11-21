@@ -101,6 +101,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-
 .btn:active { transform: translateY(1px); }
 .btn:focus-visible { border-radius: 999px; }
 .btn.small { padding: 8px 15px; font-size: 14px; }
+.btn.quiet { background: var(--surface); border-color: var(--edge-strong); color: var(--ink); }
+.btn.quiet:hover { background: var(--wall); }
+.btn:disabled { opacity: .5; cursor: default; transform: none; }
 .cta { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; }
 .small-print { font-size: 14px; color: var(--muted); }
 
@@ -286,7 +289,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-
 
 /* ---------- footer: the stove ---------- */
 .stove { background: var(--stove); color: var(--stove-ink); overflow: hidden; border-top: 1px solid var(--edge); }
-.stove-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; padding-block: 64px 24px; font-size: 15px; }
+.stove-links { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; padding-block: 64px 24px; font-size: 15px; }
 .stove-links div { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .stove-links .col-head { font-weight: 650; color: var(--stove-ink); }
 .stove-links a, .stove-links span { color: var(--stove-muted); text-decoration: none; }
@@ -396,6 +399,7 @@ code { font: .9em ui-monospace, "SF Mono", Menlo, monospace; background: var(--s
   .step { min-height: 0; padding-block: 40px; }
   .facts { gap: 48px; }
   .home-guides .guides { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stove-links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
   :root { --gutter: 20px; --band: 56px; }
@@ -432,3 +436,48 @@ code { font: .9em ui-monospace, "SF Mono", Menlo, monospace; background: var(--s
 /* Japanese: the display font is Latin only, so Japanese headings use the system font at bold. */
 main:lang(ja) :is(h1, h2, h3, .doc-cta-title) { font-family: var(--text); font-weight: 700; letter-spacing: 0; line-height: 1.3; }
 .doc-wrap > .cta { margin: -12px 0 40px; }
+
+/* ---------- free tools (tools/*): the form, then the page reads like a guide ---------- */
+.tool { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; padding: 24px 26px; background: var(--surface); border: 1px solid var(--edge); border-radius: 20px; box-shadow: var(--shot-shadow); }
+.tool-label { font-weight: 650; }
+.tool-input, .tool-field input, .tool-field select {
+  font: 15px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: var(--ink); background: var(--wall);
+  border: 1px solid var(--edge-strong); border-radius: 12px; padding: 12px 14px; width: 100%;
+}
+.tool-input { resize: vertical; min-height: 180px; }
+.tool-field { display: flex; flex-direction: column; gap: 6px; font-size: 15px; flex: 1 1 220px; }
+.tool-field input, .tool-field select { font-family: var(--text); padding: 9px 12px; }
+.tool-input:focus-visible, .tool-field input:focus-visible, .tool-field select:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.tool-options { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 15px; }
+.tool-options > label:not(.tool-field) { display: inline-flex; align-items: center; gap: 8px; }
+.tool-options input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--ink); }
+.tool-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; }
+.tool-status { font-size: 15px; color: var(--muted); flex: 1 1 220px; }
+.tool-print { margin-bottom: 36px; }
+.tool-body .doc-table td:first-child { white-space: normal; font-weight: 500; }
+.tool-body .doc-table table { table-layout: fixed; }
+.tool-body .doc-table th:first-child { width: 40%; }
+.tool-card a { padding: 24px 26px; border: 1px solid var(--edge); border-radius: 20px; background: var(--surface); height: 100%; }
+.tool-card a:hover { border-color: var(--edge-strong); }
+@media (max-width: 720px) {
+  .tool { padding: 18px; }
+}
+.print-only { display: none; }
+@page { margin: 10mm 12mm; }
+@media print {
+  .doc-head { gap: 4px; margin-bottom: 10px; }
+  .tool-body ul { gap: 2px; }
+  .screen-only { display: none; }
+  .print-only { display: block !important; color: #555; margin-top: 8px; }
+  .masthead, .stove, .doc-cta, .doc-related, .doc-faq, .tool-print, .doc-crumbs, .answer { display: none !important; }
+  body, .doc-table { background: #fff; color: #000; }
+  .doc { padding: 0; }
+  .doc-head h1 { font-size: 28px; }
+  .doc-head .lead { font-size: 14px; }
+  .tool-body { font-size: 11px; gap: 4px; }
+  .tool-body h2 { font-size: 16px; margin-top: 4px; }
+  .tool-body .doc-table th, .tool-body .doc-table td { padding: 2px 8px; }
+  .tool-body kbd { padding: 0 4px; }
+  .tool-body .doc-table table { font-size: 11px; }
+  .reveal { opacity: 1 !important; translate: none !important; }
+}

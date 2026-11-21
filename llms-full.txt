@@ -416,6 +416,157 @@ No. What Simmer saves stays on your computer. If you save put-away tabs to bookm
 
 ---
 
+# Open a list of links in tabs, all at once
+Source: https://simmer.addobari.com/tools/open-links/
+
+Free tool, runs in the browser. Paste links, or any text with links in it, and open them all in new tabs. Duplicates and tracking tags are taken out first. Nothing leaves your browser.
+
+**Short answer.** Paste your links in the box and press Open. The tool finds every web address in what you paste, skips duplicates, takes out tracking tags, and opens the links in new tabs, ten at a time. If Chrome opens only one, click the blocked pop-up icon at the end of the address bar, choose to always allow pop-ups from this site, and press Open again.
+
+## What it does with your links
+- **Finds the links.** Paste a list, an email, a document or a OneTab export: every address that starts with http:// or https:// is picked out, and the words around it are left behind.
+- **Skips duplicates.** The same page twice opens once.
+- **Takes out tracking tags.** Tags such as utm_source, fbclid and gclid are removed. They tell a site where you came from and don't change the page.
+- **Opens ten at a time.** Press Open again for the next ten, so a long list doesn't swamp the window.
+
+## If only one link opens
+
+Chrome blocks a page from opening many tabs at once unless you allow it. After the first press, look for the blocked pop-up icon at the right end of the address bar, choose to always allow pop-ups and redirects from simmer.addobari.com, then press Open again. You can take the permission back at any time in Chrome's site settings.
+
+## Keep the set together next time
+
+A list of links is often a task you put down: a trip, a purchase, a bug. Simmer, our free Chrome extension, keeps those sets for you. It sorts your open tabs into the things you're in the middle of, puts a whole task away when you're done for now, and brings every tab back in one click. To keep this list as bookmarks instead, use [Links to bookmarks](https://simmer.addobari.com/guides/links-to-bookmarks/).
+
+## Questions
+### Why does only one link open?
+Chrome's pop-up blocker allows one new tab per click. Click the blocked pop-up icon at the end of the address bar, choose to always allow pop-ups from this site, and press Open again.
+
+### Is there a limit to how many links I can open?
+The tool opens ten at a time; press Open again for the next ten. Opening hundreds of tabs at once can slow Chrome down, so it's better in batches.
+
+### Does this tool see or keep my links?
+No. It runs in the page, in your browser. The links aren't sent anywhere or saved, and the page has no trackers.
+
+### Can I paste a OneTab export?
+Yes. OneTab's export puts one link and its title on each line; the tool picks out the links and opens them.
+
+
+---
+
+# Turn a list of links into Chrome bookmarks
+Source: https://simmer.addobari.com/tools/links-to-bookmarks/
+
+Free tool, runs in the browser. Paste links or a OneTab export and download a bookmarks file Chrome can import, sorted into a folder per site, or copy them as Markdown. Nothing leaves your browser.
+
+**Short answer.** Paste your links or a OneTab export, choose how to sort them, and press Download. You get a bookmarks file. In Chrome, open the bookmark manager (Ctrl+Shift+O, or ⌘+Option+B on a Mac), open its ⋮ menu, choose Import bookmarks and pick the file. The links arrive in a folder, sorted the way you chose.
+
+## What you can paste
+- **A plain list,** one link per line.
+- **A OneTab export.** In OneTab, choose *Export / Import URLs* and copy the list. Each line is a link and its title, and the titles are kept.
+- **Any text with links in it,** such as an email or a document. Only the links are kept.
+
+## Import the file into Chrome
+- **Open the bookmark manager.** Press Ctrl+Shift+O (⌘+Option+B on a Mac).
+- **Choose Import bookmarks.** It's in the ⋮ menu at the top right of the bookmark manager.
+- **Pick the file.** It's called bookmarks-simmer.html, in your Downloads folder. The links arrive in a folder you can move anywhere.
+
+The file is the standard bookmarks format, so Edge, Firefox and Safari import it too.
+
+## Markdown and plain lists
+
+Copy as Markdown gives you a heading for each folder and a list of titled links, ready for notes apps, documents and README files. Copy as a plain list gives one link per line, ready to paste into [Open many links at once](https://simmer.addobari.com/guides/open-links/).
+
+## Tabs that stay together without filing
+
+Bookmark folders work when you remember to file them. Simmer, our free Chrome extension, does the filing for you: it sorts your open tabs into the things you're in the middle of, puts a whole task away when you're done for now, and brings every tab back in one click, in its group. It can save what it puts away to your bookmarks as well.
+
+## Questions
+### How do I import a bookmarks file into Chrome?
+Open the bookmark manager with Ctrl+Shift+O (⌘+Option+B on a Mac), open its ⋮ menu, choose Import bookmarks and pick the file. The bookmarks arrive in a folder.
+
+### How do I move my OneTab list into Chrome bookmarks?
+In OneTab choose Export / Import URLs, copy the list, paste it here with Sort into set to A folder for each group, and download the file. Then import it in Chrome's bookmark manager.
+
+### Will this change my existing bookmarks?
+No. Importing adds a new folder; nothing already in your bookmarks is changed or removed.
+
+### Does this tool upload my links?
+No. It runs in the page, in your browser. The file is made on your computer, and the page has no trackers.
+
+
+---
+
+# Chrome tab shortcuts: a one-page cheat sheet
+Source: https://simmer.addobari.com/tools/chrome-tab-shortcuts/
+
+Free tool, runs in the browser. Every keyboard shortcut for tabs and windows in Chrome, for Windows, Mac, Linux and ChromeOS, on one page you can print.
+
+**Short answer.** The ones worth learning first: Ctrl+Shift+T reopens the tab or window you just closed, Ctrl+Shift+A searches every open tab, Ctrl+1 to 8 jumps to a tab by its place, and Ctrl+Shift+D bookmarks every tab in the window. On a Mac, use ⌘ in place of Ctrl.
+
+## Tabs
+| To | Windows, Linux, ChromeOS | Mac |
+| --- | --- | --- |
+| Open a new tab | Ctrl+T | ⌘+T |
+| Reopen the last tab or window you closed | Ctrl+Shift+T | ⌘+Shift+T |
+| Close the tab | Ctrl+W | ⌘+W |
+| Go to the next tab | Ctrl+Tab or Ctrl+PgDn | Ctrl+Tab or ⌘+Option+→ |
+| Go to the previous tab | Ctrl+Shift+Tab or Ctrl+PgUp | Ctrl+Shift+Tab or ⌘+Option+← |
+| Go to tab 1 to 8 | Ctrl+1 to Ctrl+8 | ⌘+1 to ⌘+8 |
+| Go to the last tab | Ctrl+9 | ⌘+9 |
+| Search every open tab | Ctrl+Shift+A | ⌘+Shift+A |
+
+## Windows
+| To | Windows, Linux, ChromeOS | Mac |
+| --- | --- | --- |
+| Open a new window | Ctrl+N | ⌘+N |
+| Open a new Incognito window | Ctrl+Shift+N | ⌘+Shift+N |
+| Close the window | Ctrl+Shift+W | ⌘+Shift+W |
+
+## Links
+| To | Windows, Linux, ChromeOS | Mac |
+| --- | --- | --- |
+| Open a link in a new tab, behind this one | Ctrl+click | ⌘+click |
+| Open a link in a new tab and go to it | Ctrl+Shift+click | ⌘+Shift+click |
+| Open a link in a new window | Shift+click | Shift+click |
+| Open what you typed in the address bar in a new tab | Alt+Enter | ⌘+Enter |
+
+## Saving and finding
+| To | Windows, Linux, ChromeOS | Mac |
+| --- | --- | --- |
+| Bookmark this tab | Ctrl+D | ⌘+D |
+| Bookmark every tab in the window | Ctrl+Shift+D | ⌘+Shift+D |
+| Show or hide the bookmarks bar | Ctrl+Shift+B | ⌘+Shift+B |
+| Open the bookmark manager | Ctrl+Shift+O | ⌘+Option+B |
+| Open History | Ctrl+H | ⌘+Y |
+| Open Downloads | Ctrl+J | ⌘+Shift+J |
+| Go to the address bar | Ctrl+L or Alt+D | ⌘+L |
+| Open Chrome's Task Manager | Shift+Esc | ⋮ menu → More tools → Task manager |
+
+## Search from the address bar
+- Type @tabs and a space, then a word, to switch to a matching open tab.
+- Type @bookmarks or @history and a space to search those.
+- With Simmer, type sm and a space to search open tabs, tabs you put away and bookmarks together.
+
+For more on finding a tab, see [how to find a tab you lost](https://simmer.addobari.com/guides/find-a-lost-tab/).
+
+From simmer.addobari.com/tools/chrome-tab-shortcuts. Simmer is a free Chrome extension that remembers what your tabs were for.
+
+## Questions
+### What is the shortcut to reopen a closed tab in Chrome?
+Ctrl+Shift+T on Windows, Linux and ChromeOS, and ⌘+Shift+T on a Mac. Press it again to reopen the tab closed before that. If you closed a window, it comes back with all its tabs.
+
+### How do I switch tabs with the keyboard in Chrome?
+Ctrl+Tab goes to the next tab and Ctrl+Shift+Tab to the previous one, on every computer. Ctrl+1 to Ctrl+8 (⌘+1 to ⌘+8 on a Mac) jump to a tab by its place, and Ctrl+9 (⌘+9) to the last.
+
+### How do I search my open tabs in Chrome?
+Press Ctrl+Shift+A (⌘+Shift+A on a Mac), or type @tabs and a space in the address bar.
+
+### Can I change Chrome's keyboard shortcuts?
+Chrome's own shortcuts can't be changed. Shortcuts for extensions can be set at chrome://extensions/shortcuts.
+
+
+---
+
 # Simmer questions and answers
 Source: https://simmer.addobari.com/faq/
 

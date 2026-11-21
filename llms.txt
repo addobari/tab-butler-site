@@ -26,6 +26,13 @@ Key facts:
 - [Is your tab manager private? What Simmer reads, and where it keeps it](https://simmer.addobari.com/guides/private-tab-manager/): What a tab manager extension can see, the questions to ask before installing one, and exactly what Simmer reads and stores.
 - [How to group tabs automatically in Chrome](https://simmer.addobari.com/guides/group-tabs-automatically/): Chrome's tab groups, its own Organize tabs suggestions, and how to have your tabs sorted into tasks without dragging a single one.
 - [A OneTab alternative that sorts your tabs for you](https://simmer.addobari.com/guides/onetab-alternative/): What OneTab does well, where a single list runs out, and how Simmer differs: tasks found for you, a whole task back in one click, no account.
+
+## Free tools (run in the page, nothing sent anywhere, no sign-up)
+- [Open a list of links in tabs, all at once](https://simmer.addobari.com/tools/open-links/): Paste links, or any text with links in it, and open them all in new tabs. Duplicates and tracking tags are taken out first. Nothing leaves your browser.
+- [Turn a list of links into Chrome bookmarks](https://simmer.addobari.com/tools/links-to-bookmarks/): Paste links or a OneTab export and download a bookmarks file Chrome can import, sorted into a folder per site, or copy them as Markdown. Nothing leaves your browser.
+- [Chrome tab shortcuts: a one-page cheat sheet](https://simmer.addobari.com/tools/chrome-tab-shortcuts/): Every keyboard shortcut for tabs and windows in Chrome, for Windows, Mac, Linux and ChromeOS, on one page you can print.
+
+## More
 - [日本語](https://simmer.addobari.com/ja/): Simmer in Japanese (タブ整理のChrome拡張機能).
 - [Who makes Simmer](https://simmer.addobari.com/about/)
 - [Chrome Web Store listing](https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej)

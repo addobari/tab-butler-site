@@ -8,6 +8,22 @@
   <updated>2026-11-06T00:00:00Z</updated>
   <author><name>Simmer</name></author>
   <entry>
+    <title>How to group tabs automatically in Chrome</title>
+    <link href="https://simmer.addobari.com/guides/group-tabs-automatically/"/>
+    <id>https://simmer.addobari.com/guides/group-tabs-automatically/</id>
+    <published>2026-11-06T00:00:00Z</published>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <summary>Chrome&#x27;s tab groups, its own Organize tabs suggestions, and how to have your tabs sorted into tasks without dragging a single one.</summary>
+  </entry>
+  <entry>
+    <title>A OneTab alternative that sorts your tabs for you</title>
+    <link href="https://simmer.addobari.com/guides/onetab-alternative/"/>
+    <id>https://simmer.addobari.com/guides/onetab-alternative/</id>
+    <published>2026-11-06T00:00:00Z</published>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <summary>What OneTab does well, where a single list runs out, and how Simmer differs: tasks found for you, a whole task back in one click, no account.</summary>
+  </entry>
+  <entry>
     <title>Too many tabs open in Chrome? Keep them without keeping them open</title>
     <link href="https://simmer.addobari.com/guides/too-many-tabs/"/>
     <id>https://simmer.addobari.com/guides/too-many-tabs/</id>
@@ -54,21 +70,5 @@
     <published>2026-11-03T00:00:00Z</published>
     <updated>2026-11-06T00:00:00Z</updated>
     <summary>What a tab manager extension can see, the questions to ask before installing one, and exactly what Simmer reads and stores.</summary>
-  </entry>
-  <entry>
-    <title>How to group tabs automatically in Chrome</title>
-    <link href="https://simmer.addobari.com/guides/group-tabs-automatically/"/>
-    <id>https://simmer.addobari.com/guides/group-tabs-automatically/</id>
-    <published>2026-11-06T00:00:00Z</published>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <summary>Chrome&#x27;s tab groups, its own Organize tabs suggestions, and how to have your tabs sorted into tasks without dragging a single one.</summary>
-  </entry>
-  <entry>
-    <title>A OneTab alternative that sorts your tabs for you</title>
-    <link href="https://simmer.addobari.com/guides/onetab-alternative/"/>
-    <id>https://simmer.addobari.com/guides/onetab-alternative/</id>
-    <published>2026-11-06T00:00:00Z</published>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <summary>What OneTab does well, where a single list runs out, and how Simmer differs: tasks found for you, a whole task back in one click, no account.</summary>
   </entry>
 </feed>
