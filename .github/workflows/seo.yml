@@ -12,6 +12,7 @@ name: Site audit
 on:
   push:
     branches: [main]
+  pull_request:
   schedule:
     - cron: "17 0 * * 1"   # Mondays 09:17 Tokyo
   workflow_dispatch:
