@@ -1,0 +1,147 @@
+# Audits the live site for search and AI answers after each publish, every Monday, and on demand
+# (Actions > Site audit > Run workflow). Free and open source, no accounts or API keys; everything runs on
+# GitHub's runner and only fetches the public site. Results are in the run's summary.
+#   - lychee (lycheeverse/lychee, Apache-2.0): broken links, internal and external.
+#   - Lighthouse CI (GoogleChrome/lighthouse-ci, Apache-2.0): SEO, accessibility, best practices and speed
+#     for the home page, a guide and a tool. Reports are kept as a run artifact, not uploaded anywhere.
+#   - GEO Optimizer (Auriti-Labs/geo-optimizer-skill, MIT): how ready the pages are for ChatGPT, Perplexity,
+#     Claude and Google AI Overviews to read and cite: crawler access, llms.txt, structured data, citability.
+# The offline checks (titles, canonicals, sitemap, llms.txt, robots.txt) run before publishing, in
+# addobari/tab-butler: npm run site-seo.
+name: Site audit
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 0 * * 1"   # Mondays 09:17 Tokyo
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: site-audit
+  cancel-in-progress: true
+env:
+  SITE: https://simmer.addobari.com
+
+jobs:
+  reachable:
+    name: Site is reachable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages to deploy
+        if: github.event_name == 'push'
+        run: sleep 90
+      - name: Look up the domain and fetch the home page
+        run: |
+          host=${SITE#https://}
+          echo "DNS for $host:"; dig +short "$host" CNAME; dig +short "$host" A
+          echo "Name servers for ${host#*.}:"; dig +short "${host#*.}" NS
+          code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 30 "$SITE/" || true)
+          echo "$SITE/ answered $code"
+          if [ "$code" != 200 ]; then
+            echo "::error::$SITE/ is not reachable (HTTP $code). Check the domain's DNS (a CNAME to addobari.github.io) and GitHub Pages' custom domain setting."
+            echo "## $SITE/ is not reachable (HTTP $code)" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+  links:
+    # Pull requests: the pages in the change. Our own domain is left to the offline check (npm run site-seo).
+    name: Broken links
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress --max-concurrency 8 --max-retries 3 --timeout 30
+            --root-dir ${{ github.workspace }}
+            --accept 200,206,429
+            --exclude '^https://simmer\.addobari\.com' --exclude '^https://unsplash\.com'
+            --exclude-path app
+            './**/*.html' llms.txt
+          fail: true
+          jobSummary: true
+
+  links-live:
+    # After publishing and on schedule: the pages as served, so a file GitHub Pages doesn't serve counts as broken.
+    name: Broken links (live)
+    if: github.event_name != 'pull_request'
+    needs: reachable
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List the live pages from the sitemap
+        id: pages
+        run: |
+          urls=$({ grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's/<loc>//' -e 's/<\/loc>//'; echo "$SITE/llms.txt"; } | tr '\n' ' ')
+          echo "urls=$urls" >> "$GITHUB_OUTPUT"
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress --max-concurrency 8 --max-retries 3 --timeout 30
+            --accept 200,206,429
+            --exclude '^https://unsplash\.com'
+            ${{ steps.pages.outputs.urls }}
+          fail: true
+          jobSummary: true
+
+  lighthouse:
+    name: Lighthouse
+    needs: reachable
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pick a guide and a tool from the sitemap
+        id: urls
+        run: |
+          guide=$(grep -o "$SITE/guides/[a-z0-9-]*/" sitemap.xml | tail -1)
+          tool=$(grep -o "$SITE/tools/[a-z0-9-]*/" sitemap.xml | head -1)
+          { echo "urls<<EOF"; echo "$SITE/"; echo "$guide"; echo "$tool"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+      - uses: treosh/lighthouse-ci-action@v12
+        id: lh
+        with:
+          urls: ${{ steps.urls.outputs.urls }}
+          configPath: .github/lighthouserc.json
+          runs: 2
+          uploadArtifacts: true
+          temporaryPublicStorage: false
+      - name: Summary
+        if: always()
+        env:
+          MANIFEST: ${{ steps.lh.outputs.manifest }}
+        run: |
+          echo "## Lighthouse (median of 2 runs)" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Page | SEO | Accessibility | Best practices | Performance |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| --- | --- | --- | --- | --- |" >> "$GITHUB_STEP_SUMMARY"
+          echo "${MANIFEST:-[]}" | jq -r '.[] | select(.isRepresentativeRun) |
+            "| \(.url) | \(.summary.seo*100|round) | \(.summary.accessibility*100|round) | \(.summary["best-practices"]*100|round) | \(.summary.performance*100|round) |"' >> "$GITHUB_STEP_SUMMARY"
+
+  ai-answers:
+    name: AI answer readiness
+    needs: reachable
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install GEO Optimizer
+        run: pip install --quiet "geo-optimizer-skill>=4.26,<5"
+      - name: Audit the site's pages
+        run: |
+          # Every page in the sitemap (up to 40): text for the summary, JSON kept as an artifact.
+          geo audit --url "$SITE/" --max-pages 40 --format text --output geo.txt || true
+          geo audit --url "$SITE/" --max-pages 40 --format json --output geo.json || true
+          {
+            echo "## AI answer readiness (GEO Optimizer, all sitemap pages)"
+            echo '```'
+            if [ -s geo.txt ]; then cat geo.txt; else echo "GEO Optimizer didn't produce a report; see this step's log."; fi
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: geo-audit
+          path: geo.*
+          if-no-files-found: ignore
