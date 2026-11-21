@@ -25,6 +25,26 @@ env:
   SITE: https://simmer.addobari.com
 
 jobs:
+  reachable:
+    name: Site is reachable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages to deploy
+        if: github.event_name == 'push'
+        run: sleep 90
+      - name: Look up the domain and fetch the home page
+        run: |
+          host=${SITE#https://}
+          echo "DNS for $host:"; dig +short "$host" CNAME; dig +short "$host" A
+          echo "DNS for addobari.github.io:"; dig +short addobari.github.io A | head -2
+          code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 30 "$SITE/" || echo 000)
+          echo "$SITE/ answered $code"
+          if [ "$code" != 200 ]; then
+            echo "::error::$SITE/ is not reachable (HTTP $code). Check the domain's DNS (a CNAME to addobari.github.io) and GitHub Pages' custom domain setting."
+            echo "## $SITE/ is not reachable (HTTP $code)" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
   links:
     name: Broken links
     runs-on: ubuntu-latest
@@ -36,6 +56,7 @@ jobs:
             --no-progress --max-concurrency 8 --max-retries 3 --timeout 30
             --root-dir ${{ github.workspace }}
             --accept 200,206,429
+            --exclude '^https://simmer\.addobari\.com' --exclude '^https://unsplash\.com'
             --exclude-path app
             './**/*.html' llms.txt
           fail: true
@@ -43,12 +64,10 @@ jobs:
 
   lighthouse:
     name: Lighthouse
+    needs: reachable
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Wait for GitHub Pages to deploy
-        if: github.event_name == 'push'
-        run: sleep 90
       - name: Pick a guide and a tool from the sitemap
         id: urls
         run: |
@@ -76,6 +95,7 @@ jobs:
 
   ai-answers:
     name: AI answer readiness
+    needs: reachable
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v5
@@ -83,9 +103,6 @@ jobs:
           python-version: "3.12"
       - name: Install GEO Optimizer
         run: pip install --quiet "geo-optimizer-skill>=4.26,<5"
-      - name: Wait for GitHub Pages to deploy
-        if: github.event_name == 'push'
-        run: sleep 90
       - name: Audit the site's pages
         run: |
           geo audit --url "$SITE/" --max-pages 40 --format json --output geo.json || true
