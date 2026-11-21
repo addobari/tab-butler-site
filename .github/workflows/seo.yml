@@ -1,0 +1,103 @@
+# Audits the live site for search and AI answers after each publish, every Monday, and on demand
+# (Actions > Site audit > Run workflow). Free and open source, no accounts or API keys; everything runs on
+# GitHub's runner and only fetches the public site. Results are in the run's summary.
+#   - lychee (lycheeverse/lychee, Apache-2.0): broken links, internal and external.
+#   - Lighthouse CI (GoogleChrome/lighthouse-ci, Apache-2.0): SEO, accessibility, best practices and speed
+#     for the home page, a guide and a tool. Reports are kept as a run artifact, not uploaded anywhere.
+#   - GEO Optimizer (Auriti-Labs/geo-optimizer-skill, MIT): how ready the pages are for ChatGPT, Perplexity,
+#     Claude and Google AI Overviews to read and cite: crawler access, llms.txt, structured data, citability.
+# The offline checks (titles, canonicals, sitemap, llms.txt, robots.txt) run before publishing, in
+# addobari/tab-butler: npm run site-seo.
+name: Site audit
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 0 * * 1"   # Mondays 09:17 Tokyo
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: site-audit
+  cancel-in-progress: true
+env:
+  SITE: https://simmer.addobari.com
+
+jobs:
+  links:
+    name: Broken links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress --max-concurrency 8 --max-retries 3 --timeout 30
+            --root-dir ${{ github.workspace }}
+            --accept 200,206,429
+            --exclude-path app
+            './**/*.html' llms.txt
+          fail: true
+          jobSummary: true
+
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for GitHub Pages to deploy
+        if: github.event_name == 'push'
+        run: sleep 90
+      - name: Pick a guide and a tool from the sitemap
+        id: urls
+        run: |
+          guide=$(grep -o "$SITE/guides/[a-z0-9-]*/" sitemap.xml | tail -1)
+          tool=$(grep -o "$SITE/tools/[a-z0-9-]*/" sitemap.xml | head -1)
+          { echo "urls<<EOF"; echo "$SITE/"; echo "$guide"; echo "$tool"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+      - uses: treosh/lighthouse-ci-action@v12
+        id: lh
+        with:
+          urls: ${{ steps.urls.outputs.urls }}
+          configPath: .github/lighthouserc.json
+          runs: 2
+          uploadArtifacts: true
+          temporaryPublicStorage: false
+      - name: Summary
+        if: always()
+        env:
+          MANIFEST: ${{ steps.lh.outputs.manifest }}
+        run: |
+          echo "## Lighthouse (median of 2 runs)" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Page | SEO | Accessibility | Best practices | Performance |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| --- | --- | --- | --- | --- |" >> "$GITHUB_STEP_SUMMARY"
+          echo "${MANIFEST:-[]}" | jq -r '.[] | select(.isRepresentativeRun) |
+            "| \(.url) | \(.summary.seo*100|round) | \(.summary.accessibility*100|round) | \(.summary["best-practices"]*100|round) | \(.summary.performance*100|round) |"' >> "$GITHUB_STEP_SUMMARY"
+
+  ai-answers:
+    name: AI answer readiness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install GEO Optimizer
+        run: pip install --quiet "geo-optimizer-skill>=4.26,<5"
+      - name: Wait for GitHub Pages to deploy
+        if: github.event_name == 'push'
+        run: sleep 90
+      - name: Audit the site's pages
+        run: |
+          geo audit --url "$SITE/" --max-pages 40 --format json --output geo.json || true
+          geo audit --url "$SITE/" --format text --verbose --output geo.txt || true
+          {
+            echo "## AI answer readiness (GEO Optimizer)"
+            echo '```'
+            cat geo.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: geo-audit
+          path: geo.*
+          if-no-files-found: ignore

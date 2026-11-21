@@ -1,0 +1,12 @@
+{
+  "ci": {
+    "assert": {
+      "assertions": {
+        "categories:seo": ["error", { "minScore": 0.95, "aggregationMethod": "median-run" }],
+        "categories:accessibility": ["warn", { "minScore": 0.9, "aggregationMethod": "median-run" }],
+        "categories:best-practices": ["warn", { "minScore": 0.9, "aggregationMethod": "median-run" }],
+        "categories:performance": ["warn", { "minScore": 0.7, "aggregationMethod": "median-run" }]
+      }
+    }
+  }
+}
