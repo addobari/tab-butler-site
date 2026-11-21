@@ -5,8 +5,16 @@
   <link href="https://simmer.addobari.com/feed.xml" rel="self"/>
   <link href="https://simmer.addobari.com/guides/"/>
   <id>https://simmer.addobari.com/guides/</id>
-  <updated>2026-11-06T00:00:00Z</updated>
+  <updated>2026-11-22T00:00:00Z</updated>
   <author><name>Simmer</name></author>
+  <entry>
+    <title>How to close all your tabs in Chrome without losing them</title>
+    <link href="https://simmer.addobari.com/guides/close-all-tabs/"/>
+    <id>https://simmer.addobari.com/guides/close-all-tabs/</id>
+    <published>2026-11-22T00:00:00Z</published>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Save every tab first, then close the window, a group or everything but one tab, and get the whole set back later, with Chrome alone or with Simmer.</summary>
+  </entry>
   <entry>
     <title>How to group tabs automatically in Chrome</title>
     <link href="https://simmer.addobari.com/guides/group-tabs-automatically/"/>
