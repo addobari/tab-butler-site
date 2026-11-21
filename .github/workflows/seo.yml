@@ -46,7 +46,9 @@ jobs:
           fi
 
   links:
+    # Pull requests: the pages in the change. Our own domain is left to the offline check (npm run site-seo).
     name: Broken links
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -59,6 +61,29 @@ jobs:
             --exclude '^https://simmer\.addobari\.com' --exclude '^https://unsplash\.com'
             --exclude-path app
             './**/*.html' llms.txt
+          fail: true
+          jobSummary: true
+
+  links-live:
+    # After publishing and on schedule: the pages as served, so a file GitHub Pages doesn't serve counts as broken.
+    name: Broken links (live)
+    if: github.event_name != 'pull_request'
+    needs: reachable
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List the live pages from the sitemap
+        id: pages
+        run: |
+          urls=$({ grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's/<loc>//' -e 's/<\/loc>//'; echo "$SITE/llms.txt"; } | tr '\n' ' ')
+          echo "urls=$urls" >> "$GITHUB_OUTPUT"
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress --max-concurrency 8 --max-retries 3 --timeout 30
+            --accept 200,206,429
+            --exclude '^https://unsplash\.com'
+            ${{ steps.pages.outputs.urls }}
           fail: true
           jobSummary: true
 
@@ -105,12 +130,13 @@ jobs:
         run: pip install --quiet "geo-optimizer-skill>=4.26,<5"
       - name: Audit the site's pages
         run: |
+          # Every page in the sitemap (up to 40): text for the summary, JSON kept as an artifact.
+          geo audit --url "$SITE/" --max-pages 40 --format text --output geo.txt || true
           geo audit --url "$SITE/" --max-pages 40 --format json --output geo.json || true
-          geo audit --url "$SITE/" --format text --verbose --output geo.txt || true
           {
-            echo "## AI answer readiness (GEO Optimizer)"
+            echo "## AI answer readiness (GEO Optimizer, all sitemap pages)"
             echo '```'
-            cat geo.txt
+            if [ -s geo.txt ]; then cat geo.txt; else echo "GEO Optimizer didn't produce a report; see this step's log."; fi
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
