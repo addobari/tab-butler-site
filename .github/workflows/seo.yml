@@ -36,8 +36,8 @@ jobs:
         run: |
           host=${SITE#https://}
           echo "DNS for $host:"; dig +short "$host" CNAME; dig +short "$host" A
-          echo "DNS for addobari.github.io:"; dig +short addobari.github.io A | head -2
-          code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 30 "$SITE/" || echo 000)
+          echo "Name servers for ${host#*.}:"; dig +short "${host#*.}" NS
+          code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 30 "$SITE/" || true)
           echo "$SITE/ answered $code"
           if [ "$code" != 200 ]; then
             echo "::error::$SITE/ is not reachable (HTTP $code). Check the domain's DNS (a CNAME to addobari.github.io) and GitHub Pages' custom domain setting."
