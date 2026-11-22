@@ -469,6 +469,63 @@ No. Pinned tabs, the active tab, tabs playing sound, mail, chat and calendars st
 
 ---
 
+# A Session Buddy alternative that sorts your tabs into tasks
+Source: https://simmer.addobari.com/guides/session-buddy-alternative/
+
+Updated 23 November 2026
+
+**Short answer.** If you use Session Buddy to hold on to tabs you aren't ready to close, Simmer is a free alternative that sorts them into tasks for you and brings a whole task back in one click, with no account. If you use Session Buddy to get every window back after a crash, keep it: that is what it's built for, and the two work side by side.
+
+We make Simmer, so read this with that in mind. What we say about Session Buddy comes from its own site, checked in November 2026.
+
+## What Session Buddy does well
+
+Session Buddy saves whole sessions, every window and tab, and saves them on its own as you browse, so you can get back what you had before a crash or a restart. It searches open tabs, saved collections and history together, and imports and exports in many formats. It is free, needs no account and keeps everything on your computer. [sessionbuddy.com](https://sessionbuddy.com/)
+
+## Where saved sessions stop helping
+
+A session is a picture of your windows, not of what you were doing. One window usually holds several things at once, so a saved session keeps the trip, the bug and the camera you're choosing in one heap. After a few weeks there's a long list of dated sessions, and finding the camera research means opening them one by one.
+
+## How Simmer differs
+|  | Session Buddy | Simmer |
+| --- | --- | --- |
+| What it keeps | Sessions: every window and tab | Tasks: the tabs for one thing you're doing |
+| Who sorts | You name and edit sessions | Simmer finds the tasks itself |
+| Getting tabs back | Restore a session or a window | Bring back one task, in its group |
+| Clearing the window | You close tabs yourself | Put away saves a task's tabs, closes them, and can be undone |
+| Account | No | No |
+| Where tabs are kept | On your computer | In Chrome on your computer |
+| Price | Free | Free |
+
+Simmer works out which tabs belong together from what opened what, your Chrome tab groups and a small model that compares tab titles on your computer, in English and Japanese. Mail, chat and calendars stay open by themselves, and everything it does is listed under Recently with Undo.
+
+## Bringing your old sessions along
+
+You don't need to move anything to start: Simmer begins with the tabs you have open. For sessions you saved in Session Buddy, export one as a list of links and paste it into [Links to bookmarks](https://simmer.addobari.com/tools/links-to-bookmarks/), which makes a bookmarks file Chrome can import, with a folder per site. Or paste the list into [Open many links at once](https://simmer.addobari.com/tools/open-links/) to open them as tabs, and Simmer will sort them from there. Both tools run in the page and send nothing anywhere.
+
+## When to keep Session Buddy
+- **You want every window back after a crash or restart.** Session Buddy's automatic saves are built for that. Chrome's *Continue where you left off* setting helps too.
+- **You move tabs in and out in many formats.** Session Buddy's import and export cover more than Simmer does.
+- **You want your tabs sorted into tasks, closed and brought back whole:** that's Simmer.
+
+The [full comparison](https://simmer.addobari.com/guides/tab-extensions-compared/) covers OneTab, Toby and Workona too.
+
+## Questions
+### What is a good free alternative to Session Buddy?
+Simmer is free and needs no account. Where Session Buddy saves whole sessions, Simmer sorts your open tabs into tasks and brings a whole task back in one click.
+
+### Can I use Session Buddy and Simmer together?
+Yes. They don't conflict. Many people keep Session Buddy for crash recovery and use Simmer to clear the tasks they aren't working on.
+
+### Does Simmer restore tabs after a crash?
+Tasks you put away are saved, so they survive a crash or restart. Simmer doesn't snapshot every open window the way Session Buddy does; for that, use Session Buddy or Chrome's Continue where you left off setting.
+
+### Can I move my Session Buddy sessions into Chrome bookmarks?
+Yes. Export a session as a list of links and paste it into Simmer's free Links to bookmarks tool, which makes a bookmarks file Chrome can import.
+
+
+---
+
 # Open a list of links in tabs, all at once
 Source: https://simmer.addobari.com/tools/open-links/
 
