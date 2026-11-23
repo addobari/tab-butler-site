@@ -28,6 +28,7 @@ Key facts:
 - [A OneTab alternative that sorts your tabs for you](https://simmer.addobari.com/guides/onetab-alternative/): What OneTab does well, where a single list runs out, and how Simmer differs: tasks found for you, a whole task back in one click, no account.
 - [How to close all your tabs in Chrome without losing them](https://simmer.addobari.com/guides/close-all-tabs/): Save every tab first, then close the window, a group or everything but one tab, and get the whole set back later, with Chrome alone or with Simmer.
 - [A Session Buddy alternative that sorts your tabs into tasks](https://simmer.addobari.com/guides/session-buddy-alternative/): What Session Buddy does well, where saved sessions stop helping, and how Simmer differs: tasks found for you and a whole task back in one click, with no account.
+- [Chrome using too much memory? What your tabs cost](https://simmer.addobari.com/guides/chrome-memory-tabs/): How to see which tabs use the most memory, what Chrome's Memory Saver does, and why closing whole tasks you can bring back does more than sleeping tabs.
 
 ## Free tools (run in the page, nothing sent anywhere, no sign-up)
 - [Open a list of links in tabs, all at once](https://simmer.addobari.com/tools/open-links/): Paste links, or any text with links in it, and open them all in new tabs. Duplicates and tracking tags are taken out first. Nothing leaves your browser.

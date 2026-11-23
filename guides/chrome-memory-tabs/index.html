@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chrome using too much memory? What your tabs cost | Simmer</title>
+<meta name="description" content="How to see which tabs use the most memory, what Chrome&#x27;s Memory Saver does, and why closing whole tasks you can bring back does more than sleeping tabs.">
+<link rel="canonical" href="https://simmer.addobari.com/guides/chrome-memory-tabs/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ece8df" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Simmer">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Chrome using too much memory? What your tabs cost | Simmer">
+<meta property="og:description" content="How to see which tabs use the most memory, what Chrome&#x27;s Memory Saver does, and why closing whole tasks you can bring back does more than sleeping tabs.">
+<meta property="og:url" content="https://simmer.addobari.com/guides/chrome-memory-tabs/">
+<meta property="og:image" content="https://simmer.addobari.com/share.png">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="560">
+<meta property="og:image:alt" content="Simmer: remembers what your tabs were for">
+<meta property="og:type" content="article">
+<meta property="article:modified_time" content="2026-11-24">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chrome using too much memory? What your tabs cost | Simmer">
+<meta name="twitter:description" content="How to see which tabs use the most memory, what Chrome&#x27;s Memory Saver does, and why closing whole tasks you can bring back does more than sleeping tabs.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icon-128.png">
+<link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+<link rel="alternate" type="application/atom+xml" title="Simmer guides" href="../../feed.xml">
+<link rel="alternate" type="text/plain" title="Simmer for AI assistants" href="../../llms.txt">
+<link rel="preload" href="../../fonts/Caprasimo-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../../site.css">
+<script>
+  document.documentElement.classList.add("js");
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("arrive");
+</script>
+<script src="../../site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://simmer.addobari.com/#org", "name": "Simmer", "url": "https://simmer.addobari.com/", "logo": {"@type": "ImageObject", "url": "https://simmer.addobari.com/icon-128.png", "width": 128, "height": 128}, "email": "addobari31@gmail.com", "founder": {"@id": "https://simmer.addobari.com/#addo"}, "foundingDate": "2026", "sameAs": ["https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej"]}, {"@type": "Person", "@id": "https://simmer.addobari.com/#addo", "name": "Addo Bari", "jobTitle": "Maker of Simmer", "homeLocation": {"@type": "Place", "name": "Tokyo, Japan"}, "knowsLanguage": ["en", "ja"], "url": "https://simmer.addobari.com/about/", "email": "addobari31@gmail.com"}, {"@type": "WebSite", "@id": "https://simmer.addobari.com/#website", "name": "Simmer", "url": "https://simmer.addobari.com/", "inLanguage": "en", "publisher": {"@id": "https://simmer.addobari.com/#org"}}, {"@type": "Article", "@id": "https://simmer.addobari.com/guides/chrome-memory-tabs/#article", "headline": "Chrome using too much memory? What your tabs cost", "description": "How to see which tabs use the most memory, what Chrome's Memory Saver does, and why closing whole tasks you can bring back does more than sleeping tabs.", "image": {"@type": "ImageObject", "url": "https://simmer.addobari.com/photos/pot-steam.jpg", "width": 2000, "height": 1331}, "datePublished": "2026-11-24", "dateModified": "2026-11-24", "author": {"@id": "https://simmer.addobari.com/#addo"}, "publisher": {"@id": "https://simmer.addobari.com/#org"}, "isPartOf": {"@id": "https://simmer.addobari.com/#website"}, "about": {"@id": "https://simmer.addobari.com/#app"}, "mainEntityOfPage": "https://simmer.addobari.com/guides/chrome-memory-tabs/", "inLanguage": "en"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simmer", "item": "https://simmer.addobari.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://simmer.addobari.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "Chrome using too much memory? What your tabs cost", "item": "https://simmer.addobari.com/guides/chrome-memory-tabs/"}]}, {"@type": "FAQPage", "@id": "https://simmer.addobari.com/guides/chrome-memory-tabs/#questions", "url": "https://simmer.addobari.com/guides/chrome-memory-tabs/", "mainEntity": [{"@type": "Question", "name": "How many tabs can Chrome handle?", "acceptedAnswer": {"@type": "Answer", "text": "There's no fixed limit. It depends on your computer's memory and on the pages: a dozen heavy web apps can cost more than a hundred simple articles. Chrome's Task Manager shows what each tab uses."}}, {"@type": "Question", "name": "Does Memory Saver close my tabs?", "acceptedAnswer": {"@type": "Answer", "text": "No. The tabs stay in the strip; Chrome frees their memory and loads them again when you click them. Sites you add under Always keep these sites active are left alone."}}, {"@type": "Question", "name": "How do I open Chrome's Task Manager on a Mac?", "acceptedAnswer": {"@type": "Answer", "text": "From the ⋮ menu choose More tools, then Task manager. On Windows and ChromeOS the shortcut is Shift+Esc."}}, {"@type": "Question", "name": "Does putting tabs away in Simmer free memory?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Putting a task on the back burner closes its tabs, after saving them, so Chrome frees their memory. Bring back reopens them when you need them."}}]}, {"@type": "HowTo", "name": "How to see which tabs use the most memory in Chrome", "step": [{"@type": "HowToStep", "position": 1, "name": "Open the Task Manager", "text": "Press Shift+Esc on Windows or ChromeOS, or choose More tools → Task manager from the ⋮ menu."}, {"@type": "HowToStep", "position": 2, "name": "Sort by memory", "text": "Click the Memory footprint column so the biggest users are at the top."}, {"@type": "HowToStep", "position": 3, "name": "Free what you don't need", "text": "Close those tabs, or select one and press End process; it reloads when you click it."}]}]}</script>
+</head>
+<body>
+<header class="masthead">
+  <a class="name" href="../../"><img src="../../logo.svg" alt="" width="30" height="30">Simmer</a>
+  <nav aria-label="Sections">
+    <a href="../../#how">How it works</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../tools/">Free tools</a>
+    <a href="../../faq/">FAQ</a>
+  </nav>
+  <a class="btn small" href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej?utm_source=simmer.addobari.com">Add to Chrome</a>
+</header>
+
+<main class="doc">
+  <article class="wrap doc-wrap">
+    <nav class="doc-crumbs" aria-label="Breadcrumb"><a href="../../">Simmer</a> / <a href="../../guides/">Guides</a></nav>
+    <header class="doc-head reveal">
+      <h1>Chrome using too much memory? What your tabs cost</h1>
+      <p class="doc-meta">Updated <time datetime="2026-11-24">24 November 2026</time>, by <a href="../../about/" rel="author">Addo Bari</a>, who makes Simmer</p>
+    </header>
+    <section class="answer reveal" aria-label="Short answer">
+      <p class="answer-label">Short answer</p>
+      <p>Every open tab keeps its page in memory, so a long tab strip is usually the biggest cost. Open Chrome's Task Manager (<kbd>Shift</kbd>+<kbd>Esc</kbd> on Windows and ChromeOS, or ⋮ → More tools → Task manager on any computer) to see which tabs use the most. Turn on Memory Saver in Settings → Performance so Chrome frees memory from tabs you aren't using. To cut the cost for good, close the tasks you aren't working on, in a way you can bring back.</p>
+    </section>
+    <figure class="photo doc-photo reveal"><img src="../../photos/pot-steam.jpg" alt="Steam rising from a pot on the stove" width="2000" height="1331"></figure>
+    <div class="doc-body">
+
+      <h2>See what each tab uses</h2>
+      <p>Chrome's Task Manager lists every tab, extension and helper process with how much memory it uses. Open it with <kbd>Shift</kbd>+<kbd>Esc</kbd> on Windows and ChromeOS, or from the ⋮ menu: More tools → Task manager. Click the <em>Memory footprint</em> column to put the biggest at the top.</p>
+      <p>Video, maps, design tools and big web apps usually lead the list. To free one at once, select it and press <em>End process</em>: the tab stays in the strip and reloads when you click it.</p>
+
+      <h2>What Memory Saver does</h2>
+      <p>Memory Saver, in Settings → Performance, frees memory from tabs you haven't looked at for a while. The tab stays where it is in the strip; when you click it, Chrome loads it again. If you're midway through something on a site, add it under <em>Always keep these sites active</em> so Chrome leaves it alone.</p>
+      <p>It helps the computer, and it leaves the tab strip just as long. Sleeping tabs still have to be scanned past every time you look for one.</p>
+
+      <h2>Other things that use memory</h2>
+      <ul>
+        <li><strong>Extensions.</strong> Each one shows up in the Task Manager. Remove the ones you no longer use.</li>
+        <li><strong>Several windows of the same work.</strong> Two windows with the same web app open run it twice.</li>
+        <li><strong>Pages that keep playing.</strong> Video and live dashboards keep working in the background.</li>
+      </ul>
+
+      <h2>Close what you aren't working on, and keep it</h2>
+      <p>The tabs that cost the most are often the ones you keep open "for later": a trip half planned, a purchase half decided. Closing them frees the memory for good. The reason people don't is that closing a tab feels like losing it, and with it the other tabs that went together.</p>
+      <p>Simmer handles both halves. It can put tabs you haven't used for a while to sleep, like Memory Saver. And it sorts your tabs into the things you're in the middle of, so you can put a whole task on the back burner: its tabs are saved, then close, and one click brings every one back, in its group. Mail, chat and calendars stay open, and everything Simmer does can be undone.</p>
+      <p>For why the strip gets long in the first place, see <a href="../too-many-tabs/">too many tabs open in Chrome</a>.</p>
+    </div>
+    <section class="doc-faq">
+      <h2>Questions</h2>
+      <dl class="qa">
+<dt>How many tabs can Chrome handle?</dt>
+<dd>There&#x27;s no fixed limit. It depends on your computer&#x27;s memory and on the pages: a dozen heavy web apps can cost more than a hundred simple articles. Chrome&#x27;s Task Manager shows what each tab uses.</dd>
+<dt>Does Memory Saver close my tabs?</dt>
+<dd>No. The tabs stay in the strip; Chrome frees their memory and loads them again when you click them. Sites you add under Always keep these sites active are left alone.</dd>
+<dt>How do I open Chrome&#x27;s Task Manager on a Mac?</dt>
+<dd>From the ⋮ menu choose More tools, then Task manager. On Windows and ChromeOS the shortcut is Shift+Esc.</dd>
+<dt>Does putting tabs away in Simmer free memory?</dt>
+<dd>Yes. Putting a task on the back burner closes its tabs, after saving them, so Chrome frees their memory. Bring back reopens them when you need them.</dd>
+      </dl>
+    </section>
+    <aside class="doc-cta">
+      <img src="../../logo.svg" alt="" width="40" height="40">
+      <div>
+        <p class="doc-cta-title">Simmer remembers what your tabs were for.</p>
+        <p>A free Chrome extension. No account, and your tabs stay in your browser.</p>
+      </div>
+      <a class="btn" href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej?utm_source=simmer.addobari.com">Add to Chrome</a>
+    </aside>
+    <section class="doc-related">
+      <h2>More guides</h2>
+      <ul>
+<li><a href="../../guides/too-many-tabs/">Too many tabs open in Chrome? Keep them without keeping them open</a></li>
+<li><a href="../../guides/save-tabs-for-later/">How to save Chrome tabs for later and bring the whole set back</a></li>
+<li><a href="../../guides/find-a-lost-tab/">How to find a tab you lost in Chrome</a></li>
+<li><a href="../../guides/pick-up-where-you-left-off/">How to pick up where you left off in Chrome</a></li>
+<li><a href="../../guides/tab-extensions-compared/">OneTab, Session Buddy, Toby, Workona and Simmer compared</a></li>
+<li><a href="../../guides/private-tab-manager/">Is your tab manager private? What Simmer reads, and where it keeps it</a></li>
+<li><a href="../../guides/group-tabs-automatically/">How to group tabs automatically in Chrome</a></li>
+<li><a href="../../guides/onetab-alternative/">A OneTab alternative that sorts your tabs for you</a></li>
+<li><a href="../../guides/close-all-tabs/">How to close all your tabs in Chrome without losing them</a></li>
+<li><a href="../../guides/session-buddy-alternative/">A Session Buddy alternative that sorts your tabs into tasks</a></li>
+      </ul>
+    </section>
+  </article>
+</main>
+<footer class="stove" id="stove">
+  <nav class="wrap stove-links" aria-label="Site map">
+    <div>
+      <p class="col-head">Simmer</p>
+      <a href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej?utm_source=simmer.addobari.com">Add to Chrome</a>
+      <a href="../../">Home</a>
+      <a href="../../#how">How it works</a>
+      <a href="../../faq/">Questions</a>
+    </div>
+    <div>
+      <p class="col-head">Guides</p>
+      <a href="../../guides/too-many-tabs/">Too many tabs</a>
+      <a href="../../guides/save-tabs-for-later/">Save tabs for later</a>
+      <a href="../../guides/find-a-lost-tab/">Find a lost tab</a>
+      <a href="../../guides/pick-up-where-you-left-off/">Pick up where you left off</a>
+      <a href="../../guides/tab-extensions-compared/">Tab extensions compared</a>
+      <a href="../../guides/private-tab-manager/">A private tab manager</a>
+      <a href="../../guides/group-tabs-automatically/">Group tabs automatically</a>
+      <a href="../../guides/onetab-alternative/">OneTab alternative</a>
+      <a href="../../guides/close-all-tabs/">Close all tabs safely</a>
+      <a href="../../guides/session-buddy-alternative/">Session Buddy alternative</a>
+      <a href="../../guides/chrome-memory-tabs/">Chrome memory and tabs</a>
+    </div>
+    <div>
+      <p class="col-head">Free tools</p>
+      <a href="../../tools/open-links/">Open many links at once</a>
+      <a href="../../tools/links-to-bookmarks/">Links to bookmarks</a>
+      <a href="../../tools/chrome-tab-shortcuts/">Chrome tab shortcuts</a>
+    </div>
+    <div>
+      <p class="col-head">Trust</p>
+      <a href="../../privacy.html">Privacy policy</a>
+      <a href="../../about/">Who makes Simmer</a>
+      <a href="https://chromewebstore.google.com/detail/simmer-remembers-what-you/jpcapecbiplankdfnmhnijbnefmkooej/reviews">Reviews</a>
+      <a href="../../ja/" lang="ja" hreflang="ja">日本語</a>
+    </div>
+    <div>
+      <p class="col-head">Contact</p>
+      <a href="mailto:addobari31@gmail.com">addobari31@gmail.com</a>
+    </div>
+  </nav>
+  <div class="pot-word" id="pot-word">
+    <canvas id="bubbles" aria-hidden="true"></canvas>
+    <button type="button" class="word" id="stir" aria-label="Stir the pot">Simmer</button>
+  </div>
+  <p class="wrap stove-foot"><span>© 2026 Simmer · Photos from <a href="https://unsplash.com">Unsplash</a></span><span class="hint">Give it a stir.</span></p>
+</footer>
+</body>
+</html>
