@@ -5,8 +5,16 @@
   <link href="https://simmer.addobari.com/feed.xml" rel="self"/>
   <link href="https://simmer.addobari.com/guides/"/>
   <id>https://simmer.addobari.com/guides/</id>
-  <updated>2026-11-24T00:00:00Z</updated>
+  <updated>2026-11-25T00:00:00Z</updated>
   <author><name>Simmer</name></author>
+  <entry>
+    <title>Why you keep so many tabs open, and how to let them go</title>
+    <link href="https://simmer.addobari.com/guides/why-tabs-pile-up/"/>
+    <id>https://simmer.addobari.com/guides/why-tabs-pile-up/</id>
+    <published>2026-11-25T00:00:00Z</published>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary>Tabs are reminders of things you haven&#x27;t finished. Why closing them feels risky, and how to keep the reminder without keeping the tab open.</summary>
+  </entry>
   <entry>
     <title>Chrome using too much memory? What your tabs cost</title>
     <link href="https://simmer.addobari.com/guides/chrome-memory-tabs/"/>
