@@ -30,6 +30,7 @@ Key facts:
 - [A Session Buddy alternative that sorts your tabs into tasks](https://simmer.addobari.com/guides/session-buddy-alternative/): What Session Buddy does well, where saved sessions stop helping, and how Simmer differs: tasks found for you and a whole task back in one click, with no account.
 - [Chrome using too much memory? What your tabs cost](https://simmer.addobari.com/guides/chrome-memory-tabs/): How to see which tabs use the most memory, what Chrome's Memory Saver does, and why closing whole tasks you can bring back does more than sleeping tabs.
 - [Why you keep so many tabs open, and how to let them go](https://simmer.addobari.com/guides/why-tabs-pile-up/): Tabs are reminders of things you haven't finished. Why closing them feels risky, and how to keep the reminder without keeping the tab open.
+- [Chrome lost your tabs after a restart? How to get them back](https://simmer.addobari.com/guides/chrome-lost-tabs-after-restart/): What to try first when Chrome opens empty after a restart, an update or a crash, in the order most likely to work, and how to make sure it doesn't cost you a task again.
 
 ## Free tools (run in the page, nothing sent anywhere, no sign-up)
 - [Open a list of links in tabs, all at once](https://simmer.addobari.com/tools/open-links/): Paste links, or any text with links in it, and open them all in new tabs. Duplicates and tracking tags are taken out first. Nothing leaves your browser.

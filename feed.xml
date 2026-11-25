@@ -5,8 +5,16 @@
   <link href="https://simmer.addobari.com/feed.xml" rel="self"/>
   <link href="https://simmer.addobari.com/guides/"/>
   <id>https://simmer.addobari.com/guides/</id>
-  <updated>2026-11-25T00:00:00Z</updated>
+  <updated>2026-11-26T00:00:00Z</updated>
   <author><name>Simmer</name></author>
+  <entry>
+    <title>Chrome lost your tabs after a restart? How to get them back</title>
+    <link href="https://simmer.addobari.com/guides/chrome-lost-tabs-after-restart/"/>
+    <id>https://simmer.addobari.com/guides/chrome-lost-tabs-after-restart/</id>
+    <published>2026-11-26T00:00:00Z</published>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary>What to try first when Chrome opens empty after a restart, an update or a crash, in the order most likely to work, and how to make sure it doesn&#x27;t cost you a task again.</summary>
+  </entry>
   <entry>
     <title>Why you keep so many tabs open, and how to let them go</title>
     <link href="https://simmer.addobari.com/guides/why-tabs-pile-up/"/>
