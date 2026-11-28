@@ -672,6 +672,110 @@ No. Simmer doesn't snapshot open windows. Tasks you put on the back burner are s
 
 ---
 
+# How to save all your Chrome tabs before you restart
+Source: https://simmer.addobari.com/guides/save-tabs-before-restart/
+
+Updated 27 November 2026
+
+**Short answer.** Before you restart, open Chrome's Settings → On startup and choose *Continue where you left off*, so Chrome reopens your windows when it starts. For a copy that survives anything, press Ctrl+Shift+D (⌘+Shift+D on a Mac) in each window to bookmark all its tabs into a folder. Then quit Chrome yourself from its menu before the computer restarts.
+
+## Three minutes before you restart
+
+A restart for a system update, a new driver or a computer that's gone slow is the moment tabs most often go missing. Chrome can bring them back on its own, but only if it's set up to, and only if it closes cleanly. These steps cover both, plus a copy that doesn't depend on Chrome at all.
+- **Turn on Continue where you left off.** Open the ⋮ menu → Settings → *On startup* and choose *Continue where you left off*. From now on Chrome reopens the windows you had whenever it starts.
+- **Bookmark every window.** In each window, press Ctrl+Shift+D (⌘+Shift+D on a Mac). Chrome puts all the window's tabs into one new folder. The shortcut covers one window at a time, so repeat it in each, and name each folder after what's in it.
+- **Close Incognito windows on purpose.** Chrome never keeps Incognito tabs. Copy any address you need from them first.
+- **Quit Chrome yourself.** Use the ⋮ menu → Exit on Windows, or Chrome → Quit Google Chrome on a Mac, before you restart. Chrome closes normally and keeps a clean record of your windows, rather than being stopped halfway by the restart.
+- **Restart, then open Chrome.** Your windows should be back. If not, press Ctrl+Shift+T (⌘+Shift+T) once in the new window, or open the bookmark folders you made.
+
+## Restarting only Chrome
+
+If it's Chrome that needs the restart, for an update or because it's slow, you don't have to close anything by hand. When an update is waiting, use Chrome's own *Relaunch* button in the ⋮ menu: it reopens your windows as they were. You can also type chrome://restart in the address bar and press Enter.
+
+## If the tabs don't come back
+
+Don't close and reopen Chrome again: each restart replaces its record of the last session. Work through [what to try when Chrome loses your tabs after a restart](https://simmer.addobari.com/guides/chrome-lost-tabs-after-restart/), in order. If you saved a list of links somewhere, paste it into [Open many links at once](https://simmer.addobari.com/tools/open-links/) to open them all in tabs; the tool runs in the page and sends nothing anywhere.
+
+## Keep what you aren't using somewhere a restart can't reach
+
+Continue where you left off protects the windows you have open, as long as Chrome closed well. A bookmark folder per window protects the pages, in one heap per window. Neither keeps what the tabs were for: the trip, the bug and the camera you're choosing end up in the same folder.
+
+Simmer sorts your open tabs into the things you're in the middle of. Before a restart, put the tasks you aren't working on onto the back burner: each task's tabs are saved first, in Chrome's storage on your computer and in your bookmarks if you choose, then they close. A task on the back burner doesn't depend on the session, so a restart doesn't touch it, and Bring back reopens it whole, in its group. You can also turn on automatic backups, which write a file to Downloads/Simmer.
+
+To be plain about it: Simmer doesn't take snapshots of every open window, and it doesn't sync to other computers. The windows you still have open are covered by Chrome's setting above. Nothing happens before you press Start, and everything Simmer does is listed under Recently with Undo.
+
+## Questions
+### Will I lose my Chrome tabs if I restart my computer?
+Not if Chrome is set to Continue where you left off and closes normally. Set it in Settings → On startup, and quit Chrome from its menu before you restart. Incognito tabs are never kept.
+
+### How do I save all open tabs in Chrome at once?
+Press Ctrl+Shift+D (⌘+Shift+D on a Mac). Chrome bookmarks every tab in the current window into one new folder. Do it once in each window.
+
+### How do I restart Chrome without losing my tabs?
+Use the Relaunch button Chrome shows in the ⋮ menu when an update is waiting, or type chrome://restart in the address bar. Both reopen your windows.
+
+### Do tabs I put away in Simmer survive a restart?
+Yes. Tasks on the back burner are saved in Chrome's storage on your computer, and in your bookmarks if you choose, so they're still there after a restart. Simmer doesn't snapshot the windows you still have open.
+
+
+---
+
+# Too many research tabs open? How to keep track of sources
+Source: https://simmer.addobari.com/guides/too-many-tabs-for-research/
+
+Updated 28 November 2026
+
+**Short answer.** Sort your research tabs by the question they answer, not by when you opened them: one tab group or one bookmark folder per chapter or question. Keep only the question you're working on open, and put the rest somewhere you can search and reopen whole. Papers you'll cite belong in a reference manager; tabs are for the reading you haven't finished.
+
+## Why research tabs get out of hand
+
+Research opens tabs faster than anything else. One paper cites three more, a search turns up ten results worth a look, and each source could matter later. Closing any of them feels like losing a lead, so a thesis or a literature review ends up as eighty tabs across four windows, in the order you happened to find them.
+
+The order is the problem. A source is useful because of the question it answers, and a tab strip doesn't know your questions.
+
+## Group sources by question
+- **Name your questions.** A chapter, a section of the review, or a question you're trying to answer. Four or five names are enough to start.
+- **Make a tab group for each.** Hold Ctrl (⌘ on a Mac) and click the tabs that belong together, then right-click one of them and add them to a new group from the menu. Give the group the question's name and a colour.
+- **Collapse what you aren't reading.** Click a group's name to fold it down to one label. The tabs stay open, out of the way.
+- **Find a source by name.** Press Ctrl+Shift+A (⌘+Shift+A on a Mac) and type a word from its title. Chrome switches to it, even in another window. More ways in [how to find a tab you lost](https://simmer.addobari.com/guides/find-a-lost-tab/).
+
+## Keep a copy that outlasts the session
+
+Open tabs are the least safe place to keep a source: a crash, a restart or a stray click can take them. Save each question as you finish a sitting.
+- **A bookmark folder per question.** Move one group's tabs into their own window, then press Ctrl+Shift+D (⌘+Shift+D on a Mac). Chrome puts every tab in the window into one new folder; name it after the question.
+- **The reading list for single articles.** Right-click a tab and choose *Add tab to reading list*. It suits one-off reads, not a set of sources that belong together.
+- **A reference manager for what you'll cite.** Once you know a paper matters, store it where your citations live, with its details and your notes. Tabs are a poor place for a bibliography.
+
+If you've ended up with a long list of links in a document or an export, the free [Links to bookmarks](https://simmer.addobari.com/tools/links-to-bookmarks/) tool turns it into a bookmarks file Chrome can import, with a folder per site. It runs in the page and sends nothing anywhere.
+
+## Work on one question at a time
+
+Each open group is a question competing for your attention. Keep the one you're writing about open, plus anything you're reading for it, and close the rest. Closing is safe once each question is saved as a set you can reopen whole.
+
+## Where Simmer fits
+
+Simmer does the sorting for you. It reads your open tabs and names the things you're in the middle of, from what opened what, your tab groups and the tab titles, on your computer. A paper you opened from another paper lands with it. Put a question on the back burner and every tab of it is saved first, in Chrome's storage on your computer and in your bookmarks if you choose, then they close. Bring back reopens the whole set, in its group, when you return to that chapter.
+
+To find one source later, type sm and a space in the address bar, then a word from its title: Simmer searches your open tabs, the tabs it saved and your bookmarks together.
+
+To be plain about it: Simmer keeps tabs, not files. It doesn't store PDFs, notes or citations, it doesn't sync to other computers, and it works in Chrome on a computer only. Nothing happens before you press Start, and everything Simmer does is listed under Recently with Undo.
+
+## Questions
+### How do I keep track of sources for a literature review in Chrome?
+Make one tab group or bookmark folder per question or section, not one long list. Save each set with Ctrl+Shift+D (⌘+Shift+D on a Mac) when you finish a sitting, and move papers you will cite into a reference manager.
+
+### How do I save research tabs without keeping them open?
+Bookmark all the tabs in a window at once with Ctrl+Shift+D (⌘+Shift+D on a Mac) and name the folder after the question. Simmer can also put a whole set on the back burner and bring it back in one click.
+
+### How many tabs should I keep open while writing?
+The tabs for the section you're writing and the sources you're reading for it. Collapse or save the other questions so you can reopen them whole when you get there.
+
+### Can Simmer save the PDFs I have open?
+It saves the tab, meaning the address, so Bring back reopens it. It doesn't download or store the file. Keep PDFs you'll cite in your reference manager or on disk.
+
+
+---
+
 # Open a list of links in tabs, all at once
 Source: https://simmer.addobari.com/tools/open-links/
 

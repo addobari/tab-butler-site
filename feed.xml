@@ -5,8 +5,24 @@
   <link href="https://simmer.addobari.com/feed.xml" rel="self"/>
   <link href="https://simmer.addobari.com/guides/"/>
   <id>https://simmer.addobari.com/guides/</id>
-  <updated>2026-11-26T00:00:00Z</updated>
+  <updated>2026-11-28T00:00:00Z</updated>
   <author><name>Simmer</name></author>
+  <entry>
+    <title>Too many research tabs open? How to keep track of sources</title>
+    <link href="https://simmer.addobari.com/guides/too-many-tabs-for-research/"/>
+    <id>https://simmer.addobari.com/guides/too-many-tabs-for-research/</id>
+    <published>2026-11-28T00:00:00Z</published>
+    <updated>2026-11-28T00:00:00Z</updated>
+    <summary>For a thesis, a literature review or any big piece of research: group sources by question, keep a findable copy, and close what you aren&#x27;t reading without losing it.</summary>
+  </entry>
+  <entry>
+    <title>How to save all your Chrome tabs before you restart</title>
+    <link href="https://simmer.addobari.com/guides/save-tabs-before-restart/"/>
+    <id>https://simmer.addobari.com/guides/save-tabs-before-restart/</id>
+    <published>2026-11-27T00:00:00Z</published>
+    <updated>2026-11-27T00:00:00Z</updated>
+    <summary>Three minutes before a computer restart or an update: set Chrome to reopen your windows, bookmark each window&#x27;s tabs, and quit Chrome yourself, so every tab comes back.</summary>
+  </entry>
   <entry>
     <title>Chrome lost your tabs after a restart? How to get them back</title>
     <link href="https://simmer.addobari.com/guides/chrome-lost-tabs-after-restart/"/>
